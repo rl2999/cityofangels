@@ -32,21 +32,44 @@ var CartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/
 // WAYPOINTS //
 // --------------------------------------------------------------- // 
 // http://imakewebthings.com/waypoints/guides/getting-started/
-point_home = L.latLng(-118.2437, );
+
+// Declare our zoom points on the map
+point_home = L.latLng( 34.0522, -118.2437);
 point_1 = L.latLng(50.5, 30.5);
+point_hollywood = L.latLng(34.1016774615434, -118.330135345459);
+burbank = L.latLng(34.18539 ,-118.364295);
+
+// This is a callback function 
+// it changes locations for us
+zoomToLocation = (point, zoom) => {
+    mymap.flyTo(point, zoom, 
+                {'animate': true, 
+                 'duration': .5,
+                'easeLinearity': .03});
+    // mymap.setZoom(zoom);
+};
+
+
+var waypoint_hollywood = new Waypoint({
+  element: document.querySelector('#hollywood'),
+  handler: function(direction) {
+  zoomToLocation(point_hollywood, 15);  
+    console.log('Scrolled to ' + direction);
+  }
+});
 
 var waypoint = new Waypoint({
-  element: document.getElementById('scrollstory'),
+  element: document.querySelector('#burbank'),
   handler: function(direction) {
-    mymap.panTo(point_1);
+  zoomToLocation(burbank, 15);  
     console.log('Scrolled to ' + direction);
   }
 });
 
 var waypoint2 = new Waypoint({
-  element: document.getElementsByClassName("landmark"),
+  element: document.querySelector(".introduction"),
   handler: function(direction) {
-    mymap.panTo(point_home);
+    zoomToLocation(point_home, 8);
     console.log('Scroll handler for down' + this);
   }
 });
