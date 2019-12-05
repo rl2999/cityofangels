@@ -4,7 +4,7 @@ body {
   background: black;
   color: white;
   font-family: "Inter", helvetica, arial, sans-serif;
-  margin: 2em;
+
 }
 
 h1 {
@@ -49,4 +49,11 @@ h1 {
 
 .scrollstory {
   z-index: 1000;
+}
+
+#appendix {
+  width: 100vw;
+  background: rgba(0,0,0,.8);
+  color: red;
+  height: 100vh;
 }
