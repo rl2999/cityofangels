@@ -54,7 +54,7 @@ make_waypoint = (selector, triggerpoint, offsety) => {
   new Waypoint({
     element: document.querySelector(selector),
     handler: function(direction) {
-      mymap.flyTo(triggerpoint, 15);
+      zoomToLocation(triggerpoint, 15);
       console.log(
         "Triggered a waypoint with params: " + selector + triggerpoint
       );
