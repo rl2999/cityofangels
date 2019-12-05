@@ -44,19 +44,26 @@ burbank = L.latLng(34.18539 ,-118.364295);
 zoomToLocation = (point, zoom) => {
     mymap.flyTo(point, zoom, 
                 {'animate': true, 
-                 'duration': .5,
-                'easeLinearity': .03});
+                 'duration': 2,
+                'easeLinearity': 0.1});
     // mymap.setZoom(zoom);
 };
 
-
-var waypoint_hollywood = new Waypoint({
-  element: document.querySelector('#hollywood'),
+make_waypoint = (selector, triggerpoint) => 
+{
+  new Waypoint({
+  element: document.querySelector(selector),
   handler: function(direction) {
-  zoomToLocation(point_hollywood, 15);  
-    console.log('Scrolled to ' + direction);
-  }
+  zoomToLocation(triggerpoint, 15); 
+  console.log('Triggered a waypoint with params: ' + selector + triggerpoint);  
+  console.log('Scrolled to ' + direction);
+  },
+  offset: 80 
+
 });
+}
+
+make_waypoint('#hollywood', point_hollywood);
 
 var waypoint = new Waypoint({
   element: document.querySelector('#burbank'),
