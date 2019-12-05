@@ -43,6 +43,7 @@ point_1 = L.latLng(50.5, 30.5);
 point_hollywood = L.latLng(34.1016774615434, -118.330135345459);
 point_nyc = L.latLng(40.80807627279606, -73.96046251058578);
 point_burbank = L.latLng(34.18539, -118.364295);
+point_koreatown = L.latLng(34.028762179464465, -118.26476454734802);
 
 // This is a callback function
 // it changes locations for us
@@ -51,23 +52,24 @@ zoomToLocation = (point, zoom) => {
   // mymap.setZoom(zoom);
 };
 
-make_waypoint = (selector, triggerpoint, offsety, callbacky) => {
+make_waypoint = (selector, triggerpoint, offsety) => {
   new Waypoint({
     element: document.querySelector(selector),
     handler: function(direction) {
-      zoomToLocation(triggerpoint, 15);
+      zoomToLocation(triggerpoint, 14);
       console.log(
         "Triggered a waypoint with params: " + selector + triggerpoint
       );
-      callbacky();
     },
     offset: offsety
   });
 };
 
-make_waypoint("#introduction", point_home, 0);
+make_waypoint("#introduction", point_home, -20);
 make_waypoint("#hollywood", point_hollywood, 50);
 make_waypoint("#burbank", point_burbank, 50);
 make_waypoint("#appendix", point_nyc, 900);
+make_waypoint("#koreatown", point_koreatown, 50);
+
 
 // mymap.panTo(point_1);
