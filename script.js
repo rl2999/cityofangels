@@ -10,7 +10,8 @@ console.log("hi");
 mapOptions = {
   preferCanvas: true,
   zoomControl: false,
-  renderer: L.Canvas
+  renderer: L.Canvas,
+  dragging: false
 };
 
 var mymap = L.map("mapid", mapOptions).setView([34.0522, -118.2437], 13);
