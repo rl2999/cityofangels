@@ -36,12 +36,13 @@ var CartoDB_Positron = L.tileLayer(
 // http://imakewebthings.com/waypoints/guides/getting-started/
 
 // Declare our zoom points on the map
+// Make them with geojson.io but note that its flipped
+// http://geojson.io/#map=19/40.80805/-73.96041
 point_home = L.latLng(34.0522, -118.2437);
 point_1 = L.latLng(50.5, 30.5);
 point_hollywood = L.latLng(34.1016774615434, -118.330135345459);
 point_nyc = L.latLng(40.80807627279606, -73.96046251058578);
-
-burbank = L.latLng(34.18539, -118.364295);
+point_burbank = L.latLng(34.18539, -118.364295);
 
 // This is a callback function
 // it changes locations for us
@@ -50,7 +51,7 @@ zoomToLocation = (point, zoom) => {
   // mymap.setZoom(zoom);
 };
 
-make_waypoint = (selector, triggerpoint, offsety) => {
+make_waypoint = (selector, triggerpoint, offsety, callbacky) => {
   new Waypoint({
     element: document.querySelector(selector),
     handler: function(direction) {
@@ -58,14 +59,15 @@ make_waypoint = (selector, triggerpoint, offsety) => {
       console.log(
         "Triggered a waypoint with params: " + selector + triggerpoint
       );
+      callbacky();
     },
     offset: offsety
   });
 };
 
-make_waypoint("#introduction", point_home, 10);
-make_waypoint("#hollywood", point_hollywood, 400);
+make_waypoint("#introduction", point_home, 0);
+make_waypoint("#hollywood", point_hollywood, 50);
+make_waypoint("#burbank", point_burbank, 50);
 make_waypoint("#appendix", point_nyc, 900);
-make_waypoint("#burbank", point_burbank, 900);
 
 // mymap.panTo(point_1);
