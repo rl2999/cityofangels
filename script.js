@@ -28,7 +28,7 @@ var CartoDB_Positron = L.tileLayer(
     attribution:
       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
     subdomains: "abcd",
-    maxZoom: 19
+    maxZoom: 15
   }
 ).addTo(mymap);
 
@@ -58,6 +58,7 @@ make_waypoint = (selector, triggerpoint, offsety) => {
     element: document.querySelector(selector),
     handler: function(direction) {
       zoomToLocation(triggerpoint, 14);
+      player.playVideo();
       console.log(
         "Triggered a waypoint with params: " + selector + triggerpoint
       );
@@ -73,3 +74,44 @@ make_waypoint("#appendix", point_nyc, 900);
 make_waypoint("#koreatown", point_koreatown, 50);
 
 // mymap.panTo(point_1);
+
+// 2. This code loads the IFrame Player API code asynchronously.
+var tag = document.createElement("script");
+
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName("script")[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+// 3. This function creates an <iframe> (and YouTube player)
+//    after the API code downloads.
+var player;
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player("player", {
+    height: "390",
+    width: "640",
+    videoId: "M7lc1UVf-VE",
+    events: {
+      onReady: onPlayerReady,
+      onStateChange: onPlayerStateChange
+    }
+  });
+}
+
+// 4. The API will call this function when the video player is ready.
+function onPlayerReady(event) {
+  event.target.playVideo();
+}
+
+// 5. The API calls this function when the player's state changes.
+//    The function indicates that when playing a video (state=1),
+//    the player should play for six seconds and then stop.
+var done = false;
+function onPlayerStateChange(event) {
+  if (event.data == YT.PlayerState.PLAYING && !done) {
+    setTimeout(stopVideo, 6000);
+    done = true;
+  }
+}
+function stopVideo() {
+  player.stopVideo();
+}
