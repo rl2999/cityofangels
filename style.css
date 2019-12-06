@@ -17,27 +17,46 @@
 }
 
 body {
+  
   background: black;
   color: white;
   font-family: "WremenaRegular", helvetica, arial, sans-serif;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5 {
-  font-family: "WremenaLight";
-}
 
 h1 {
-  font-weight: bold;
+  font-family: "WremenaLight";
+  font-weight: light;
   color: white;
+  font-size: calc(2.5 * 1rem);
+}
+
+h2 {
+  font-size: calc(1.7 * 1rem);
+}
+
+h3 {
+  font-size: calc(1.5 * 1rem);
+  font-family: "WremenaRegular";
+  
+}
+
+h4 {
+  font-size: calc(1.3 * 1rem);
+  font-family: "WremenaBold";
+  font-style: bold;
+  margin-bottom: 0rem;
+}
+
+h5 {
+  font-size: calc(1.2 * 1);
 }
 
 #introduction {
-  background: rgba(0, 0, 0, 0.5);
-  padding: 3rem;
+  background: rgba(0, 0, 0, 1.0);
+  height: 250vh;
+/*   padding: 3rem; */
+  margin: 0;
 }
 
 .landmark {
