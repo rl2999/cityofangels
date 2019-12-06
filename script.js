@@ -1,6 +1,6 @@
 /* If you're feeling fancy you can add interactivity 
     to your site with Javascript */
-
+// require('waypoints');
 // prints "hi" in the browser's dev tools console
 console.log("hi");
 
@@ -71,6 +71,5 @@ make_waypoint("#hollywood", point_hollywood, 50);
 make_waypoint("#burbank", point_burbank, 50);
 make_waypoint("#appendix", point_nyc, 900);
 make_waypoint("#koreatown", point_koreatown, 50);
-
 
 // mymap.panTo(point_1);
