@@ -53,12 +53,12 @@ zoomToLocation = (point, zoom) => {
   // mymap.setZoom(zoom);
 };
 
-make_waypoint = (selector, triggerpoint, offsety) => {
+make_waypoint = (selector, triggerpoint, offsety, callbacky=) => {
   new Waypoint({
     element: document.querySelector(selector),
     handler: function(direction) {
       zoomToLocation(triggerpoint, 14);
-      player.playVideo();
+      callbacky();
       console.log(
         "Triggered a waypoint with params: " + selector + triggerpoint
       );
@@ -87,9 +87,9 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 var player;
 function onYouTubeIframeAPIReady() {
   player = new YT.Player("player", {
-    height: "390",
-    width: "640",
-    videoId: "M7lc1UVf-VE",
+    height: "50",
+    width: "500",
+    videoId: "5wBTdfAkqGU",
     events: {
       onReady: onPlayerReady,
       onStateChange: onPlayerStateChange
@@ -99,7 +99,7 @@ function onYouTubeIframeAPIReady() {
 
 // 4. The API will call this function when the video player is ready.
 function onPlayerReady(event) {
-  event.target.playVideo();
+  // event.target.playVideo();
 }
 
 // 5. The API calls this function when the player's state changes.
