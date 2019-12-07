@@ -53,12 +53,12 @@ zoomToLocation = (point, zoom) => {
   // mymap.setZoom(zoom);
 };
 
-make_waypoint = (selector, triggerpoint, offsety, callbacky=) => {
+make_waypoint = (selector, triggerpoint, offsety, callbacky={}) => {
   new Waypoint({
     element: document.querySelector(selector),
     handler: function(direction) {
       zoomToLocation(triggerpoint, 14);
-      callbacky();
+      callbacky = typeof callbacky !== undefined ? null: callbacky();
       console.log(
         "Triggered a waypoint with params: " + selector + triggerpoint
       );
@@ -68,7 +68,7 @@ make_waypoint = (selector, triggerpoint, offsety, callbacky=) => {
 };
 
 make_waypoint("#introduction", point_home, -20);
-make_waypoint("#hollywood", point_hollywood, 50);
+make_waypoint("#hollywood", point_hollywood, 50, x => {return console.log('lolol')});
 make_waypoint("#burbank", point_burbank, 50);
 make_waypoint("#appendix", point_nyc, 900);
 make_waypoint("#koreatown", point_koreatown, 50);
