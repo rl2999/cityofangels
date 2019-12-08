@@ -19,7 +19,12 @@
       href="https://rsms.me/inter/inter.css"
       crossorigin="anonymous"
     />
-
+<link
+      rel="stylesheet"
+      href="https://cdn.pydata.org/bokeh/release/bokeh-1.0.4.min.css"
+      type="text/css"
+    />
+    
     <title>La-la Land: A Tour of Los Angeles</title>
 
     <link
@@ -126,11 +131,15 @@
         <footer></footer>
       </div>
 
-      <article id="hollywood" class="container landmark">
+      <article id="venice" class="container landmark">
         <header class="row">
           <h2>
-            HOLLYWOOD
+            Venice: Airbnb capital of Los Angeles
           </h2>
+          
+          <p class="lead">
+          Venice has the highest density of Airbnb's in the City of Los Angeles.
+          </p>
         </header>
 
         <div class="row">
@@ -290,6 +299,8 @@
       src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
       crossorigin="anonymous"
     ></script>
+    
+    
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -307,12 +318,14 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.min.js"></script>
-
-    <link
-      rel="stylesheet"
-      href="https://cdn.pydata.org/bokeh/release/bokeh-1.0.4.min.css"
-      type="text/css"
-    />
+<!-- visualization libraries!  -->
+    
+<!--     VEGA LITE -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.9.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.2.0"></script>
+<!--     END VEGA LITE -->
+    
     <script
       type="text/javascript"
       src="https://cdn.pydata.org/bokeh/release/bokeh-1.0.4.min.js"
