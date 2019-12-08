@@ -42,17 +42,17 @@ h1 {
 
 h2 {
   font-weight: bold;
-  font-size: calc(1.25 * 1rem);
+  font-size: calc(1.5 * 1rem);
 }
 
 h3 {
-  font-size: calc(1.3 * 1rem);
-  font-family: "WremenaRegular";
+  font-size: calc(1.35 * 1rem);
+/*   font-family: "WremenaRegular"; */
 }
 
 h4 {
-  font-size: calc(1.3 * 1rem);
-  font-family: "WremenaBold";
+  font-size: calc(1.2 * 1rem);
+/*   font-family: "WremenaBold"; */
   font-style: bold;
   margin-bottom: 0rem;
 }
@@ -62,19 +62,28 @@ h5 {
 }
 
 #introduction {
-  background: rgba(255, 255, 255, 1);
-/*   height: 250vh; */
+/*   background: rgba(255, 255, 255, 1); */
+  background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 100%);
+  height: 85vh;
   /*   padding: 3rem; */
   margin: 0;
 }
 
+.gradient-bg {
+  height: 10vh;
+  background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 100%);
+/*   background: rgba(0,255,0, 0.225); */
+}
+
+/* A landmark is one of the articles or neighborhoods we're using */
 .landmark {
+  padding:3rem;
   /*   transform: skew(-3deg, -2.5deg); */
 }
 
 .landmark p {
-  font-size: 0.8rem;
-  line-height: 1.3;
+/*   font-size: 0.8rem; */
+/*   line-height: 1.3; */
 }
 
 .story {
