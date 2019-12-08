@@ -93,14 +93,23 @@
             Continue our tour of LA and see a glimpse of some of LA's
             neighborhoods.
           </p>
-          
+
           <h2>
-            Overview: neighborhoods by density of AirBnB's and homeless encampments
+            Overview: neighborhoods by density of AirBnB's and homeless
+            encampments
           </h2>
-                
-        
-          
-          
+
+          <p class="lead">
+            In each neighborhood of the City of Los Angeles, we plotted the density
+            of Airbnb units against the density of homeless encampments reported
+            from 311 calls.
+          </p>
+          <div
+            class="bk-root"
+            id="eb82953e-61c9-4b88-b3dd-a30aa64654c4"
+            data-root-id="9203"
+          ></div>
+
           <!--         <iframe
           frameborder="0"
           scrolling="no"
@@ -132,42 +141,6 @@
             <p>
               HOMELESSNESS:
             </p>
-            <p>
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum."
-            </p>
-          </div>
-
-          <div class="col-sm">
-            <h3>
-              AIRBNB
-            </h3>
-            <p>
-              Tourism in Los Angeles
-            </p>
-            <p>
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum."
-            </p>
-          </div>
-          <div class="col-sm">
-            <h3>
-              CITY OF ANGLES
-            </h3>
-            <p>
-              La-la Land: Imagined LA
-            </p>
-
             <p>
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -335,9 +308,62 @@
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.min.js"></script>
 
-        <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-1.0.4.min.css" type="text/css" />  
-        <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-1.0.4.min.js"></script>
-   
+    <link
+      rel="stylesheet"
+      href="https://cdn.pydata.org/bokeh/release/bokeh-1.0.4.min.css"
+      type="text/css"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdn.pydata.org/bokeh/release/bokeh-1.0.4.min.js"
+    ></script>
+    <script type="application/json" id="9718">
+      {"85dad36b-030e-45ff-90d6-cbaf4cfe6a36":{"roots":{"references":[{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"9223","type":"PanTool"},{"id":"9224","type":"WheelZoomTool"},{"id":"9225","type":"BoxZoomTool"},{"id":"9226","type":"SaveTool"},{"id":"9227","type":"ResetTool"},{"id":"9228","type":"HelpTool"},{"id":"9255","type":"HoverTool"}]},"id":"9229","type":"Toolbar"},{"attributes":{"data_source":{"id":"9201","type":"ColumnDataSource"},"glyph":{"id":"9239","type":"Circle"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"9240","type":"Circle"},"selection_glyph":null,"view":{"id":"9242","type":"CDSView"}},"id":"9241","type":"GlyphRenderer"},{"attributes":{},"id":"9246","type":"BasicTickFormatter"},{"attributes":{"fill_color":{"value":"blue"},"line_color":{"value":"blue"},"size":{"units":"screen","value":6},"x":{"field":"density_homeless"},"y":{"field":"density_airbnb"}},"id":"9239","type":"Circle"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"size":{"units":"screen","value":6},"x":{"field":"density_homeless"},"y":{"field":"density_airbnb"}},"id":"9240","type":"Circle"},{"attributes":{},"id":"9211","type":"LinearScale"},{"attributes":{},"id":"9226","type":"SaveTool"},{"attributes":{"plot":{"id":"9203","subtype":"Figure","type":"Plot"},"ticker":{"id":"9214","type":"BasicTicker"}},"id":"9217","type":"Grid"},{"attributes":{"overlay":{"id":"9231","type":"BoxAnnotation"}},"id":"9225","type":"BoxZoomTool"},{"attributes":{"axis_label":"density_airbnb","formatter":{"id":"9246","type":"BasicTickFormatter"},"plot":{"id":"9203","subtype":"Figure","type":"Plot"},"ticker":{"id":"9219","type":"BasicTicker"}},"id":"9218","type":"LinearAxis"},{"attributes":{"items":[{"id":"9250","type":"LegendItem"}],"plot":{"id":"9203","subtype":"Figure","type":"Plot"}},"id":"9249","type":"Legend"},{"attributes":{},"id":"9227","type":"ResetTool"},{"attributes":{"callback":null,"tooltips":[["neighbourhood","@neighbourhood"],["density_airbnb","@density_airbnb"],["density_homeless","@density_homeless"]]},"id":"9255","type":"HoverTool"},{"attributes":{"callback":null},"id":"9205","type":"DataRange1d"},{"attributes":{},"id":"9219","type":"BasicTicker"},{"attributes":{"axis_label":"density_homeless","formatter":{"id":"9244","type":"BasicTickFormatter"},"plot":{"id":"9203","subtype":"Figure","type":"Plot"},"ticker":{"id":"9214","type":"BasicTicker"}},"id":"9213","type":"LinearAxis"},{"attributes":{"callback":null},"id":"9207","type":"DataRange1d"},{"attributes":{"callback":null,"data":{"density_airbnb":{"__ndarray__":"jlNPrKSu4D/p61qNoAPiP/jvVG2z0vQ/ZXcdpWxa4D+Fldu6tuPdPwg+fbPWj+Q/zUFgUofe4T8hiN2p+LLyPzw+d++ocrA/O8n93PXi0z+uD4GRBDDdPxwdxeaLaKg/7z78D1El0j+hChzeNiihPyCY67IzD8U/pmIYKmNF2j/VB/tmlAzRP6Ff1+YkvKY/TldAb8TKkz+tr4l5OjXAPzVRE4ReL60//RUnFFyP0T8Svai04jeSP2LG1ZIkHdo/llqNRVbI1D/C+14sj4GSP/k7U1uZX8s/lG7dMHL03D+P6gWLPXqzP2C5E6rtZak//7dvqKs/wj/YvDpkaTGLP9ql4jqgJ9E/AfzIpEXBvj8BUCZ6X8yUP9KKjRl8PLI/s02YUKmX2T/SvYwX5w6PP6srPI676s0/tD4u54Bnqz/488lA9kiiP+Xjtl2jO9U/KbD3GWjytD9lGAAPRNm/P/6CDa5nU7Q/ewYs5jI8oj8JtBfGmPJ5Py9VJjO/lKI/f8qYU1Jm1T8Td6xyhyzfP37TIExgNsU/v9Ft9K6rdD/DkhUIV3uRP+hSH0c4/qU/IY5WzELizz/w3Gp+BpaGP6Tc8xx8sWw/IVjM3BE/sz//xSeXv+nAP2kL6TlpzbU/XZOp26ap0j8qz+1HA3bAPw3gjmlKrc4/zMnyzr83nD8k4ohWtVqUP0e+BbHu/Y4/H8kueB0cfD++am0SxIvRP7JXbd/V6ME/O7p/T7oEvz/ugKSHvZmfP7KjvRvOUqo//+dnwLsUoT/ww1wJUnJzP3SfqJ2uEao/3Dt5QsncvT/4bIoH/qt2PwLIwv45PZM//l28ak40eT9++BjgXJt2P9ELR/ubF5w/EJx7CiFMvj+x/QwRVMd0P/N4NBA5csE/o1cG3eogqz8RRH1fPiWxP0lB5GcrV38/jen45o+YsT8VxcPv2FJwPzAziFAyOms/Wq2q+JSnoT/QK+x3uIHCPwO0rbgXepY/71fGgrESkT+INcSOyUC4PzxXjgGogbA/f/X2d8tckj8x75XUyG3AP+1Lok3msrE/YwHWNYFDoT8OMBs/2zypPwKzbSQOm6A/AAAAAAAA+H8i47u1dX1yP0BEiaqC1cs/TL3C/AsKdz/hHaWXBoGNP1WyYeOaUJg/P8W1NNutrT8YXb+/LHjPP9jyJwEeKLY/318U7LNAcT86+IViVzVzPwF7VZT87n4/Bum1jgHM0z+6ErSUTm1MPwtaWRwX/nA/b90wmIWbfD/eVRJH/2flP0n/4VaPRrE/8Qg3Y3PZlz84eM8WIOG3Py5cNdAzOaQ/sYL+1Izksj9R2lxCtpCNP3qMXJP2Y50/Hn1+dtS3oz+yBxfxKxB4P2qAwhtk5Zs//3/8FAZ4oD8/iu9em8aWPw==","dtype":"float64","shape":[131]},"density_homeless":{"__ndarray__":"/O7UIdf5/j//y17tQQXxP8fI5TNWzOk/2lgfGwVv6T/+f3j05U/nPwZ6/HpDDOY/SHfTl7t55T83ZPvL6E3kP37Uztaf7+E/AabwChET2z/n4WUrxQTaP6eoz5r/5dk/IJhkPkqM2T//Gal/XTvVP6xOZRhDf9Q/z3gtNWnz0j8sqZJ5PU3RP25gUujak9A/Bv0T5AiK0D9YPnSHm3LQP0dMRV7IQtA/AoS4gbK3zz/p99i5hK3LP0FOwYSdjcs/rLxD1qbDyj81sAq/8jDJP8TPEK5jCck/wnL95d45yD+YrCM4S87HPzP3uBWLMMc/Re0WPHsLxz9NuW+hJRjGP44CHCRK/sU/kAOdS3XYxT8q+icQ3rPFPxYDYxAHJcU/f6tUAdG+xD9WtGpmRoXEP3NkWNSEoMM/b9RrFLhbwz+8frDwFXjCPwHdALfZa8I/27fblmpcwT8MTkPLAwHBPwHbCT3bm8A/AsXMjPQrwD/bwjVsfgnAPwEsh5olvL8/BwgylSHpvj9LWPAodaK+P9ybnCOuTb4/yAls4vD4vT/uWm2ELVi9PxWV9RYxjLw/VKryb17juz/2YxPOana7P5gYMxm99Lo/hjexOvfXuj+NL3CS8u65P813ekzT07k/FcrD9aKSuT9+LQwzz465Pw2eU35Kdrg/60yI15dHtz+DAeP3ai63P/0Z37dwx7Y/ej6cjHd2tj8fUzSojPe1Pyv+qRxHsLU/HdRi5YantT+ccPUhk1S1P++6Slwp3rQ/p55vi5sssz8FAqlI8vyxP6byvuWfyK4/KxFrm7lSrD9wNCu7HjysP/x3YNciqqs/5Aa+xDWRqz/X2Up1G6CpP71iuFtldak/a5yo+y7Xpz8vR2xOZJOnP8Ia1gtiaac/fDVcgpeFpj8+OJIIjMulPwWGPU/FYaQ/K4HMGIHroz8WiXcAraOjPzujXZcCuKI/dxOv5BAcoj/U+sbbP9KhPyXgg+fA0KA/dcB3kZ6aoD9Hi3N4VY6gP8cTxYQlXqA/fOfQHulWoD++GKaZyIicP5B1oCWWZ5s/+RqEYZFDmT/b8dTyJA6WP13lr7Y3wpM/dNAbjcaUkz8ByVfcmH2RP0GYu+pacJA/xc7V+zOfjT/hHaWXBoGNP2E4OsGOO4s/nZiL2zH+iD+B4fNg16mFPxtRJF54JIQ/2G/C6NEghD8zOTV2rM6APx8hsdqwyX0/HIzyaFdlaj8LDofv+lFlPwtaWRwX/mA/b90wmIWbXD8kZUdp8iBbP1nQE+N3QVk/Xz1kpG4VVD8Bmgc1Y5RNP0wnmG8QI0w/4AZZB9jLSz8xApZOK+dKPyl59BSlakE/D5U1fLzdKD+aeBRItWMlP+Nt6iotvxo/jJuboIKeFz9Z63mUUeYTPw==","dtype":"float64","shape":[131]},"index":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130],"neighbourhood":["Koreatown","Westlake","Venice","East Hollywood","Downtown","Beverly Grove","Fairfax","Hollywood","Historic South-Central","Pico-Union","Echo Park","South Park","Palms","Florence","North Hollywood","Sawtelle","Harvard Heights","Chesterfield Square","Central-Alameda","Valley Village","Van Nuys","Mid-City","Vermont Knolls","Larchmont","Los Feliz","Sun Valley","Rancho Park","Silver Lake","Valley Glen","Cypress Park","Highland Park","Panorama City","Chinatown","Studio City","North Hills","Vermont Square","Pico-Robertson","Vermont-Slauson","West Los Angeles","Lincoln Heights","Boyle Heights","Arlington Heights","Sherman Oaks","West Adams","Eagle Rock","El Sereno","Green Meadows","Canoga Park","Carthay","Mid-Wilshire","Hancock Park","Arleta","Harvard Park","Woodland Hills","Del Rey","Broadway-Manchester","Pacoima","Elysian Valley","Jefferson Park","Leimert Park","Westwood","Exposition Park","Hollywood Hills","Gramercy Park","Watts","Harbor City","Mission Hills","Mar Vista","Toluca Lake","Windsor Square","Manchester Square","Reseda","Winnetka","Vermont Vista","Hyde Park","Playa Vista","Chatsworth","San Pedro","Wilmington","Sylmar","Veterans Administration","Adams-Normandie","Sunland","Atwater Village","Lake Balboa","Glassell Park","Granada Hills","Montecito Heights","Sepulveda Basin","Lake View Terrace","Tarzana","University Park","Northridge","West Hills","Playa del Rey","Baldwin Hills/Crenshaw","Harbor Gateway","Mount Washington","Century City","Encino","Westchester","Brentwood","Hansen Dam","Shadow Hills","Santa Monica","Griffith Park","Westmont","Elysian Park","Cheviot Hills","Hollywood Hills West","Beverlywood","Tujunga","Athens","Porter Ranch","Marina del Rey","Chatsworth Reservoir","Willowbrook","Florence-Firestone","West Hollywood","Inglewood","Bel-Air","Culver City","El Segundo","View Park-Windsor Hills","Pacific Palisades","Ladera Heights","Beverly Crest","Carson","Glendale","Burbank","Torrance"]},"selected":{"id":"9498","type":"Selection"},"selection_policy":{"id":"9499","type":"UnionRenderers"}},"id":"9201","type":"ColumnDataSource"},{"attributes":{},"id":"9224","type":"WheelZoomTool"},{"attributes":{},"id":"9228","type":"HelpTool"},{"attributes":{},"id":"9498","type":"Selection"},{"attributes":{"bottom_units":"screen","fill_alpha":{"value":0.5},"fill_color":{"value":"lightgrey"},"left_units":"screen","level":"overlay","line_alpha":{"value":1.0},"line_color":{"value":"black"},"line_dash":[4,4],"line_width":{"value":2},"plot":null,"render_mode":"css","right_units":"screen","top_units":"screen"},"id":"9231","type":"BoxAnnotation"},{"attributes":{},"id":"9499","type":"UnionRenderers"},{"attributes":{"dimension":1,"plot":{"id":"9203","subtype":"Figure","type":"Plot"},"ticker":{"id":"9219","type":"BasicTicker"}},"id":"9222","type":"Grid"},{"attributes":{"label":{"value":"Neighborhood"},"renderers":[{"id":"9241","type":"GlyphRenderer"}]},"id":"9250","type":"LegendItem"},{"attributes":{"plot":null,"text":"density_homeless vs density_airbnb"},"id":"9202","type":"Title"},{"attributes":{"below":[{"id":"9213","type":"LinearAxis"}],"left":[{"id":"9218","type":"LinearAxis"}],"renderers":[{"id":"9213","type":"LinearAxis"},{"id":"9217","type":"Grid"},{"id":"9218","type":"LinearAxis"},{"id":"9222","type":"Grid"},{"id":"9231","type":"BoxAnnotation"},{"id":"9249","type":"Legend"},{"id":"9241","type":"GlyphRenderer"}],"title":{"id":"9202","type":"Title"},"toolbar":{"id":"9229","type":"Toolbar"},"x_range":{"id":"9205","type":"DataRange1d"},"x_scale":{"id":"9209","type":"LinearScale"},"y_range":{"id":"9207","type":"DataRange1d"},"y_scale":{"id":"9211","type":"LinearScale"}},"id":"9203","subtype":"Figure","type":"Plot"},{"attributes":{"source":{"id":"9201","type":"ColumnDataSource"}},"id":"9242","type":"CDSView"},{"attributes":{},"id":"9209","type":"LinearScale"},{"attributes":{},"id":"9214","type":"BasicTicker"},{"attributes":{},"id":"9223","type":"PanTool"},{"attributes":{},"id":"9244","type":"BasicTickFormatter"}],"root_ids":["9203"]},"title":"Bokeh Application","version":"1.0.4"}}
+    </script>
+    <script type="text/javascript">
+      (function() {
+        var fn = function() {
+          Bokeh.safely(function() {
+            (function(root) {
+              function embed_document(root) {
+                var docs_json = document.getElementById("9718").textContent;
+                var render_items = [
+                  {
+                    docid: "85dad36b-030e-45ff-90d6-cbaf4cfe6a36",
+                    roots: { "9203": "eb82953e-61c9-4b88-b3dd-a30aa64654c4" }
+                  }
+                ];
+                root.Bokeh.embed.embed_items(docs_json, render_items);
+              }
+              if (root.Bokeh !== undefined) {
+                embed_document(root);
+              } else {
+                var attempts = 0;
+                var timer = setInterval(
+                  function(root) {
+                    if (root.Bokeh !== undefined) {
+                      embed_document(root);
+                      clearInterval(timer);
+                    }
+                    attempts++;
+                    if (attempts > 100) {
+                      console.log(
+                        "Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing"
+                      );
+                      clearInterval(timer);
+                    }
+                  },
+                  10,
+                  root
+                );
+              }
+            })(window);
+          });
+        };
+        if (document.readyState != "loading") fn();
+        else document.addEventListener("DOMContentLoaded", fn);
+      })();
+    </script>
     <script src="/script.js"></script>
   </body>
 </html>
