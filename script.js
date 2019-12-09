@@ -126,13 +126,15 @@ make_waypoint("#appendix", point_nyc, global_offset);
 async function postData(url = "", data = {}) {
   const url_neighborhood_bounds =
     "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2FLA-Neighborhoods.geojson";
-  const response = fetch(url_neighborhood_bounds);
-  const neighborhoodBounds = response.json();
-
-  console.log(JSON.stringify(myJson));
+  const response = await fetch(url_neighborhood_bounds);
+  const neighborhoodBounds = await response.json();
+  console.log(JSON.stringify(neighborhoodBounds));
+  return neighborhoodBounds;
 }
 
-let neighborhood = L.geoJson(neighborhoodBounds, {
+neighborhoodBounds = postData();
+
+var neighborhood = L.geoJson(JSON.stringify(neighborhoodBounds), {
   //instantiates a new geoJson layer using built in geoJson handling
   weight: 1, //Attributes of polygons including the weight of boundaries and colors of map.
   color: "#222"
