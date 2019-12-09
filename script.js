@@ -55,41 +55,41 @@ var CartoDB_Positron = L.tileLayer(
   }
 ).addTo(mymap);
 
-var url_neighborhood_bounds =
-    "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2FLA-Neighborhoods_crs.geojson?v=1575860761151";
-    // "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2FLA-Neighborhoods.geojson?v=1575855297854"
+// var url_neighborhood_bounds =
+//     "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2FLA-Neighborhoods_crs.geojson?v=1575860761151";
+//     // "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2FLA-Neighborhoods.geojson?v=1575855297854"
 
-async function loadFile(url) {
-  const response = await fetch(url_neighborhood_bounds);
-  const myJson = await response.json();
-  console.log('loaded external');
-  return myJson;
-  // return JSON.stringify(myJson)
-};
+// async function loadFile(url) {
+//   const response = await fetch(url_neighborhood_bounds);
+//   const myJson = await response.json();
+//   console.log('loaded external');
+//   return myJson;
+//   // return JSON.stringify(myJson)
+// };
 
-var neighborhoodBounds = fetch(url_neighborhood_bounds)
-  .then(
-    function(response) {
-      if (response.status !== 200) {
-        console.log('Looks like there was a problem. Status Code: ' +
-          response.status);
-        return;
-      }
+// var neighborhoodBounds = fetch(url_neighborhood_bounds)
+//   .then(
+//     function(response) {
+//       if (response.status !== 200) {
+//         console.log('Looks like there was a problem. Status Code: ' +
+//           response.status);
+//         return;
+//       }
 
-      // Examine the text in the response
-      response.json().then(function(data) {
-        const gisdata = data; 
-        console.log(data);
-        return data;
-      });
-    }
-  )
-  .catch(function(err) {
-    console.log('Fetch Error :-S', err);
-  });
+//       // Examine the text in the response
+//       response.json().then(function(data) {
+//         const gisdata = data; 
+//         console.log(data);
+//         return data;
+//       });
+//     }
+//   )
+//   .catch(function(err) {
+//     console.log('Fetch Error :-S', err);
+//   });
 
-var neighborhoods = L.geoJson(neighborhoodBounds);
-neighborhoods.addTo(mymap); //Adds the layer to the map.
+// var neighborhoods = L.geoJson(neighborhoodBounds);
+// neighborhoods.addTo(mymap); //Adds the layer to the map.
 // WAYPOINTS //
 // --------------------------------------------------------------- //
 // http://imakewebthings.com/waypoints/guides/getting-started/
@@ -140,7 +140,7 @@ const make_waypoint = (
 //   return x;
 // };
 
-var global_offset = -100;
+var global_offset = 500;
 make_waypoint("#introduction", point_home, global_offset);
 make_waypoint("#koreatown", point_koreatown, global_offset);
 make_waypoint("#venice", point_venice, global_offset, x => {
