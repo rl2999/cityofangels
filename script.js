@@ -45,12 +45,6 @@ var point_home = L.latLng(34.0522, -118.2437);
 
 var mymap = L.map("mapid", mapOptions).setView(point_home, 13);
 
-// var CartoDB_DarkMatter = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-// 	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-// 	subdomains: 'abcd',
-// 	maxZoom: 19
-// }).addTo(mymap);
-
 var CartoDB_Positron = L.tileLayer(
   "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
   {
@@ -60,6 +54,18 @@ var CartoDB_Positron = L.tileLayer(
     maxZoom: 15
   }
 ).addTo(mymap);
+
+var url_neighborhood_bounds =
+    "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2FLA-Neighborhoods.geojson";
+
+async function loadFile(url) {
+  const response = await fetch(url_neighborhood_bounds);
+  const myJson = await response.json();
+  console.log('loaded external');
+  return JSON.stringify(myJson)
+};
+
+var neighborhood = L.geoJson(loadFile(url_neighborhood_bounds)).addTo(mymap); //Adds the layer to the map.
 
 // WAYPOINTS //
 // --------------------------------------------------------------- //
@@ -124,8 +130,6 @@ make_waypoint("#appendix", point_nyc, global_offset);
 // D3 Leaflet Magic
 // -=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=-
 // async function postData(url = "", data = {}) {
-const url_neighborhood_bounds =
-    "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2FLA-Neighborhoods.geojson";
 //   const response = await fetch(url_neighborhood_bounds);
 //   const neighborhoodBounds = await response.json();
 //   console.log(JSON.stringify(neighborhoodBounds));
@@ -134,25 +138,3 @@ const url_neighborhood_bounds =
 
 // neighborhoodBounds = postData();
 
-function loadFile(url) {
-  let request = new XMLHttpRequest();
-  request.open('GET', url);
-  request.responseType = 'text';
-  request.onload = function() {
-  return request.response;
-};
-  request.send();
-};
-
-var nbounds = loadFile(url_neighborhood_bounds);
-  
-var neighborhood = L.geoJson(loadFile(url_neighborhood_bounds), {
-  //instantiates a new geoJson layer using built in geoJson handling
-  weight: 100, //Attributes of polygons including the weight of boundaries and colors of map.
-  color: "#222"
-})
-  .bindPopup(function(Layer) {
-    //binds a popup when clicking on each polygon to access underlying data
-    return Layer.feature.properties.NAME;
-  })
-  .addTo(mymap); //Adds the layer to the map.
