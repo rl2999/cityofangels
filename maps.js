@@ -1,6 +1,7 @@
 // neighborhoodBounds = postData();
 
 var url2 = "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2FLA-Neighborhoods_crs.geojson"
+
 fetch(url2)
   .then(function (response) {
     // Read data as JSON
