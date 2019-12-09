@@ -56,16 +56,39 @@ var CartoDB_Positron = L.tileLayer(
 ).addTo(mymap);
 
 var url_neighborhood_bounds =
-    "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2FLA-Neighborhoods.geojson";
+    "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2FLA-Neighborhoods.geojson?v=1575855297854"
 
 async function loadFile(url) {
   const response = await fetch(url_neighborhood_bounds);
   const myJson = await response.json();
   console.log('loaded external');
-  return JSON.stringify(myJson)
+  return myJson;
+  // return JSON.stringify(myJson)
 };
 
-var neighborhood = L.geoJson(loadFile(url_neighborhood_bounds)).addTo(mymap); //Adds the layer to the map.
+var neighborhoodBounds = fetch(url_neighborhood_bounds)
+  .then(
+    function(response) {
+      if (response.status !== 200) {
+        console.log('Looks like there was a problem. Status Code: ' +
+          response.status);
+        return;
+      }
+
+      // Examine the text in the response
+      response.json().then(function(data) {
+        console.log(data);
+        lg = 
+        const data2 = L.toGeoJSON(data);
+        L.geoJson(data2).addTo(mymap); //Adds the layer to the map.
+        return data;
+      });
+    }
+  )
+  .catch(function(err) {
+    console.log('Fetch Error :-S', err);
+  });
+
 
 // WAYPOINTS //
 // --------------------------------------------------------------- //
