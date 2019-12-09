@@ -56,7 +56,7 @@ var CartoDB_Positron = L.tileLayer(
 ).addTo(mymap);
 
 var url_neighborhood_bounds =
-    "//s3-us-west-2.amazonaws.com/boundaries.latimes.com/archive/1.0/boundary-set/lapd-bureaus.geojson";
+    "https://s3-us-west-2.amazonaws.com/boundaries.latimes.com/archive/1.0/boundary-set/lapd-bureaus.geojson";
     // "https://raw.githubusercontent.com/johan/world.geo.json/master/countries/USA/CA/Los%20Angeles.geo.json";
     // "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2FLA-Neighborhoods_crs.geojson?v=1575860761151";
     // "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2FLA-Neighborhoods.geojson?v=1575855297854"
@@ -95,8 +95,8 @@ fetch(
           }
 )
 
-// var neighborhoods = L.geoJson(neighborhoodBounds);
-// neighborhoods.addTo(mymap); //Adds the layer to the map.
+data_neighborhoods = $.getJSON(url_neighborhood_bounds).responseJSON;
+neighborhoods = L.geoJson(data_neighborhoods).addTo(mymap); //Adds the layer to the map.
 // WAYPOINTS //
 // --------------------------------------------------------------- //
 // http://imakewebthings.com/waypoints/guides/getting-started/
@@ -130,7 +130,7 @@ const make_waypoint = (
   new Waypoint({
     element: document.querySelector(selector),
     handler: function(direction) {
-      zoomToLocation(triggerpoint, 15);
+      zoomToLocation(triggerpoint, 8);
       // callbacky = typeof callbacky !== undefined ? null: callbacky();
       callbacky();
       console.log(
@@ -147,7 +147,7 @@ const make_waypoint = (
 //   return x;
 // };
 
-var global_offset = 500;
+const global_offset = 500;
 make_waypoint("#introduction", point_home, global_offset);
 make_waypoint("#koreatown", point_koreatown, global_offset);
 make_waypoint("#venice", point_venice, global_offset, x => {
