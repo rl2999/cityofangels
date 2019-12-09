@@ -123,18 +123,31 @@ make_waypoint("#appendix", point_nyc, global_offset);
 
 // D3 Leaflet Magic
 // -=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=-
-async function postData(url = "", data = {}) {
-  const url_neighborhood_bounds =
+// async function postData(url = "", data = {}) {
+const url_neighborhood_bounds =
     "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2FLA-Neighborhoods.geojson";
-  const response = await fetch(url_neighborhood_bounds);
-  const neighborhoodBounds = await response.json();
-  console.log(JSON.stringify(neighborhoodBounds));
-  return neighborhoodBounds;
-}
+//   const response = await fetch(url_neighborhood_bounds);
+//   const neighborhoodBounds = await response.json();
+//   console.log(JSON.stringify(neighborhoodBounds));
+//   return neighborhoodBounds;
+// }
 
-neighborhoodBounds = postData();
+// neighborhoodBounds = postData();
 
-var neighborhood = L.geoJson(JSON.stringify(neighborhoodBounds), {
+function loadFile(url) {
+  let request = new XMLHttpRequest();
+  request.open('GET', url);
+  request.responseType = 'text';
+  request.send();
+  request.onload = function() {
+  poemDisplay.textContent = request.response;
+};
+
+};
+
+var nbounds = loadFile(url_neighborhood_bounds);
+  
+var neighborhood = L.geoJson(nbounds, {
   //instantiates a new geoJson layer using built in geoJson handling
   weight: 1, //Attributes of polygons including the weight of boundaries and colors of map.
   color: "#222"
