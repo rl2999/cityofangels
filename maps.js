@@ -1,7 +1,8 @@
 // neighborhoodBounds = postData();
 
 var url2 = "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2FLA-Neighborhoods_crs.geojson"
-
+  try{
+   
 fetch(url2)
   .then(function (response) {
     // Read data as JSON
@@ -9,8 +10,18 @@ fetch(url2)
   })
   .then(function (data) {
     // Add data to the map
-    L.geoJson(data).addTo(mainMap);
+  var myLayer = L.geoJSON().addTo(mainMap);
+  console.log(data);
+  myLayer.addData(data);
+    // L.geoJSON(data).addTo(mainMap);
   });
+    
+   }
+   catch {
+
+      // # nothing
+    }
+
 
 
 var url_neighborhood_bounds = "https://s3-us-west-2.amazonaws.com/boundaries.latimes.com/archive/1.0/boundary-set/lapd-bureaus.geojson";
