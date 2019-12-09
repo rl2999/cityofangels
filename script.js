@@ -7,9 +7,9 @@ console.log("Successfully loaded javascript file");
 // --------------------------------------------------------------- //
 
 mapOptions = {
-  preferCanvas: true,
+  // preferCanvas: true,
   zoomControl: false,
-  renderer: L.Canvas,
+  // renderer: L.Canvas, ## THIS CAUSES AN ERROR
   dragging: false
 };
 
