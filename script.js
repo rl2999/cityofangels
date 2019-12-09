@@ -4,25 +4,27 @@
 // prints "hi" in the browser's dev tools console
 console.log("hi");
 
-
 // Vega-lite plots //
 // --------------------------------------------------------------- //
 
-var ktown_plot_airbnb_price =  {
-  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "width": "400",
-  "height": "400",
-  "data": {"url": "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fkoreatown_airbnb2.csv"},
-  "mark": "bar",
-  "encoding": {
-    "x": {
-      "bin": false,
-      "field": "price",
-      "type": "quantitative"
+var ktown_plot_airbnb_price = {
+  $schema: "https://vega.github.io/schema/vega-lite/v4.json",
+  width: "400",
+  height: "400",
+  data: {
+    url:
+      "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fkoreatown_airbnb2.csv"
+  },
+  mark: "bar",
+  encoding: {
+    x: {
+      bin: false,
+      field: "price",
+      type: "quantitative"
     },
-    "y": {
-      "aggregate": "count",
-      "type": "quantitative"
+    y: {
+      aggregate: "count",
+      type: "quantitative"
     }
   }
 };
@@ -66,24 +68,33 @@ var CartoDB_Positron = L.tileLayer(
 // Declare our zoom points on the map
 // Make them with geojson.io but note that its flipped
 // http://geojson.io/#map=19/40.80805/-73.96041
-var point_venice = L.latLng(33.99539435637889, -118.46677780151366);  
+var point_venice = L.latLng(33.99539435637889, -118.46677780151366);
 var point_hollywood = L.latLng(34.1016774615434, -118.330135345459);
 var point_nyc = L.latLng(40.80807627279606, -73.96046251058578);
 var point_burbank = L.latLng(34.18539, -118.364295);
-var point_koreatown = L.latLng(34.028762179464465, -118.26476454734802);
+var point_koreatown = L.latLng(34.05776160573775, -118.30073833465576);
 
 // This is a callback function
 // it changes locations for us
 const zoomToLocation = (point, zoomLevel) => {
-  mymap.flyTo(point, zoomLevel, { animate: true, duration: 2, easeLinearity: 0.1 });
+  mymap.flyTo(point, zoomLevel, {
+    animate: true,
+    duration: 2,
+    easeLinearity: 0.1
+  });
   // mymap.setZoom(zoom);
 };
 
-const make_waypoint = (selector, triggerpoint, offsety, callbacky= x=>{}) => {
+const make_waypoint = (
+  selector,
+  triggerpoint,
+  offsety,
+  callbacky = x => {}
+) => {
   new Waypoint({
     element: document.querySelector(selector),
     handler: function(direction) {
-      zoomToLocation(triggerpoint, 14);
+      zoomToLocation(triggerpoint, 15);
       // callbacky = typeof callbacky !== undefined ? null: callbacky();
       callbacky();
       console.log(
@@ -94,10 +105,17 @@ const make_waypoint = (selector, triggerpoint, offsety, callbacky= x=>{}) => {
   });
 };
 
+// var (hi, param2, param3) => {
+//   dosomethin();
+//   doanother();
+//   return x;
+// };
+
 make_waypoint("#introduction", point_home, -20);
 make_waypoint("#koreatown", point_koreatown, 50);
-make_waypoint("#venice", point_venice, 50,x => { console.log('lolol')});
+make_waypoint("#venice", point_venice, -50, x => {
+  console.log("lolol");
+});
 make_waypoint("#hollywood", point_hollywood, 50);
 // make_waypoint("#burbank", point_burbank, 50);
 make_waypoint("#appendix", point_nyc, 900);
-
