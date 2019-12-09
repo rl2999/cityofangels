@@ -16,13 +16,13 @@
     format("woff");
 } */
 
-@import url('https://fonts.googleapis.com/css?family=Barlow&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Barlow&display=swap");
 
 body {
   /*   background: black; */
   /*   color: white; */
-font-family: 'Barlow', sans-serif;
-/*   font-family: "WremenaRegular", helvetica, arial, sans-serif; */
+  font-family: "Barlow", sans-serif;
+  /*   font-family: "WremenaRegular", helvetica, arial, sans-serif; */
 }
 
 h1,
@@ -35,9 +35,9 @@ h5 {
 }
 
 h1 {
-/*   font-family: "WremenaLight"; */
+  /*   font-family: "WremenaLight"; */
   font-family: "Courier";
-/*   font-weight: light; */
+  /*   font-weight: light; */
   /*   color: white; */
   font-size: calc(2.5 * 1rem);
   line-height: 0.95;
@@ -51,12 +51,12 @@ h2 {
 
 h3 {
   font-size: calc(1.35 * 1rem);
-/*   font-family: "WremenaRegular"; */
+  /*   font-family: "WremenaRegular"; */
 }
 
 h4 {
   font-size: calc(1.2 * 1rem);
-/*   font-family: "WremenaBold"; */
+  /*   font-family: "WremenaBold"; */
   font-style: bold;
   margin-bottom: 0rem;
 }
@@ -68,25 +68,33 @@ h5 {
 /* intro part is on top  */
 
 .title-container .lead {
-  font-family:"Courier";
+  font-family: "Courier";
   font-weight: bold;
 }
 
 #introduction {
-/*   background: rgba(255, 255, 255, 1); */
-  background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 100%);
+  /*   background: rgba(255, 255, 255, 1); */
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
   height: 75vh;
   /*   padding: 3rem; */
   margin: 0;
 }
 
 .gradient-bg {
-  margin-left:-2vw;
+  margin-left: -2vw;
   margin-top: -2vh;
   height: 20vh;
-  width:100vw;
-  background: rgb(255,255,255);
-  background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(71,0,0,0) 100%);
+  width: 100vw;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(71, 0, 0, 0) 100%
+  );
 }
 
 /* A landmark is one of the articles or neighborhoods we're using */
@@ -98,13 +106,13 @@ h5 {
 }
 
 .landmark {
-  padding:3rem;
+  padding: 3rem;
   /*   transform: skew(-3deg, -2.5deg); */
 }
 
 .landmark p {
-/*   font-size: 0.8rem; */
-/*   line-height: 1.3; */
+  /*   font-size: 0.8rem; */
+  /*   line-height: 1.3; */
 }
 
 .story {
@@ -112,14 +120,14 @@ h5 {
 }
 
 p {
-  font-family: 'Barlow', sans-serif;
-/*   font-family: "WremenaRegular"; */
+  font-family: "Barlow", sans-serif;
+  /*   font-family: "WremenaRegular"; */
   line-height: 1.4;
 }
 
 .lead {
   line-height: 1.3;
-  font-family: 'Barlow', sans-serif;
+  font-family: "Barlow", sans-serif;
 }
 
 .map-background-fixed {
@@ -130,7 +138,7 @@ p {
   /*   background: none; */
   height: 100vh;
   width: 100vw;
-  z-index: -1000;
+  z-index: -2;
   position: fixed !important;
   top: 0;
   left: 0;
@@ -155,7 +163,7 @@ p {
 
 #appendix {
   width: 100vw;
-  background: rgba(255,255,255, 1.0);
+  background: rgba(255, 255, 255, 1);
   height: 50vh;
   display: flex;
   align-items: flex-end;
