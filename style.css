@@ -79,6 +79,13 @@ h5 {
 }
 
 /* A landmark is one of the articles or neighborhoods we're using */
+/* ---------------------------------------------------------------------------------------- */
+
+.viz-container {
+  height: auto;
+  width: 100%;
+}
+
 .landmark {
   padding:3rem;
   /*   transform: skew(-3deg, -2.5deg); */

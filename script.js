@@ -10,6 +10,8 @@ console.log("hi");
 
 var ktown_plot_airbnb_price =  {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": "400",
+  "height": "400",
   "data": {"url": "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fkoreatown_airbnb2.csv"},
   "mark": "bar",
   "encoding": {
@@ -23,7 +25,9 @@ var ktown_plot_airbnb_price =  {
       "type": "quantitative"
     }
   }
-}
+};
+
+vegaEmbed("#ktown-viz-airbnb-price", ktown_plot_airbnb_price);
 
 // Leaflet maps //
 // --------------------------------------------------------------- //
@@ -70,8 +74,8 @@ var point_koreatown = L.latLng(34.028762179464465, -118.26476454734802);
 
 // This is a callback function
 // it changes locations for us
-const zoomToLocation = (point, zoom) => {
-  mymap.flyTo(point, zoom, { animate: true, duration: 2, easeLinearity: 0.1 });
+const zoomToLocation = (point, zoomLevel) => {
+  mymap.flyTo(point, zoomLevel, { animate: true, duration: 2, easeLinearity: 0.1 });
   // mymap.setZoom(zoom);
 };
 
@@ -92,8 +96,8 @@ const make_waypoint = (selector, triggerpoint, offsety, callbacky= x=>{}) => {
 
 make_waypoint("#introduction", point_home, -20);
 make_waypoint("#koreatown", point_koreatown, 50);
-make_waypoint("#hollywood", point_hollywood, 50);
 make_waypoint("#venice", point_venice, 50,x => { console.log('lolol')});
+make_waypoint("#hollywood", point_hollywood, 50);
 // make_waypoint("#burbank", point_burbank, 50);
 make_waypoint("#appendix", point_nyc, 900);
 
