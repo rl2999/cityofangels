@@ -25,7 +25,33 @@ var ktown_plot_airbnb_price = {
 
 vegaEmbed("#ktown-viz-airbnb-price", ktown_plot_airbnb_price);
 
-// BOKEH
+var hwood_plot_airbnb_price = {
+  $schema: "https://vega.github.io/schema/vega-lite/v4.json",
+  width: "400",
+  height: "400",
+  data: {
+    url:
+      "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fkoreatown_airbnb2.csv"
+  },
+  mark: "bar",
+  encoding: {
+    x: {
+      bin: false,
+      field: "price",
+      type: "quantitative"
+    },
+    y: {
+      aggregate: "count",
+      type: "quantitative"
+    }
+  }
+};
+
+vegaEmbed("#ktown-viz-airbnb-price", ktown_plot_airbnb_price);
+
+
+// BOKEH //
+// --------------------------------------------------------------- //
 (function() {
   var fn = function() {
     Bokeh.safely(function() {
