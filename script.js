@@ -111,11 +111,12 @@ const make_waypoint = (
 //   return x;
 // };
 
-make_waypoint("#introduction", point_home, -20);
-make_waypoint("#koreatown", point_koreatown, 50);
-make_waypoint("#venice", point_venice, -50, x => {
+var global_offset = -100
+make_waypoint("#introduction", point_home, global_offset);
+make_waypoint("#koreatown", point_koreatown, global_offset);
+make_waypoint("#venice", point_venice, global_offset, x => {
   console.log("lolol");
 });
-make_waypoint("#hollywood", point_hollywood, 50);
+make_waypoint("#hollywood", point_hollywood, global_offset);
 // make_waypoint("#burbank", point_burbank, 50);
-make_waypoint("#appendix", point_nyc, 900);
+make_waypoint("#appendix", point_nyc, global_offset);
