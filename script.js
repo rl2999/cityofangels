@@ -138,18 +138,17 @@ function loadFile(url) {
   let request = new XMLHttpRequest();
   request.open('GET', url);
   request.responseType = 'text';
-  request.send();
   request.onload = function() {
-  poemDisplay.textContent = request.response;
+  return request.response;
 };
-
+  request.send();
 };
 
 var nbounds = loadFile(url_neighborhood_bounds);
   
-var neighborhood = L.geoJson(nbounds, {
+var neighborhood = L.geoJson(loadFile(url_neighborhood_bounds), {
   //instantiates a new geoJson layer using built in geoJson handling
-  weight: 1, //Attributes of polygons including the weight of boundaries and colors of map.
+  weight: 100, //Attributes of polygons including the weight of boundaries and colors of map.
   color: "#222"
 })
   .bindPopup(function(Layer) {
