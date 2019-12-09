@@ -3,7 +3,7 @@
 // prints "hi" in the browser's dev tools console
 console.log("Successfully loaded javascript file");
 
-// Leaflet maps //
+// Setup Leaflet map //
 // --------------------------------------------------------------- //
 
 mapOptions = {
@@ -17,6 +17,7 @@ point_home = L.latLng(34.0522, -118.2437);
 
 mainMap = L.map("mapid", mapOptions).setView(point_home, 13);
 
+// Add base layer
 CartoDB_Positron = L.tileLayer(
   "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
   {
@@ -29,6 +30,20 @@ CartoDB_Positron = L.tileLayer(
 
 var url_neighborhood_bounds =
   "https://s3-us-west-2.amazonaws.com/boundaries.latimes.com/archive/1.0/boundary-set/lapd-bureaus.geojson";
+
+url2 =
+  "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2FLA-Neighborhoods_crs.geojson?v=1575860761151";
+fetch(url2)
+  .then(function(response) {
+    // Read data as JSON
+    return response.json();
+  })
+  .then(function(data) {
+    // Add data to the map
+    L.geoJson(data).addTo(map);
+  });
+
+
 // "https://raw.githubusercontent.com/johan/world.geo.json/master/countries/USA/CA/Los%20Angeles.geo.json";
 // "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2FLA-Neighborhoods_crs.geojson?v=1575860761151";
 // "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2FLA-Neighborhoods.geojson?v=1575855297854"
@@ -53,15 +68,6 @@ var url_neighborhood_bounds =
 //     console.log('Fetch Error :-S', err);
 //   });
 
-fetch(url_neighborhood_bounds)
-  .then(res => {
-    res.json();
-    console.log(res);
-  })
-  .then(data => {
-    console.log(data);
-    var neighborhoods = L.geoJSON(data).addTo(mainMap);
-  });
 
 // data_neighborhoods = $.getJSON(url_neighborhood_bounds).responseJSON;
 // neighborhoods = L.geoJson(geo).addTo(mymap); //Adds the layer to the map.

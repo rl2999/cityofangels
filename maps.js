@@ -8,6 +8,6 @@ fetch(url2)
   })
   .then(function (data) {
     // Add data to the map
-    L.geoJson(data).addTo(mymap);
+    L.geoJson(data).addTo(mainMap);
   });
 
