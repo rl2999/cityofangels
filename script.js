@@ -78,9 +78,9 @@ var neighborhoodBounds = fetch(url_neighborhood_bounds)
 
       // Examine the text in the response
       response.json().then(function(data) {
+        const gisdata = data; 
         console.log(data);
-        var neighborhoods = L.geoJson(data).addTo(mymap); //Adds the layer to the map.
-        // return data;
+        return data;
       });
     }
   )
@@ -88,7 +88,8 @@ var neighborhoodBounds = fetch(url_neighborhood_bounds)
     console.log('Fetch Error :-S', err);
   });
 
-
+var neighborhoods = L.geoJson(neighborhoodBounds);
+neighborhoods.addTo(mymap); //Adds the layer to the map.
 // WAYPOINTS //
 // --------------------------------------------------------------- //
 // http://imakewebthings.com/waypoints/guides/getting-started/
