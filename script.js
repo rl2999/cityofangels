@@ -56,7 +56,8 @@ var CartoDB_Positron = L.tileLayer(
 ).addTo(mymap);
 
 var url_neighborhood_bounds =
-    "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2FLA-Neighborhoods.geojson?v=1575855297854"
+    "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2FLA-Neighborhoods_crs.geojson?v=1575860761151";
+    // "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2FLA-Neighborhoods.geojson?v=1575855297854"
 
 async function loadFile(url) {
   const response = await fetch(url_neighborhood_bounds);
@@ -78,10 +79,8 @@ var neighborhoodBounds = fetch(url_neighborhood_bounds)
       // Examine the text in the response
       response.json().then(function(data) {
         console.log(data);
-        lg = 
-        const data2 = L.toGeoJSON(data);
-        L.geoJson(data2).addTo(mymap); //Adds the layer to the map.
-        return data;
+        var neighborhoods = L.geoJson(data).addTo(mymap); //Adds the layer to the map.
+        // return data;
       });
     }
   )
