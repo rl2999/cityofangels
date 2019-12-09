@@ -1,3 +1,8 @@
+
+below is a working example of geojson??? weird
+
+https://glitch.com/edit/#!/spiritual-deltadromeus?path=index.html:22:3
+
 Welcome to Glitch
 =================
 
