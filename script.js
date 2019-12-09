@@ -111,7 +111,7 @@ const make_waypoint = (
 //   return x;
 // };
 
-var global_offset = -100
+var global_offset = -100;
 make_waypoint("#introduction", point_home, global_offset);
 make_waypoint("#koreatown", point_koreatown, global_offset);
 make_waypoint("#venice", point_venice, global_offset, x => {
@@ -120,3 +120,25 @@ make_waypoint("#venice", point_venice, global_offset, x => {
 make_waypoint("#hollywood", point_hollywood, global_offset);
 // make_waypoint("#burbank", point_burbank, 50);
 make_waypoint("#appendix", point_nyc, global_offset);
+
+// D3 Leaflet Magic
+// -=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=-
+async function postData(url = "", data = {}) {
+  const url_neighborhood_bounds =
+    "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2FLA-Neighborhoods.geojson";
+  const response = fetch(url_neighborhood_bounds);
+  const neighborhoodBounds = response.json();
+
+  console.log(JSON.stringify(myJson));
+}
+
+let neighborhood = L.geoJson(neighborhoodBounds, {
+  //instantiates a new geoJson layer using built in geoJson handling
+  weight: 1, //Attributes of polygons including the weight of boundaries and colors of map.
+  color: "#222"
+})
+  .bindPopup(function(Layer) {
+    //binds a popup when clicking on each polygon to access underlying data
+    return Layer.feature.properties.NAME;
+  })
+  .addTo(mymap); //Adds the layer to the map.
