@@ -47,3 +47,9 @@ var loadGeoLayer = url => {
 
 // this lil helper function handles fetches for us.
 loadGeoLayer(urlNeighborhoods);
+
+url_ktown_airbnb = "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fkoreatown_airbnb.geojson?v=1575949660578"
+// We loading GEOJSON
+
+
+loadGeoLayer(urlNeighborhoods);

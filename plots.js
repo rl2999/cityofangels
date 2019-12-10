@@ -11,15 +11,28 @@ var makePricePlot = dataURL => {
   "data": {
     "url": "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fkoreatown_airbnb2.csv"
   },
+  "transform": [
+    {"filter": "datum.price < 6000"}
+  ],
   "mark": "bar",
   "encoding": {
-    "tooltip": [{"field": "price", "type": "quantitative"}],
-    "x": {"bin": true, "field": "price", "type": "quantitative", "axis": {"grid": false, "labelFont": "Courier"}},
-    "y": {"aggregate": "count", "type": "quantitative", "axis": {"grid": false, "labelFont": "Courier"}}   
+    "tooltip": [
+      {"field": "__count"},
+      {"field": "price", "type": "quantitative"}],
+    "x": {
+      "bin": false,
+      "field": "price",
+      "type": "quantitative",
+      "axis": {"grid": false, "labelFont": "Courier"}
+    },
+    "y": {
+      "aggregate": "count",
+      "type": "quantitative",
+      "axis": {"grid": false, "labelFont": "Courier"}
+    }
   },
   "config": {}
-}
-  };
+};
   // for debugging
   // console.log(JSON.stringify(plotData));
   return plotData;
