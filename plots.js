@@ -2,7 +2,7 @@
 // --------------------------------------------------------------- //
 
 var makePricePlot = dataURL => {
-  return ktown_plot_airbnb_price = {
+  var plotData = {
     $schema: "https://vega.github.io/schema/vega-lite/v4.json",
     width: "400",
     height: "400",
@@ -19,14 +19,11 @@ var makePricePlot = dataURL => {
       y: {
         aggregate: "count",
         type: "quantitative"
-      }, 
-       tooltip: [
-          {"field": "AAPL", "type": "quantitative"},
-          {"field": "AMZN", "type": "quantitative"}
-        ]
       },
     }
   };
+  console.log(JSON.stringify(plotData))
+  return plotData;
 };
 
 // Make standardized Vega JSON's
