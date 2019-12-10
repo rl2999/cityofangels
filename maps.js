@@ -46,8 +46,9 @@ var loadGeoLayer = url => {
 };
 
 const colorAirbnb = "#FF5A5F"
+const colorHomeless = "#0b03fc"
 
-var geojsonAirBnbOptions = {
+const geojsonAirBnbOptions = {
   radius: 3,
   fillColor: colorAirbnb,
   color: colorAirbnb,
@@ -78,6 +79,35 @@ const loadAirbnbPoints = url => {
     });
 };
 
+const geojsonHomelessPoints = {
+  radius: 3,
+  fillColor: colorHomeless,
+  color: colorHomeless,
+  weight: 0,
+  opacity: 1,
+  fillOpacity: .55,
+  preferCanvas: true
+  // renderer: L.Canvas
+};
+
+const load311Points = url => {
+  fetch(url)
+    .then(function(response) {
+      // Read data as JSON
+      return response.json();
+    })
+    .then(function(data) {
+      // Add data to the map
+      var myLayer = L.geoJSON(data, {
+        pointToLayer: function(feature, latlng) {
+          return L.circleMarker(latlng, geojsonHomelessPoints);
+        }
+      }).addTo(mainMap);
+  
+      console.log(data);
+    });
+};
+
 // this lil helper function handles fetches for us.
 loadGeoLayer(urlNeighborhoods);
 
@@ -88,8 +118,21 @@ url_hollywood_airbnb =
 url_venice_airbnb =
   "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fvenice_airbnb.geojson?v=1575949660567"
 
+url_ktown_homeless =
+  "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fktown_311.geojson?v=1575951990464"
+  
+url_hollywood_homeless =
+  "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fhollywood_311.geojson?v=1575951990464"
+
+url_venice_homeless =
+  "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fvenice_311.geojson?v=1575951990464"
+
+
 // We loading GEOJSON
 loadAirbnbPoints(url_ktown_airbnb);
 loadAirbnbPoints(url_hollywood_airbnb);
 loadAirbnbPoints(url_venice_airbnb);
-
+load311Points(url_ktown_homeless);
+load311Points(url_hollywood_homeless);
+load311Points(url_ktown_homeless);
+load311Points(url_venice_homeless);
