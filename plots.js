@@ -2,14 +2,13 @@
 // --------------------------------------------------------------- //
 // put the json here
 
-makePlotRentalType = url => {
+const makePlotRentalType = url => {
   var jsondata = {
     $schema: "https://vega.github.io/schema/vega-lite/v4.json",
     description: "Airbnb Rentals By Type",
     data: {
       values: {
-        url:
-url
+        url: url
       },
       transform: [
         {
@@ -46,13 +45,14 @@ url
 
 const makeOverviewScatter = url => {
   var jsondata = {
+    $schema: "https://vega.github.io/schema/vega-lite/v4.json",
     title:
       "Density of Airbnb rentals vs. homeless encampments across all neighborhoods",
     width: 600,
     height: "container",
-    $schema: "https://vega.github.io/schema/vega-lite/v4.json",
     data: {
-      url: url },
+      url: url
+    },
     encoding: {
       x: {
         field: "density_airbnb",
@@ -93,7 +93,6 @@ const makeOverviewScatter = url => {
   return jsondata;
 };
 
-
 var makePricePlot = dataURL => {
   var plotData = {
     title: "Frequency of rental units by price range",
@@ -102,8 +101,7 @@ var makePricePlot = dataURL => {
     width: 400,
     height: 250,
     data: {
-      url:
-        "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fkoreatown_airbnb2.csv"
+      url: dataURL
     },
     transform: [{ filter: "datum.price < 6000" }],
     mark: "bar",
@@ -127,33 +125,34 @@ var makePricePlot = dataURL => {
   return plotData;
 };
 
-urlOverviewData = "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fdensity_summary.csv"
+urlOverviewData =
+  "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fdensity_summary.csv";
 overviewScatterPlot = makeOverviewScatter(urlOverviewData);
 vegaEmbed("#overviewScatter", overviewScatterPlot);
 
 // Make standardized Vega JSON's
-urlKtownData = "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fkoreatown_airbnb2.csv";
+urlKtownData =
+  "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fkoreatown_airbnb2.csv";
 ktown_plot_airbnb_price = makePricePlot(urlKtownData);
+vegaEmbed("#ktown-viz-airbnb-price", ktown_plot_airbnb_price);
 ktownRentalTypes = makePlotRentalType(urlKtownData);
+vegaEmbed("#ktownRentalTypes", ktownRentalTypes);
 
-urlHollywoodData = "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fhollywood_airbnb2.csv";
+urlHollywoodData =
+  "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fhollywood_airbnb2.csv";
 hollywood_plot_airbnb_price = makePricePlot(urlHollywoodData);
-hollywoodRentalTypes = makePlotRentalType(urlHollywoodData);
+// hollywoodRentalTypes = makePlotRentalType(urlHollywoodData);
 
-urlVeniceData = "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fvenice_airbnb2.csv";
+urlVeniceData =
+  "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fvenice_airbnb2.csv";
 venice_plot_airbnb_price = makePricePlot(urlVeniceData);
-veniceRentalTypes = makePlotRentalType(urlVeniceData);
-
-
-// Embed our Vega plots
-vegaEmbed("#ktown-viz-airbnb-price", ktown_plot_airbnb_price);
-vegaEmbed("#ktown-viz-airbnb-price", ktown_plot_airbnb_price);
+// veniceRentalTypes = makePlotRentalType(urlVeniceData);
 
 vegaEmbed("#hollywood-viz-airbnb-price", hollywood_plot_airbnb_price);
-vegaEmbed("#hollywood-viz-airbnb-price", hollywood_plot_airbnb_price);
+vegaEmbed("#hollywoodRentalTypes", hollywood_plot_airbnb_price);
 
 vegaEmbed("#venice-viz-airbnb-price", venice_plot_airbnb_price);
-vegaEmbed("#venice-viz-airbnb-price", venice_plot_airbnb_price);
+vegaEmbed("#veniceRentalTypes", venice_plot_airbnb_price);
 
 // BOKEH //
 // --------------------------------------------------------------- //
