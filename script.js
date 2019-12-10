@@ -24,7 +24,7 @@ CartoDB_Positron = L.tileLayer(
     attribution:
       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
     subdomains: "abcd",
-    maxZoom: 15
+    maxZoom: 18
   }
 ).addTo(mainMap);
 
@@ -52,11 +52,11 @@ zoomToLocation = (point, zoomLevel) => {
   // mainMap.setZoom(zoom);
 };
 
-make_waypoint = (selector, triggerpoint, offsety, callbacky = x => {}) => {
+make_waypoint = (selector, triggerpoint, offsety, zoomLevel, callbacky = x => {}) => {
   new Waypoint({
     element: document.querySelector(selector),
     handler: function(direction) {
-      zoomToLocation(triggerpoint, 15);
+      zoomToLocation(triggerpoint, zoomLevel);
       // callbacky = typeof callbacky !== undefined ? null: callbacky();
       callbacky();
       console.log(
@@ -72,16 +72,23 @@ make_waypoint = (selector, triggerpoint, offsety, callbacky = x => {}) => {
 //   doanother();
 //   return x;
 // };
+const globalZoom = 15;
+const global_offset = 500;
+make_waypoint("#introduction", point_home, -1 * global_offset, globalZoom, x => {mainMap.setZoom(initZoom)});
 
-global_offset = 500;
-make_waypoint("#introduction", point_home, -1 * global_offset, x => {mainMap.setZoom(initZoom)});
-make_waypoint("#koreatown", point_koreatown, global_offset);
-make_waypoint("#venice", point_venice, global_offset, x => {
+make_waypoint("#koreatown", point_koreatown, global_offset, globalZoom);
+const ktownAnnotation = L.latLng(34.061779137567214, -118.29195141792297);
+make_waypoint("#ktownAnnotation", ktownAnnotation, global_offset, 17);
+
+
+make_waypoint("#venice", point_venice, global_offset, globalZoom, x => {
   console.log("lolol");
 });
-make_waypoint("#hollywood", point_hollywood, global_offset);
+
+
+make_waypoint("#hollywood", point_hollywood, global_offset, globalZoom);
 // make_waypoint("#burbank", point_burbank, 50);
-make_waypoint("#appendix", point_nyc, global_offset);
+make_waypoint("#appendix", point_nyc, global_offset, globalZoom);
 
 // D3 Leaflet Magic
 // -=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=-

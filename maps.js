@@ -1,3 +1,5 @@
+
+
 // neighborhoodBounds = postData();
 
 // https://leafletjs.com/reference-1.6.0.html#path-option
@@ -45,8 +47,8 @@ var loadGeoLayer = url => {
     });
 };
 
-const colorAirbnb = "#FF5A5F"
-const colorHomeless = "#0b03fc"
+const colorAirbnb = "#FF5A5F";
+const colorHomeless = "#0b03fc";
 
 const geojsonAirBnbOptions = {
   radius: 3,
@@ -54,7 +56,7 @@ const geojsonAirBnbOptions = {
   color: colorAirbnb,
   weight: 0,
   opacity: 1,
-  fillOpacity: .55,
+  fillOpacity: 0.55,
   preferCanvas: true
 
   // renderer: L.Canvas
@@ -83,7 +85,7 @@ const geojsonHomelessPoints = {
   color: colorHomeless,
   weight: 0,
   opacity: 1,
-  fillOpacity: .55,
+  fillOpacity: 0.55,
   preferCanvas: true
   // renderer: L.Canvas
 };
@@ -101,7 +103,7 @@ const load311Points = url => {
           return L.circleMarker(latlng, geojsonHomelessPoints);
         }
       }).addTo(mainMap);
-  
+
       console.log(data);
     });
 };
@@ -111,16 +113,16 @@ loadGeoLayer(urlNeighborhoods);
 
 url_ktown_airbnb =
   "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fkoreatown_airbnb.geojson?v=1575949660578";
-url_hollywood_airbnb = 
+url_hollywood_airbnb =
   "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fhollywood_airbnb.geojson?v=1575949660567";
 url_venice_airbnb =
-  "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fvenice_airbnb.geojson?v=1575949660567"
+  "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fvenice_airbnb.geojson?v=1575949660567";
 url_ktown_homeless =
-  "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fktown_311.geojson"
+  "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fktown_311.geojson";
 url_hollywood_homeless =
-  "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fhollywood_311.geojson"
+  "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fhollywood_311.geojson";
 url_venice_homeless =
-  "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fvenice_311.geojson"
+  "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fvenice_311.geojson";
 
 // We loading GEOJSON
 loadAirbnbPoints(url_ktown_airbnb);
