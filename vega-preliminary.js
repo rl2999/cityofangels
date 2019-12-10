@@ -7,7 +7,7 @@ makePlotRentalType = url => {
     data: {
       values: {
         url:
-          "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fkoreatown_airbnb2.csv"
+url
       },
       transform: [
         {
