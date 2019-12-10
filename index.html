@@ -30,21 +30,40 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@5.9.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.2.0"></script>
-    <!--     END VEGA LITE --> 
-    
+    <!--     END VEGA LITE -->
+
     <title>La-la Land: A Tour of Los Angeles</title>
 
     <!-- Make sure you put this AFTER Leaflet's CSS -->
   </head>
   <body>
     <div class="map-background-fixed position-fixed">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h2>
+              Map Legend
+            </h2>
+            
+            <table class="map-legend tg">
+              <tr>
+                <th class="tg-0lax legend-dot" style="color:#FF5A5F; font-size: 3rem">•</th>
+                <th class="tg-0lax">Airbnb listings</th>
+              </tr>
+              <tr>
+                <td class="tg-0lax legend-dot" style="color: #0b03fc; font-size: 3rem;">•</td>
+                <td class="tg-0lax">311 calls for homeless encampments</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
       <p>
         <!-- ETC -->
       </p>
     </div>
-    
-    <div id="mapid">
-    </div>
+
+    <div id="mapid"></div>
 
     <div class="scrollstory" id="scrollstory">
       <div id="introduction" class="container-fluid">
@@ -282,7 +301,7 @@
               We use availability as a proxy for...
             </p>
             <div class="viz-container">
-               <div id="venice-viz-airbnb-price"></div>
+              <div id="venice-viz-airbnb-price"></div>
             </div>
           </div>
         </div>
@@ -343,7 +362,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.min.js"></script>
     <!-- visualization libraries!  -->
-
 
     <script
       type="text/javascript"

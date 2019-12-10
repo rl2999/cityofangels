@@ -119,13 +119,13 @@ url_venice_airbnb =
   "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fvenice_airbnb.geojson?v=1575949660567"
 
 url_ktown_homeless =
-  "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fktown_311.geojson?v=1575951990464"
+  "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fktown_311.geojson"
   
 url_hollywood_homeless =
-  "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fhollywood_311.geojson?v=1575951990464"
+  "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fhollywood_311.geojson"
 
 url_venice_homeless =
-  "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fvenice_311.geojson?v=1575951990464"
+  "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fvenice_311.geojson"
 
 
 // We loading GEOJSON
