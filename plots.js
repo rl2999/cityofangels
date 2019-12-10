@@ -2,13 +2,17 @@
 // --------------------------------------------------------------- //
 // put the json here
 
+// const colorAirbnb = "#FF5A5F"
+// const colorHomeless = "#0b03fc"
 // GLOBAL VARS for dimensions
 const plotWidth = 400;
 const plotHeight = 400;
 
 const globalPlotConfig = {
-  background: "rgba(0,0,0,0)"
-  mark: {style: }
+  background: "rgba(0,0,0,0)",
+  mark: {
+    fill: "#FF5A5F"
+  }
 };
 
 const makePlotRentalType = url => {
@@ -69,7 +73,8 @@ const makeOverviewScatter = url => {
             bind: "scales"
           }
         },
-        mark: "circle"
+        mark: "circle",
+    fill: "#0b03fc",
       },
       {
         mark: { type: "text", baseline: "middle", dx: 30 },

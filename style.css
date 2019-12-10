@@ -208,10 +208,10 @@ p {
 }
 
 #appendix {
-  width: 100vw;
   background: rgba(255, 255, 255, 1);
   height: 50vh;
   display: flex;
+  padding: 3rem 3rem;
   align-items: flex-end;
 }
 
