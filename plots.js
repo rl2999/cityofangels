@@ -79,7 +79,7 @@ const makeOverviewScatter = url => {
   return jsondata;
 };
 
-var makePricePlot = dataURL => {
+const makePricePlot = dataURL => {
   var plotData = {
     title: "Frequency of rental units by price range",
     $schema: "https://vega.github.io/schema/vega-lite/v4.json",
@@ -87,13 +87,13 @@ var makePricePlot = dataURL => {
     width: 400,
     height: 400,
     data: {
-      url:
-        "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fkoreatown_airbnb2.csv"
+      url: dataURL
     },
     transform: [{ filter: "datum.price < 6000" }],
     layer: [
       {
         mark: "bar",
+        selection: { grid: { type: "interval", bind: "scales" } },
         encoding: {
           tooltip: [
             { field: "__count" },
@@ -103,19 +103,81 @@ var makePricePlot = dataURL => {
             bin: false,
             field: "price",
             type: "quantitative",
-            axis: { grid: false, labelFont: "Courier" }
+            axis: { grid: false, labelFont: "Courier" },
+            scale: { domain: [0, 365] }
           },
           y: {
             aggregate: "count",
             type: "quantitative",
-            axis: { grid: false, labelFont: "Courier" }
+            axis: { grid: false, labelFont: "Courier" },
+            scale: { domain: [0, 450] }
           }
         }
       },
       {
         mark: "rule",
         encoding: {
-          x: { aggregate: "mean", field: "price", type: "quantitative" },
+          x: {
+            aggregate: "mean",
+            field: "price",
+            type: "quantitative"
+          },
+          color: { value: "red" },
+          size: { value: 2 }
+        }
+      }
+    ],
+    config: {}
+  };
+  // for debugging
+  // console.log(JSON.stringify(plotData));
+  return plotData;
+};
+
+const makeMiniNights = dataURL => {
+  var plotData = {
+    title: "Frequency of rental units by minimum_nights range",
+    $schema: "https://vega.github.io/schema/vega-lite/v4.json",
+    autosize: { resize: true, type: "fit" },
+    width: 400,
+    height: 400,
+    data: {
+      url: dataURL
+    },
+    transform: [{ filter: "datum.minimum_nights < 6000" }],
+    layer: [
+      {
+        mark: "bar",
+        selection: { grid: { type: "interval", bind: "scales" } },
+
+        encoding: {
+          tooltip: [
+            { field: "__count" },
+            { field: "minimum_nights", type: "quantitative" }
+          ],
+          x: {
+            bin: false,
+            field: "minimum_nights",
+            type: "quantitative",
+            axis: { grid: false, labelFont: "Courier" },
+            scale: { domain: [0, 365] }
+          },
+          y: {
+            aggregate: "count",
+            type: "quantitative",
+            axis: { grid: false, labelFont: "Courier" },
+            scale: { domain: [0, 450] }
+          }
+        }
+      },
+      {
+        mark: "rule",
+        encoding: {
+          x: {
+            aggregate: "mean",
+            field: "minimum_nights",
+            type: "quantitative"
+          },
           color: { value: "red" },
           size: { value: 2 }
         }
@@ -139,6 +201,7 @@ const renderAllPlotsForArea = (area, dataUrl) => {
   vegaEmbed("#" + area + "-viz-airbnb-price", pricePlot);
   rentalTypes = makePlotRentalType(dataUrl);
   vegaEmbed("#" + area + "RentalTypes", rentalTypes);
+  vegaEmbed("#" + area + "MiniNights", makeMiniNights(dataURL));
 };
 
 renderAllPlotsForArea(
