@@ -1,0 +1,29 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "data": {"url": "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fkoreatown_airbnb2.csv"},
+  "layer": [{
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "bin": false,
+        "field": "price",
+        "type": "quantitative"
+      },
+      "y": {
+        "aggregate": "count",
+        "type": "quantitative"
+      }
+    }
+  },{
+    "mark": "rule",
+    "encoding": {
+      "x": {
+        "aggregate": "mean",
+        "field": "price",
+        "type": "quantitative"
+      },
+      "color": {"value": "red"},
+      "size": {"value": 2}
+    }
+  }]
+}
