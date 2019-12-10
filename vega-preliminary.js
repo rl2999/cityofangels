@@ -92,3 +92,8 @@ const makePlotRentalType = url => {
   };
   return jsondata;
 };
+
+
+
+
+
