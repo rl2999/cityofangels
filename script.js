@@ -1,4 +1,3 @@
-
 // require('waypoints');
 // prints "hi" in the browser's dev tools console
 console.log("Successfully loaded javascript file");
@@ -13,9 +12,10 @@ mapOptions = {
   dragging: false
 };
 
-point_home = L.latLng(34.0522, -118.2437);
+point_home = L.latLng(34.02990029603907, -118.33477020263672);
 
-mainMap = L.map("mapid", mapOptions).setView(point_home, 13);
+const initZoom = 13;
+mainMap = L.map("mapid", mapOptions).setView(point_home, initZoom);
 
 // Add base layer
 CartoDB_Positron = L.tileLayer(
@@ -74,7 +74,7 @@ make_waypoint = (selector, triggerpoint, offsety, callbacky = x => {}) => {
 // };
 
 global_offset = 500;
-make_waypoint("#introduction", point_home, global_offset);
+make_waypoint("#introduction", point_home, -1 * global_offset, x => {mainMap.setZoom(initZoom)});
 make_waypoint("#koreatown", point_koreatown, global_offset);
 make_waypoint("#venice", point_venice, global_offset, x => {
   console.log("lolol");

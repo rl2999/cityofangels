@@ -34,7 +34,7 @@ const makeOverviewScatter = url => {
     $schema: "https://vega.github.io/schema/vega-lite/v4.json",
     title:
       "Density of Airbnb rentals vs. homeless encampments across all neighborhoods",
-    width: "container",
+    width: 600,
     height: 300,
     data: {
       url: url
