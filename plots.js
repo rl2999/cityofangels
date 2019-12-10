@@ -9,6 +9,13 @@ const plotWidth = 400;
 const plotHeight = 400;
 
 const globalPlotConfig = {
+  axis: {
+    labelFont: "monospace",
+    titleFont: "Courier",
+  },
+  title: {
+    font: "Courier"
+  },
   background: "rgba(0,0,0,0)",
   mark: {
     fill: "#FF5A5F"
@@ -74,7 +81,7 @@ const makeOverviewScatter = url => {
           }
         },
         mark: "circle",
-    fill: "#0b03fc",
+        fill: "#0b03fc"
       },
       {
         mark: { type: "text", baseline: "middle", dx: 30 },
@@ -134,7 +141,7 @@ const makePricePlot = dataURL => {
             field: "price",
             type: "quantitative"
           },
-          color: { value: "red" },
+          color: { value: "blue" },
           size: { value: 2 }
         }
       }
@@ -145,7 +152,6 @@ const makePricePlot = dataURL => {
   // console.log(JSON.stringify(plotData));
   return plotData;
 };
-
 
 const makeMiniNights = dataURL => {
   var plotData = {
@@ -193,7 +199,7 @@ const makeMiniNights = dataURL => {
             field: "minimum_nights",
             type: "quantitative"
           },
-          color: { value: "red" },
+          color: { value: "blue" },
           size: { value: 2 }
         }
       }
