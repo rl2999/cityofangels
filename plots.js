@@ -3,23 +3,23 @@
 
 var makePricePlot = dataURL => {
   var plotData = {
+    title: "Frequency of rental units by price range",
     $schema: "https://vega.github.io/schema/vega-lite/v4.json",
-    autosize: "fit-x",
-    width: "container",
-    height: "400",
+    autosize: { resize: true, type: "fit" },
+    width: 400,
+    height: 250,
     data: {
-      url:
-        "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fkoreatown_airbnb2.csv"
+      url: dataURL
     },
     mark: "bar",
     encoding: {
       tooltip: [{ field: "price", type: "quantitative" }],
-
       x: { bin: false, field: "price", type: "quantitative" },
       y: { aggregate: "count", type: "quantitative" }
     }
   };
-  console.log(JSON.stringify(plotData));
+  // for debugging
+  // console.log(JSON.stringify(plotData));
   return plotData;
 };
 
