@@ -31,6 +31,7 @@ var makePricePlot = dataURL => {
       "axis": {"grid": false, "labelFont": "Courier"}
     }
   },
+    
   "config": {}
 };
   // for debugging
