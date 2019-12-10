@@ -4,25 +4,22 @@
 var makePricePlot = dataURL => {
   var plotData = {
     $schema: "https://vega.github.io/schema/vega-lite/v4.json",
-    width: "400",
+    autosize: "fit-x",
+    width: "container",
     height: "400",
     data: {
-      url: dataURL
+      url:
+        "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fkoreatown_airbnb2.csv"
     },
     mark: "bar",
     encoding: {
-      x: {
-        bin: false,
-        field: "price",
-        type: "quantitative"
-      },
-      y: {
-        aggregate: "count",
-        type: "quantitative"
-      },
+      tooltip: [{ field: "price", type: "quantitative" }],
+
+      x: { bin: false, field: "price", type: "quantitative" },
+      y: { aggregate: "count", type: "quantitative" }
     }
   };
-  console.log(JSON.stringify(plotData))
+  console.log(JSON.stringify(plotData));
   return plotData;
 };
 

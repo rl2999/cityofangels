@@ -174,3 +174,9 @@ p {
   height: auto;
   bottom: 0;
 }
+
+
+.vizContainerFigure {
+  width: 100%;
+  height: 200px;
+}
