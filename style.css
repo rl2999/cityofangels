@@ -131,7 +131,8 @@ p {
 }
 
 /* Legend goes here */
-.map-background-fixed {
+.map-legend {
+  position: fixed;
   background: rgba(0, 0, 0, 0.5);
   color: white;
   padding: 1rem;
@@ -141,15 +142,36 @@ p {
 }
 
 /* legend styles */
+.legend-item {
+  padding-left: 1rem;
+}
+
 .legend-item:before {
+  position: absolute;
+  left: .5em;
+  top: 1.5rem;
   content: "•";
   color: #FF5A5F;
-  font-size: 4rem;
+  font-size: 2rem;  vertical-align: sub;
+  padding-right: .35rem;
+}
+
+.legend-homeless:before {
+  color: blue;
+  left: .5em;
+  top: calc(2 * 1.5rem);
 }
 
 #mapid {
-  
+  z-index:-1;
+  /*   background: none; */
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+/*   top: 0;
+  left: 0; */
 }
+
 
 /* container */
 .scrollstory {
