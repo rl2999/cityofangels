@@ -52,7 +52,13 @@ zoomToLocation = (point, zoomLevel) => {
   // mainMap.setZoom(zoom);
 };
 
-make_waypoint = (selector, triggerpoint, offsety, zoomLevel, callbacky = x => {}) => {
+make_waypoint = (
+  selector,
+  triggerpoint,
+  offsety,
+  zoomLevel,
+  callbacky = x => {}
+) => {
   new Waypoint({
     element: document.querySelector(selector),
     handler: function(direction) {
@@ -74,19 +80,40 @@ make_waypoint = (selector, triggerpoint, offsety, zoomLevel, callbacky = x => {}
 // };
 const globalZoom = 15;
 const global_offset = 500;
-make_waypoint("#introduction", point_home, -1 * global_offset, globalZoom, x => {mainMap.setZoom(initZoom)});
+make_waypoint(
+  "#introduction",
+  point_home,
+  -1 * global_offset,
+  globalZoom,
+  x => {
+    mainMap.setZoom(initZoom);
+  }
+);
 
 make_waypoint("#koreatown", point_koreatown, global_offset, globalZoom);
 const ktownAnnotation = L.latLng(34.061779137567214, -118.29195141792297);
 make_waypoint("#ktownAnnotation", ktownAnnotation, global_offset, 17);
 
-
-make_waypoint("#venice", point_venice, global_offset, globalZoom, x => {
-  console.log("lolol");
-});
-
+const hollywoodAnnotation = L.latLng(34.10100227884199, -118.3399200439453);
 
 make_waypoint("#hollywood", point_hollywood, global_offset, globalZoom);
+make_waypoint(
+  "#hollywoodAnnotation",
+  hollywoodAnnotation,
+  global_offset,
+  16
+);
+
+const veniceAnnotation = L.latLng(33.98735281410265, -118.47379446029662);
+make_waypoint("#venice", point_venice, global_offset, globalZoom, x => {});
+make_waypoint(
+  "#veniceAnnotation",
+  veniceAnnotation,
+  global_offset,
+  16,
+  x => {}
+);
+
 // make_waypoint("#burbank", point_burbank, 50);
 make_waypoint("#appendix", point_nyc, global_offset, globalZoom);
 
