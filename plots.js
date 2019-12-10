@@ -42,6 +42,9 @@ vegaEmbed("#ktown-viz-airbnb-price", ktown_plot_airbnb_price);
 vegaEmbed("#hollywood-viz-airbnb-price", hollywood_plot_airbnb_price);
 vegaEmbed("#venice-viz-airbnb-price", venice_plot_airbnb_price);
 
+
+
+
 // BOKEH //
 // --------------------------------------------------------------- //
 (function() {
