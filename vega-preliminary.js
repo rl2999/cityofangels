@@ -3,24 +3,20 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "description": "Airbnb Rentals By Type",
   "data": {
-    "values": [
-      {"Activity": "Sleeping", "Time": 8},
-      {"Activity": "Eating", "Time": 2},
-      {"Activity": "TV", "Time": 4},
-      {"Activity": "Work", "Time": 8},
-      {"Activity": "Exercise", "Time": 2}
-    ]
-  },
+    "values": {
+      url:
+        "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fkoreatown_airbnb2.csv"
+    },
   "transform": [{
     "window": [{
       "op": "sum",
-      "field": "Time",
-      "as": "TotalTime"
+      "field": "room_type",
+      "as": "room_type"
     }],
     "frame": [null, null]
   },
   {
-    "calculate": "datum.Time/datum.TotalTime * 100",
+    "calculate": "datum.Time/datum.room_type * 100",
     "as": "PercentOfTotal"
   }],
   "height": {"step": 12},
@@ -30,7 +26,7 @@
       "field": "PercentOfTotal",
       "type": "quantitative",
       "axis": {
-        "title": "% of total Time"
+        "title": "% of Total"
       }
     },
     "y": {"field": "Activity", "type": "nominal"}
