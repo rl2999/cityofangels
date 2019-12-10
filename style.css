@@ -199,12 +199,8 @@ p {
 
 .landmark {
   scroll-snap-align: start;
-/*   background: rgba(255, 255, 255, 0.95); */
-  /*   color: white; */
   font-size: 1rem;
-  /*   border: 10px solid red; */
   margin: 100vh 0;
-  /*   padding: 3rem; */
 }
 
 #appendix {
@@ -235,4 +231,8 @@ p {
 
 .viz-description{
   font-size: calc(.9 * 1rem);
+}
+
+figure caption {
+  line-height: 1.0;
 }
