@@ -139,39 +139,15 @@ p {
   bottom: 0px;
   right: 2rem;
 }
+
 /* legend styles */
-.tg {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-.tg td {
-  font-size: 14px;
-  padding: 10px 5px;
-
-  overflow: hidden;
-  word-break: normal;
-}
-.tg th {
-  font-size: 14px;
-  font-weight: normal;
-  padding: 10px 5px;
-  overflow: hidden;
-  word-break: normal;
-}
-.tg .tg-0lax {
-  text-align: left;
-  vertical-align: top;
+.legend-item:before {
+  content: "•";
+  color: #FF5A5F;
+  font-size: 4rem;
 }
 
-#mapid {
-  z-index: -1;
-  /*   background: none; */
-  height: 100vh;
-  width: 100vw;
-  position: fixed;
-  /*   top: 0;
-  left: 0; */
-}
+/* const colorHomeless = "#0b03fc" */
 
 /* container */
 .scrollstory {

@@ -3,41 +3,39 @@
 
 var makePricePlot = dataURL => {
   var plotData = {
-  "title": "Frequency of rental units by price range",
-  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "autosize": {"resize": true, "type": "fit"},
-  "width": 400,
-  "height": 250,
-  "data": {
-    "url": "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fkoreatown_airbnb2.csv"
-  },
-  "transform": [
-    {"filter": "datum.price < 6000"}
-  ],
-  "mark": "bar",
-  "encoding": {
-    "tooltip": [
-      {"field": "__count"},
-      {"field": "price", "type": "quantitative"}],
-    "x": {
-      "bin": false,
-      "field": "price",
-      "type": "quantitative",
-      "axis": {"grid": false, "labelFont": "Courier"}
+    title: "Frequency of rental units by price range",
+    $schema: "https://vega.github.io/schema/vega-lite/v4.json",
+    autosize: { resize: true, type: "fit" },
+    width: 400,
+    height: 250,
+    data: {
+      url:
+        "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fkoreatown_airbnb2.csv"
     },
-    "y": {
-      "aggregate": "count",
-      "type": "quantitative",
-      "axis": {"grid": false, "labelFont": "Courier"}
-    }
-  },
-    
-  "config": {}
-};
+    transform: [{ filter: "datum.price < 6000" }],
+    mark: "bar",
+    encoding: {
+      tooltip: [{ field: "__count" }, { field: "price", type: "quantitative" }],
+      x: {
+        bin: false,
+        field: "price",
+        type: "quantitative",
+        axis: { grid: false, labelFont: "Courier" }
+      },
+      y: {
+        aggregate: "count",
+        type: "quantitative",
+        axis: { grid: false, labelFont: "Courier" }
+      }
+    },
+    config: {}
+  };
   // for debugging
   // console.log(JSON.stringify(plotData));
   return plotData;
 };
+
+// Wait are you trying to edit the vega code right now??
 
 // Make standardized Vega JSON's
 ktown_plot_airbnb_price = makePricePlot(
@@ -54,9 +52,6 @@ venice_plot_airbnb_price = makePricePlot(
 vegaEmbed("#ktown-viz-airbnb-price", ktown_plot_airbnb_price);
 vegaEmbed("#hollywood-viz-airbnb-price", hollywood_plot_airbnb_price);
 vegaEmbed("#venice-viz-airbnb-price", venice_plot_airbnb_price);
-
-
-
 
 // BOKEH //
 // --------------------------------------------------------------- //
