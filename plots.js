@@ -84,27 +84,44 @@ var makePricePlot = dataURL => {
     title: "Frequency of rental units by price range",
     $schema: "https://vega.github.io/schema/vega-lite/v4.json",
     autosize: { resize: true, type: "fit" },
-    width: plotWidth,
-    height: plotHeight,
+    width: 400,
+    height: 400,
     data: {
-      url: dataURL
+      url:
+        "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fkoreatown_airbnb2.csv"
     },
     transform: [{ filter: "datum.price < 6000" }],
-    mark: "bar",
-    encoding: {
-      tooltip: [{ field: "__count" }, { field: "price", type: "quantitative" }],
-      x: {
-        bin: false,
-        field: "price",
-        type: "quantitative",
-        axis: { grid: false, labelFont: "Courier" }
+    layer: [
+      {
+        mark: "bar",
+        encoding: {
+          tooltip: [
+            { field: "__count" },
+            { field: "price", type: "quantitative" }
+          ],
+          x: {
+            bin: false,
+            field: "price",
+            type: "quantitative",
+            axis: { grid: false, labelFont: "Courier" }
+          },
+          y: {
+            aggregate: "count",
+            type: "quantitative",
+            axis: { grid: false, labelFont: "Courier" }
+          }
+        }
       },
-      y: {
-        aggregate: "count",
-        type: "quantitative",
-        axis: { grid: false, labelFont: "Courier" }
+      {
+        mark: "rule",
+        encoding: {
+          x: { aggregate: "mean", field: "price", type: "quantitative" },
+          color: { value: "red" },
+          size: { value: 2 }
+        }
       }
-    }
+    ],
+    config: {}
   };
   // for debugging
   // console.log(JSON.stringify(plotData));
