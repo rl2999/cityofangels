@@ -16,6 +16,9 @@ var makePricePlot = dataURL => {
       tooltip: [{ field: "price", type: "quantitative" }],
       x: { bin: false, field: "price", type: "quantitative" },
       y: { aggregate: "count", type: "quantitative" }
+    },
+    transform: {
+      {filter: "datum.price <= 6000"}}
     }
   };
   // for debugging
