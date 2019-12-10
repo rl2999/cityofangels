@@ -6,6 +6,11 @@
 const plotWidth = 400;
 const plotHeight = 400;
 
+const globalPlotConfig = {
+  background: "rgba(0,0,0,0)"
+  mark: {style: }
+};
+
 const makePlotRentalType = url => {
   var jsondata = {
     title: "Distribution of room types",
@@ -24,7 +29,8 @@ const makePlotRentalType = url => {
         aggregate: "count",
         type: "quantitative"
       }
-    }
+    },
+    config: globalPlotConfig
   };
   return jsondata;
 };
@@ -74,7 +80,8 @@ const makeOverviewScatter = url => {
           }
         }
       }
-    ]
+    ],
+    config: globalPlotConfig
   };
   return jsondata;
 };
@@ -127,12 +134,13 @@ const makePricePlot = dataURL => {
         }
       }
     ],
-    config: {}
+    config: globalPlotConfig
   };
   // for debugging
   // console.log(JSON.stringify(plotData));
   return plotData;
 };
+
 
 const makeMiniNights = dataURL => {
   var plotData = {
@@ -144,12 +152,14 @@ const makeMiniNights = dataURL => {
     data: {
       url: dataURL
     },
+
+    view: { fill: "white", opacity: 0 },
     transform: [{ filter: "datum.minimum_nights < 6000" }],
     layer: [
       {
         mark: "bar",
         selection: { grid: { type: "interval", bind: "scales" } },
-
+        background: "rgba(0,0,0,0)",
         encoding: {
           tooltip: [
             { field: "__count" },
@@ -183,7 +193,7 @@ const makeMiniNights = dataURL => {
         }
       }
     ],
-    config: {}
+    config: globalPlotConfig
   };
   // for debugging
   // console.log(JSON.stringify(plotData));
@@ -201,7 +211,7 @@ const renderAllPlotsForArea = (area, dataUrl) => {
   vegaEmbed("#" + area + "-viz-airbnb-price", pricePlot);
   rentalTypes = makePlotRentalType(dataUrl);
   vegaEmbed("#" + area + "RentalTypes", rentalTypes);
-  vegaEmbed("#" + area + "MiniNights", makeMiniNights(dataURL));
+  vegaEmbed("#" + area + "MiniNights", makeMiniNights(dataUrl));
 };
 
 renderAllPlotsForArea(
