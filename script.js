@@ -12,9 +12,9 @@ mapOptions = {
   dragging: false
 };
 
-point_home = L.latLng(34.02990029603907, -118.33477020263672);
+point_home = L.latLng(34.022326, -118.395734);
 
-const initZoom = 13;
+const initZoom = 12;
 mainMap = L.map("mapid", mapOptions).setView(point_home, initZoom);
 
 // Add base layer
