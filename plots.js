@@ -27,15 +27,12 @@ var makePricePlot = dataURL => {
         type: "quantitative",
         axis: { grid: false, labelFont: "Courier" }
       }
-    },
-    config: {}
+    }
   };
   // for debugging
   // console.log(JSON.stringify(plotData));
   return plotData;
 };
-
-// Wait are you trying to edit the vega code right now??
 
 // Make standardized Vega JSON's
 ktown_plot_airbnb_price = makePricePlot(
