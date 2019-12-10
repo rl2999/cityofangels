@@ -34,8 +34,8 @@ const makeOverviewScatter = url => {
     $schema: "https://vega.github.io/schema/vega-lite/v4.json",
     title:
       "Density of Airbnb rentals vs. homeless encampments across all neighborhoods",
-    width: 600,
-    height: "container",
+    width: "container",
+    height: 300,
     data: {
       url: url
     },
@@ -111,7 +111,8 @@ var makePricePlot = dataURL => {
   return plotData;
 };
 
-const urlOverviewData = "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fdensity_summary.csv?v=1575956065678";
+const urlOverviewData =
+  "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fdensity_summary.csv";
 overviewScatterPlot = makeOverviewScatter(urlOverviewData);
 vegaEmbed("#overviewScatter", overviewScatterPlot);
 

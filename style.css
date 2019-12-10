@@ -65,6 +65,12 @@ h5 {
   font-size: calc(1.2 * 1);
 }
 
+
+/* This is the scatterplot for the overview */
+.overviewScatter {
+  width: 100%;
+  height: 5rem;
+}
 /* intro part is on top  */
 
 .title-container .lead {
