@@ -1,79 +1,44 @@
 // Vega-lite plots //
 // --------------------------------------------------------------- //
 
-var ktown_plot_airbnb_price = {
-  $schema: "https://vega.github.io/schema/vega-lite/v4.json",
-  width: "400",
-  height: "400",
-  data: {
-    url:
-      "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fkoreatown_airbnb2.csv"
-  },
-  mark: "bar",
-  encoding: {
-    x: {
-      bin: false,
-      field: "price",
-      type: "quantitative"
+var makePricePlot = dataURL => {
+  ktown_plot_airbnb_price = {
+    $schema: "https://vega.github.io/schema/vega-lite/v4.json",
+    width: "400",
+    height: "400",
+    data: {
+      url: dataURL
     },
-    y: {
-      aggregate: "count",
-      type: "quantitative"
+    mark: "bar",
+    encoding: {
+      x: {
+        bin: false,
+        field: "price",
+        type: "quantitative"
+      },
+      y: {
+        aggregate: "count",
+        type: "quantitative"
+      }
     }
-  }
+  };
 };
 
+// Make standardized Vega JSON's
+ktown_plot_airbnb_price = makePricePlot(
+  "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fkoreatown_airbnb2.csv"
+);
+hollywood_plot_airbnb_price = makePricePlot(
+  "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fhollywood_airbnb2.csv"
+);
+venice_plot_airbnb_price = makePricePlot(
+  "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fvenice_airbnb2.csv"
+);
+
+// Embed our Vega plots
 vegaEmbed("#ktown-viz-airbnb-price", ktown_plot_airbnb_price);
-
-var hollywood_plot_airbnb_price = {
-  $schema: "https://vega.github.io/schema/vega-lite/v4.json",
-  width: "400",
-  height: "400",
-  data: {
-    url:
-      "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fhollywood_airbnb2.csv"
-  },
-  mark: "bar",
-  encoding: {
-    x: {
-      bin: false,
-      field: "price",
-      type: "quantitative"
-    },
-    y: {
-      aggregate: "count",
-      type: "quantitative"
-    }
-  }
-};
-
 vegaEmbed("#hollywood-viz-airbnb-price", hollywood_plot_airbnb_price);
-
-var venice_plot_airbnb_price = {
-  $schema: "https://vega.github.io/schema/vega-lite/v4.json",
-  width: "400",
-  height: "400",
-  data: {
-    url:
-      "https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fvenice_airbnb2.csv"
-  },
-  mark: "bar",
-  encoding: {
-    x: {
-      bin: false,
-      field: "price",
-      type: "quantitative"
-    },
-    y: {
-      aggregate: "count",
-      type: "quantitative"
-    }
-  }
-};
-
 vegaEmbed("#venice-viz-airbnb-price", venice_plot_airbnb_price);
-
-
 
 // BOKEH //
 // --------------------------------------------------------------- //
