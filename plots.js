@@ -8,19 +8,19 @@
 const plotWidth = 400;
 const plotHeight = 400;
 
-const globalPlotConfig = {
-  axis: {
-    labelFont: "monospace",
-    titleFont: "Courier",
-  },
-  title: {
-    font: "Courier"
-  },
-  background: "rgba(0,0,0,0)",
-  mark: {
-    fill: "#FF5A5F"
-  }
-};
+  const globalPlotConfig = {
+    axis: {
+      labelFont: "monospace",
+      titleFont: "Courier",
+    },
+    title: {
+      font: "Courier"
+    },
+    background: "rgba(0,0,0,0)",
+    mark: {
+      fill: "#FF5A5F"
+    }
+  };
 
 const makePlotRentalType = url => {
   var jsondata = {
