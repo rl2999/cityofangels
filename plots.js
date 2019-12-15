@@ -9,6 +9,12 @@ const plotWidth = 400;
 const plotHeight = 400;
 
   const globalPlotConfig = {
+  autosize: {
+      resize: true,
+      type: "fit"
+    },
+    width: "container",
+    height: "container",
     axis: {
       labelFont: "monospace",
       titleFont: "Courier",
@@ -24,11 +30,10 @@ const plotHeight = 400;
 
 const makePlotRentalType = url => {
   var jsondata = {
+    width: "container",
     title: "Distribution of room types",
     description: "Distribution of room types",
     $schema: "https://vega.github.io/schema/vega-lite/v4.json",
-    width: plotWidth,
-    height: 250,
     data: { url: url },
     mark: "bar",
     encoding: {
@@ -48,11 +53,11 @@ const makePlotRentalType = url => {
 
 const makeOverviewScatter = url => {
   var jsondata = {
+    width: "container",
+    height: 600,
     $schema: "https://vega.github.io/schema/vega-lite/v4.json",
     title:
       "Density of Airbnb rentals vs. homeless encampments across all neighborhoods",
-    width: 600,
-    height: 300,
     data: {
       url: url
     },
@@ -81,6 +86,7 @@ const makeOverviewScatter = url => {
           }
         },
         mark: "circle",
+        size: 30,
         fill: "#0b03fc"
       },
       {
@@ -103,8 +109,8 @@ const makePricePlot = dataURL => {
     title: "Frequency of rental units by price range",
     $schema: "https://vega.github.io/schema/vega-lite/v4.json",
     autosize: { resize: true, type: "fit" },
-    width: 400,
-    height: 400,
+    width: "container",
+    height: "container",
     data: {
       url: dataURL
     },
