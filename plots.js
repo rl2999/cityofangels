@@ -31,6 +31,8 @@ const plotHeight = 400;
 const makePlotRentalType = url => {
   var jsondata = {
     width: "container",
+    height: "container",
+    autosize : {resize: true, type: "fit"},
     title: "Distribution of room types",
     description: "Distribution of room types",
     $schema: "https://vega.github.io/schema/vega-lite/v4.json",
