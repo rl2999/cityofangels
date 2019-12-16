@@ -31,27 +31,7 @@
     <!-- Make sure you put this AFTER Leaflet's CSS -->
   </head>
   <body>
-    <div class="map-legend">
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <h2>
-              Map Legend
-            </h2>
 
-            <div class="legend-item legend-airbnb">
-              Airbnb listings (Month of September 2019)
-            </div>
-            <div class="legend-item legend-homeless">
-              311 calls for homeless encampments (Full year of 2018)
-            </div>
-          </div>
-        </div>
-      </div>
-      <p>
-        <!-- ETC -->
-      </p>
-    </div>
 
     <div id="mapid"></div>
 
@@ -178,6 +158,32 @@
           </div>
         </div>
       </article>
+
+                <section class="map-legend">
+
+                  <h2>
+                    Map Legend
+                  </h2>
+
+                  <div class="legend-item legend-fire">
+                    <svg overflow="visible" viewbox="0 0 10 10" fill="#FF5A5F">
+                      <circle cx="5" cy="5" r="5"></circle>
+                    </svg>
+                    Airbnb rental listing
+                  </div>
+                  <div class="legend-item legend-fire-2">
+                    <svg overflow="visible" viewbox="0 0 10 10" fill="#0b03fc">
+                      <circle cx="5" cy="5" r="5"></circle>
+                    </svg>
+                    Report of homelessness encampment
+                  </div>
+
+                  <div class="legend-item legend-fire-2">
+                    <svg overflow="visible" viewbox="0 0 10 10" fill="blue">
+                      <line x1="0" y1="0" x2="10" y2="10" stroke="#52cc00" stroke-width="4" />
+                    </svg>
+                    Neighborhood boundary</div>
+                </section>
 
       <!--       start koreatown -->
       <article id="koreatown" class="container landmark">

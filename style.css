@@ -1,21 +1,5 @@
 /* CSS files add styling rules to your content */
 
-/* @font-face {
-  font-family: "WremenaLight";
-  src: url("https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2FWremenaLight.woff?v=1575511924210")
-    format("woff");
-}
-@font-face {
-  font-family: "WremenaRegular";
-  src: url("https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2FWremenaRegular.woff?v=1575512085516")
-    format("woff");
-}
-@font-face {
-  font-family: "WremenaBold";
-  src: url("https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2FWremenaBold.woff?v=1575512085516")
-    format("woff");
-} */
-
 @import url("https://fonts.googleapis.com/css?family=Barlow&display=swap");
 
 body {
@@ -153,38 +137,7 @@ p {
   font-family: "Barlow", sans-serif;
 }
 
-/* Legend goes here */
-.map-legend {
-  position: fixed;
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  padding: 1rem;
-  font-size: 1rem;
-  bottom: 0px;
-  right: 2rem;
-}
 
-/* legend styles */
-.legend-item {
-  padding-left: 1rem;
-}
-
-
-.legend-item:before {
-  position: absolute;
-  left: .5em;
-  top: 1.5rem;
-  content: "•";
-  color: #FF5A5F;
-  font-size: 2rem;  vertical-align: sub;
-  padding-right: .35rem;
-}
-
-.legend-homeless:before {
-  color: blue;
-  left: .5em;
-  top: calc(2 * 1.5rem);
-}
 
 #mapid {
   z-index:-1;
@@ -248,4 +201,33 @@ p {
 
 figure caption {
   line-height: 1.0;
+}
+
+
+
+/* Map legend */
+
+
+.map-legend {
+  background: transparent;
+  position: sticky;
+  top: 1vh;
+  right: 1vh;
+  margin: 0 0 auto auto;
+  max-width: 15rem;
+  font-size: 0.5rem;
+  letter-spacing: .2px;
+}
+
+.map-legend svg {
+  overflow: visible;
+  height: .8em;
+  width: .8em;
+  display: inline;
+}
+
+.map-legend h2 {
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: uppercase;
 }
