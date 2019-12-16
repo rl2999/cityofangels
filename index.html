@@ -1,640 +1,620 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      crossorigin="anonymous"
-    />
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/style.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    crossorigin="anonymous" />
 
-    <!-- Load Leaflet CSS -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.css"
-      rel="stylesheet"
-    />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/style.css" crossorigin="anonymous" />
 
-    <!--     VEGA LITE -->
-    <script src="https://cdn.jsdelivr.net/npm/vega@5.9.0"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.0"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.2.0"></script>
-    <!--     END VEGA LITE -->
+  <!-- Load Leaflet CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.css" rel="stylesheet" />
 
-    <title>Homelessness in the City of Angels: A Data Story</title>
+  <!--     VEGA LITE -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.9.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.2.0"></script>
+  <!--     END VEGA LITE -->
 
-    <!-- Make sure you put this AFTER Leaflet's CSS -->
-  </head>
-  <body>
+  <title>Homelessness in the City of Angels: A Data Story</title>
+
+  <!-- Make sure you put this AFTER Leaflet's CSS -->
+</head>
+
+<body>
 
 
-    <div id="mapid"></div>
+  <div id="mapid"></div>
 
-    <div class="scrollstory" id="scrollstory">
-      <article id="introduction" class="container-fluid gradient-background">
-        <div class="container title-container">
-          <div class="row">
-            <div class="col">
-              <h1 class="story-title">
-                HOMELESSNESS IN THE CITY OF ANGELS
-              </h1>
-              <p class="sub-title lead" class="font-style:italic;">
-                A data story by Regina Joy Alcazar and Ri Le
-              </p>
-            </div>
+  <div class="scrollstory" id="scrollstory">
+    <article id="introduction" class="container-fluid gradient-background">
+      <div class="container title-container">
+        <div class="row">
+          <div class="col">
+            <h1 class="story-title">
+              HOMELESSNESS IN THE CITY OF ANGELS
+            </h1>
+            <p class="sub-title lead" class="font-style:italic;">
+              A data story by Regina Joy Alcazar and Ri Le
+            </p>
           </div>
-          <div class="row">
-            <div class="col">
-              <p class="lead">
-                Welcome to Los Angeles!
-              </p>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p class="lead">
+              Welcome to Los Angeles!
+            </p>
 
-              <h3>
-                The pervasive issue of poverty and homelessness in Los Angeles
-              </h3>
+            <h3>
+              The pervasive issue of poverty and homelessness in Los Angeles
+            </h3>
 
-              <p>
-                Homelessness is a chronic problem plaguing the region perched
-                below palm-tree-lined, iridescent sunsets, bustling show biz
-                glamour and a cultural richness reflected in its culinary
-                offerings, thriving creative community and sprawling estates.
-                Compared to previous years, 2019 saw a stark increase in the
-                number of people living in tents, vehicles, and shelters in both
-                the City and County of Los Angeles–12% and 16% respectively
-                (LAHSA, 2019).
-              </p>
-              <h3>
-                Encampments through 311 complaints
-              </h3>
-              <p>
-                The city's sunny skies and spacious built environment draw over
-                50 million visitors a year. Considering these preferential
-                living conditions, the city provides an ideal landscape for the
-                houseless to build their own homes. Whereever space permits,
-                homeless encampments rise in clusters or in isolation,
-                deconstructing the very notion of place and home.
-              </p>
+            <p>
+              Homelessness is a chronic problem plaguing the region perched
+              below palm-tree-lined, iridescent sunsets, bustling show biz
+              glamour and a cultural richness reflected in its culinary
+              offerings, thriving creative community and sprawling estates.
+              Compared to previous years, 2019 saw a stark increase in the
+              number of people living in tents, vehicles, and shelters in both
+              the City and County of Los Angeles–12% and 16% respectively
+              (LAHSA, 2019).
+            </p>
+            <h3>
+              Encampments through 311 complaints
+            </h3>
+            <p>
+              The city's sunny skies and spacious built environment draw over
+              50 million visitors a year. Considering these preferential
+              living conditions, the city provides an ideal landscape for the
+              houseless to build their own homes. Whereever space permits,
+              homeless encampments rise in clusters or in isolation,
+              deconstructing the very notion of place and home.
+            </p>
 
-              <h3>
-                Fantasy vs reality: a home for who?
-              </h3>
-              <p>
-                This data journalism project investigates the extent of
-                homelessness at three of Los Angeles' most iconic neighborhoods.
-                We present a dichotomy between a fantasmic, imagined Los Angeles
-                with the reality of homelessness in order to show the pervasive
-                extent of housing insecurity across the beautiful City of Angels
-                that is often romanticized in pop culture. To do this, we
-                contrast georeferenced Airbnb rentals with 311 calls of homeless
-                encampments in 2018 to produce this interactive web story.
-              </p>
+            <h3>
+              Fantasy vs reality: a home for who?
+            </h3>
+            <p>
+              This data journalism project investigates the extent of
+              homelessness at three of Los Angeles' most iconic neighborhoods.
+              We present a dichotomy between a fantasmic, imagined Los Angeles
+              with the reality of homelessness in order to show the pervasive
+              extent of housing insecurity across the beautiful City of Angels
+              that is often romanticized in pop culture. To do this, we
+              contrast georeferenced Airbnb rentals with 311 calls of homeless
+              encampments in 2018 to produce this interactive web story.
+            </p>
 
-              <p>
-                This perception of a La-La-Land that is often projected onto Los
-                Angeles is illustrated with a juxtaposition of two transient
-                communities: Airbnb renters and the homeless.
-              </p>
-            </div>
+            <p>
+              This perception of a La-La-Land that is often projected onto Los
+              Angeles is illustrated with a juxtaposition of two transient
+              communities: Airbnb renters and the homeless.
+            </p>
           </div>
-          <div class="row">
-            <div class="col">
-              <h3>
-                Airbnb Renters: The Transient Traveler
-              </h3>
-              <img
-                src="https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2FAirbnb.jpg"
-                class="img-fluid"
-              />
+        </div>
+        <div class="row">
+          <div class="col">
+            <h3>
+              Airbnb Renters: The Transient Traveler
+            </h3>
+            <img src="https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2FAirbnb.jpg" class="img-fluid" />
+            <caption>
+              Airbnb listings often play off of this imagined Los Angeles.
+              Image: Curbed LA/Frederic J. Brown/AFP/Getty Images
+            </caption>
+          </div>
+          <div class="col">
+            <h3>
+              Homeless: The Transient Vagabond
+            </h3>
+            <figure>
+              <img src="https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fhomeless_CurbedLA.jpg"
+                class="img-fluid" />
               <caption>
                 Airbnb listings often play off of this imagined Los Angeles.
-                Image: Curbed LA/Frederic J. Brown/AFP/Getty Images
+                Image: Airbnb.com
               </caption>
-            </div>
-            <div class="col">
-              <h3>
-                Homeless: The Transient Vagabond
-              </h3>
-              <figure>
-                <img
-                  src="https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fhomeless_CurbedLA.jpg"
-                  class="img-fluid"
-                />
-                <caption>
-                  Airbnb listings often play off of this imagined Los Angeles.
-                  Image: Airbnb.com
-                </caption>
-              </figure>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <p class="lead">
-                In each neighborhood of the City of Los Angeles, we plotted the
-                density of Airbnb units against the density of homeless
-                encampments reported from 311 calls.
-              </p>
-              <p>
-                Scroll to zoom in and out of the plot, and mouseover a point to
-                see the density values.
-              </p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <figure>
-                <div id="overviewScatter"></div>
-              </figure>
-
-              <p class="lead">
-                Continue on our curated tour of Los Angeles to see a glimpse of
-                some of the city's unique neighborhoods.
-              </p>
-            </div>
+            </figure>
           </div>
         </div>
-      </article>
-
-                <section class="map-legend">
-
-                  <h2>
-                    Map Legend
-                  </h2>
-
-                  <div class="legend-item legend-fire">
-                    <svg overflow="visible" viewbox="0 0 10 10" fill="#FF5A5F">
-                      <circle cx="5" cy="5" r="5"></circle>
-                    </svg>
-                    Airbnb rental listing
-                  </div>
-                  <div class="legend-item legend-fire-2">
-                    <svg overflow="visible" viewbox="0 0 10 10" fill="#0b03fc">
-                      <circle cx="5" cy="5" r="5"></circle>
-                    </svg>
-                    Report of homelessness encampment
-                  </div>
-
-                  <div class="legend-item legend-fire-2">
-                    <svg overflow="visible" viewbox="0 0 10 10" fill="blue">
-                      <line x1="0" y1="0" x2="10" y2="10" stroke="#52cc00" stroke-width="4" />
-                    </svg>
-                    Neighborhood boundary</div>
-                </section>
-
-      <!--       start koreatown -->
-      <article id="koreatown" class="container landmark">
-        <header class="row">
-          <div class="col">
-            <h2>
-              Koreatown: A Multifaceted Cultural Enclave
-            </h2>
-            <p class="lead">
-              <q
-                >Koreatown is a bit of a misnomer. In truth, if we're sticking
-                to ethnic assignations, the neighborhood should be called
-                Korea-Mexico-town"</q
-              >
-              ―Roy Choi, Chef
-            </p>
-          </div>
-        </header>
-
         <div class="row">
           <div class="col">
+            <p class="lead">
+              In each neighborhood of the City of Los Angeles, we plotted the
+              density of Airbnb units against the density of homeless
+              encampments reported from 311 calls.
+            </p>
             <p>
-              K-Town has the highest density of Homelessness in the City of Los
-              Angeles. The passage of the Hart-Celler Act of 1965 resulted in a
-              demographic shift across the country, encouraging an influx of
-              immigrants that changed the cultural landscape of Los Angeles and
-              catalyzed the growth of "The best Koreatown outside of Korea"
-              (Curbed LA, 2019). Encompassing approximately 3 square miles just
-              west of Downtown LA and south of Hollywood, the area was once the
-              epicenter of Golden Age Hollywood, home to the Ambassador Hotel,
-              the Cocoanut Grove and the Brown Derb. Today, Korean and Latinx
-              populations contribute to Koreatown’s rich cultural diversity
-              (Discover LA, 2019).
+              Scroll to zoom in and out of the plot, and mouseover a point to
+              see the density values.
             </p>
-            <h3>
-              Rental types
-            </h3>
-            <figure class="vizContainerFigure">
-              <p class="viz-description">
-                A transient traveler has many considerations for selecting a
-                rental: the amenities offered, the general aesthetic of the
-                living environment, and space needed. This affects the choice
-                among the four rental type options. For those without any other
-                choice in the City of Los Angeles, more affordable options like
-                tents, vehicles, and shelters housed 36,165 people in 2019
-                (LAHSA).
-              </p>
-              <div id="ktownRentalTypes"></div>
-            </figure>
-
-            <h3>
-              Minimum Nights
-            </h3>
-            <figure class="vizContainerFigure">
-              <p class="viz-description">
-                Ranging from one day to a few months, Airbnb hosts can require a
-                minimum number of nights a renter could stay in their rental.
-                This offers a preview into the length of time a transient
-                traveler might stay in the neighborhood and why they might be
-                visiting, whether for long-term work or a short-term vacation.
-                By contrast, 23% of the homeless population surveyed experienced
-                homelessness for the first-time that year, whereas chronic
-                homelessness increased by 17% (LAHSA, 2019).
-              </p>
-
-              <div id="ktownMiniNights"></div>
-            </figure>
-
-            <h3>
-              Daily rate of an Airbnb rental
-            </h3>
-            <figure class="vizContainerFigure">
-              <p class="viz-description">
-                How much money would a transient traveler pay to visit? In
-                contrast, economic factors are the main driver of increases in
-                homelessness and Los Angeles is the least affordable housing
-                market in the United States (LAHSA, 2019).
-              </p>
-              <div id="ktown-viz-airbnb-price"></div>
-            </figure>
+          </div>
         </div>
-      </article>
-      <!-- end koreatown -->
-
-      <!--       POINT OUT STUFFS -->
-
-      <article id="ktownAnnotation" class="container landmark">
         <div class="row">
           <div class="col">
-            <h3>
-              Homelessness encampments are often reported along roads.
-            </h3>
+            <figure>
+              <div id="overviewScatter"></div>
+            </figure>
+
             <p class="lead">
-              Many of the homeless encampment reportings follow the major roads
-              such as Wilshire Blvd. There appears to be a cluster of Airbnb
-              listings in the southern and southeastern corners of K-town.
+              Continue on our curated tour of Los Angeles to see a glimpse of
+              some of the city's unique neighborhoods.
             </p>
           </div>
         </div>
-      </article>
-      <!--       CALLOUT END -->
+      </div>
+    </article>
 
-      <!--       start article for hollywood -->
-      <article id="hollywood" class="container landmark">
-        <header class="row">
-          <div class="col">
-            <h2>
-              Hollywood: Home of the Stars
-            </h2>
-            <p class="lead">
-              <q>
-                “Hollywood is a place where they'll pay you a thousand dollars
-                for a kiss and fifty cents for your soul.”</q
-              >―Marilyn Monroe, Actress
-            </p>
-          </div>
-        </header>
+    <section class="map-legend">
 
-        <div class="row">
-          <div class="col">
-            <p>
-              Hollywood made the city world-famous. In the early 1900s,
-              filmmakers began moving to the Los Angeles area to escape the
-              rigorous rules imposed by Thomas Edison’s Motion Picture Patents
-              Company in New Jersey. The famous Hollywood sign was erected in
-              1923 as “Hollywoodland” to advertise for a new housing
-              development, and the “Hollywood Walk of Fame” was built soon after
-              in 1956. It currently has well over 2,000 names added to the
-              star-studded sidewalk for contributing to the entertainment
-              industry (SMExpress, 2019).
-            </p>
-            <h3>
-              Rental types
-            </h3>
-            <figure class="vizContainerFigure">
-              <p class="viz-description">
-                A transient traveler has many considerations for selecting a
-                rental: the amenities offered, the general aesthetic of the
-                living environment, and space needed. This affects the choice
-                among the four rental type options. For those without any other
-                choice in the City of Los Angeles, more affordable options like
-                tents, vehicles, and shelters housed 36,165 people in 2019
-                (LAHSA).
-              </p>
-              <div id="hollywoodRentalTypes"></div>
-            </figure>
-            <h3>
-              Minimum Nights
-            </h3>
-            <figure class="vizContainerFigure">
-              <p class="viz-description">
-                Ranging from one day to a few months, Airbnb hosts can require a
-                minimum number of nights a renter could stay in their rental.
-                This offers a preview into the length of time a transient
-                traveler might stay in the neighborhood and why they might be
-                visiting, whether for long-term work or a short-term vacation.
-                By contrast, 23% of the homeless population surveyed experienced
-                homelessness for the first-time that year, whereas chronic
-                homelessness increased by 17% (LAHSA, 2019).
-              </p>
+      <h2>
+        Map Legend
+      </h2>
 
-              <div id="hollywoodMiniNights"></div>
-            </figure>
+      <div class="legend-item legend-fire">
+        <svg overflow="visible" viewbox="0 0 10 10" fill="#FF5A5F">
+          <circle cx="5" cy="5" r="5"></circle>
+        </svg>
+        Airbnb rental listing
+      </div>
+      <div class="legend-item legend-fire-2">
+        <svg overflow="visible" viewbox="0 0 10 10" fill="#0b03fc">
+          <circle cx="5" cy="5" r="5"></circle>
+        </svg>
+        Report of homelessness encampment
+      </div>
 
-            <h3>
-              Daily rate of an Airbnb rental
-            </h3>
-            <figure class="vizContainerFigure">
-              <p class="viz-description">
-                How much money would a transient traveler pay to visit? In
-                contrast, economic factors are the main driver of increases in
-                homelessness and Los Angeles is the least affordable housing
-                market in the United States (LAHSA, 2019).
-              </p>
-              <div id="hollywood-viz-airbnb-price"></div>
-            </figure>
-      
-        </div>
-      </article>
-      <!--       end appendix for hollywood -->
+      <div class="legend-item legend-fire-2">
+        <svg overflow="visible" viewbox="0 0 10 10" fill="blue">
+          <line x1="0" y1="0" x2="10" y2="10" stroke="#52cc00" stroke-width="4" />
+        </svg>
+        Neighborhood boundary</div>
+    </section>
 
-      <!--       POINT OUT STUFFS -->
-
-      <article id="hollywoodAnnotation" class="container landmark">
-        <div class="row">
-          <div class="col">
-            <h3>
-              The Hollywood Walk of Fame
-            </h3>
-            <p class="lead">
-              The main strip of Hollywood Boulevard sees a large concentration
-              of Airbnb rentals surrounding the corridor, while there are very
-              few homeless encampment reports. Since the Walk of Fame is a
-              highly-trafficked tourist destination, could this void in
-              homelessness encampments be explained by sweeps and clearings?
-            </p>
-          </div>
-        </div>
-      </article>
-      <!--       CALLOUT END -->
-
-      <!--   start article for venice -->
-      <article id="venice" class="container landmark">
-        <header class="row">
-          <div class="col">
-            <h2>
-              Venice: A creative paradise
-            </h2>
-            <p class="lead">
-              <q
-                >Venice Beach is a combination of the tacky, the mindless, the
-                ironic, and the novel.</q
-              >
-              ―Freelance Dionysian (VirtualVenice)
-            </p>
-          </div>
-        </header>
-
-        <div class="row">
-          <div class="col">
-            <p>
-              Originally called "Venice of America," Venice was founded in 1905
-              by tobacco millionaire Abbot Kinney as a 14-mile beach resort town
-              (LAist, 2018). Inspired by the enchantment of Venice, Italy,
-              Kinney unveiled the resort town and amusement park to 40,000
-              visitors. The park featured Italian gondoliers poling their boats
-              down fairy-lit canals, a concert orchestra supplying music that
-              could be heard nearly all over town, camel rides, exotic hotels
-              catering to the best tastes, and a miniature railroad circling the
-              entire scene (LA Times, 1998). This vibrant atmosphere continues
-              today (Venice, 2019).
-            </p>
-          </div>
-          
-            <h3>
-              Rental types
-            </h3>
-            <figure class="vizContainerFigure">
-              <p class="viz-description">
-                A transient traveler has many considerations for selecting a
-                rental: the amenities offered, the general aesthetic of the
-                living environment, and space needed. This affects the choice
-                among the four rental type options. For those without any other
-                choice in the City of Los Angeles, more affordable options like
-                tents, vehicles, and shelters housed 36,165 people in 2019
-                (LAHSA).
-              </p>
-              <div id="veniceRentalTypes"></div>
-            </figure>
-
-            <h3>
-              Minimum Nights
-            </h3>
-            <figure class="vizContainerFigure">
-              <p class="viz-description">
-                Ranging from one day to a few months, Airbnb hosts can require a
-                minimum number of nights a renter could stay in their rental.
-                This offers a preview into the length of time a transient
-                traveler might stay in the neighborhood and why they might be
-                visiting, whether for long-term work or a short-term vacation.
-                By contrast, 23% of the homeless population surveyed experienced
-                homelessness for the first-time that year, whereas chronic
-                homelessness increased by 17% (LAHSA, 2019).
-              </p>
-
-              <div id="veniceMiniNights"></div>
-            </figure>
-
-            <h3>
-              Daily rate of an Airbnb rental
-            </h3>
-            <figure class="vizContainerFigure">
-              <p class="viz-description">
-                How much money would a transient traveler pay to visit? In
-                contrast, economic factors are the main driver of increases in
-                homelessness and Los Angeles is the least affordable housing
-                market in the United States (LAHSA, 2019).
-              </p>
-              <div id="venice-viz-airbnb-price"></div>
-            </figure>
-          
-        </div>
-      </article>
-      <!-- end article for venice -->
-
-      <!--       POINT OUT STUFFS -->
-
-      <article id="veniceAnnotation" class="container landmark">
-        <div class="row">
-          <div class="col">
-            <h3>Waterfront vacation spots</h3>
-            <p class="lead">
-              Venice is the neighborhood with the highest density of Airbnb
-              rentals per acre in Los Angeles, this is clearly seen with the
-              high concentration of Airbnb vacation rentals along the
-              beachfront. 
-            </p>
-          </div>
-        </div>
-      </article>
-      <!--       CALLOUT END -->
-
-      <!--       start appendix etc. -->
-      <div id="appendix" class="container-fluid">
-        <div class="container">
-          <article>
-            <h1>
-              References
-            </h1>
-            <div
-              class="csl-bib-body"
-              style="font-size: .7rem; line-height: 1.3; margin-left: 2em; text-indent:-2em;"
-            >
-              <div class="csl-entry">
-                <i
-                  >3437 - 2019 Greater Los Angeles Homeless Count
-                  Presentation</i
-                >.
-                https://www.lahsa.org/documents?id=3437-2019-greater-los-angeles-homeless-count-presentation.pdf.
-                Accessed 10 Dec. 2019.
-              </div>
-              <div class="csl-entry">
-                <i>A Short History of Hollywood | Courier Service Los Angeles</i
-                >. https://smexpress.com/short-history-of-hollywood/. Accessed
-                10 Dec. 2019.
-              </div>
-              <div class="csl-entry">
-                Carlson, Jen. “A Short History Of Venice, Which Used To Be An
-                Oilfield.” <i>LAist</i>,
-                https://laist.com/2015/01/29/venice_beach_used_to_be_an_oilfield.php.
-                Accessed 10 Dec. 2019.
-              </div>
-              <div class="csl-entry">
-                <i>Hollywood Quotes (226 Quotes)</i>.
-                https://www.goodreads.com/quotes/tag/hollywood. Accessed 10 Dec.
-                2019.
-              </div>
-              <div class="csl-entry">
-                “Inside Airbnb. Adding Data to the Debate.”
-                <i>Inside Airbnb</i>, http://insideairbnb.com. Accessed 10 Dec.
-                2019.
-              </div>
-              <div class="csl-entry">
-                Kang, Matthew. “The Eight Best Lines from Roy Choi’s Profile in
-                California Sunday Magazine.” <i>Eater LA</i>, 5 Dec. 2014,
-                https://la.eater.com/2014/12/5/7341819/the-eight-best-lines-from-roy-chois-profile-in-california-sunday.
-              </div>
-              <div class="csl-entry">
-                “Los Angeles Celebrates Record Milestone of 50 Million Visitors
-                in 2018.” <i>Discover Los Angeles</i>,
-                https://www.discoverlosangeles.com/los-angeles-celebrates-record-milestone-of-50-million-visitors-in-2018.
-                Accessed 10 Dec. 2019.
-              </div>
-              <div class="csl-entry">
-                Meares, Hadley. “LA Has ‘the Best Koreatown Outside of Korea.’”
-                <i>Curbed LA</i>, 6 May 2019,
-                https://la.curbed.com/2019/5/6/18523959/koreatown-los-angeles-guelaguetza-riots.
-              </div>
-              <div class="csl-entry">
-                ---. “LA Has ‘the Best Koreatown Outside of Korea.’”
-                <i>Curbed LA</i>, 6 May 2019,
-                https://la.curbed.com/2019/5/6/18523959/koreatown-los-angeles-guelaguetza-riots.
-              </div>
-              <div class="csl-entry">
-                <i>Quotations About Venice</i>.
-                http://www.virtualvenice.info/print/quotes.htm. Accessed 10 Dec.
-                2019.
-              </div>
-              <div class="csl-entry">
-                “Stroll Through Venice’s Past.” <i>Los Angeles Times</i>, 7
-                Sept. 1998,
-                https://www.latimes.com/archives/la-xpm-1998-sep-07-me-20328-story.html.
-              </div>
-              <div class="csl-entry">
-                “The Guide to Koreatown in Los Angeles.”
-                <i>Discover Los Angeles</i>,
-                https://www.discoverlosangeles.com/visit/the-guide-to-koreatown-in-los-angeles.
-                Accessed 10 Dec. 2019.
-              </div>
-              <div class="csl-entry">
-                <i>Venice Historical Society - Venice, California</i>.
-                http://www.veniceofamerica.org/. Accessed 10 Dec. 2019.
-              </div>
-            </div>
-          </article>
-          <br />
-          <h1>Appendix</h1>
+    <!--       start koreatown -->
+    <article id="koreatown" class="container landmark">
+      <header class="row">
+        <div class="col">
           <h2>
-            Methodology and data sources
+            Koreatown: A Multifaceted Cultural Enclave
           </h2>
-          <p>
-            We began with the LA Times neighborhood boundaries. We then selected
-            311 calls for "homelessness encampment" complaints for the City of
-            Los Angeles in 2018. We also used Airbnb listing locations available
-            on the countermapping website, Inside Airbnb, for the month of
-            September 2019. The two data sets were analyzed in Python to
-            calculate the density of values per acre and three neighborhoods
-            were selected based on highest density of homeless encampment
-            complaints and Airbnb listings. To understand the complexity of the
-            dichotomy, a narrative for each neighborhood is shared, along with
-            contrasting visuals and descriptions about Airbnb and homelessness.
+          <p class="lead">
+            <q>Koreatown is a bit of a misnomer. In truth, if we're sticking
+              to ethnic assignations, the neighborhood should be called
+              Korea-Mexico-town"</q>
+            ―Roy Choi, Chef
           </p>
-          
-          <h2>Credits</h2>
-          <p>
-            This data story was created by <a href="https://www.linkedin.com/in/reginaalcazar/">Regina Joy Alcazar</a> and <a href="https://riledigital.com">Ri Le</a> for the
-            course Informatics 1 during 2019 Fall taught by <a href="https://vanky.co/">Professor Anthony P. Vanky</a> at the Columbia University Graduate School of Architecture,
-            Planning and Preservation.
-          </p>
+        </div>
+      </header>
 
+      <div class="row">
+        <div class="col">
           <p>
-            This web story was built on Web technology: HTML/CSS/JS, Waypoints,
-            Vega-Lite, and Leaflet, and hosted on Glitch. Data processing was
-            done with Python, namely the geopandas package.
+            K-Town has the highest density of Homelessness in the City of Los
+            Angeles. The passage of the Hart-Celler Act of 1965 resulted in a
+            demographic shift across the country, encouraging an influx of
+            immigrants that changed the cultural landscape of Los Angeles and
+            catalyzed the growth of "The best Koreatown outside of Korea"
+            (Curbed LA, 2019). Encompassing approximately 3 square miles just
+            west of Downtown LA and south of Hollywood, the area was once the
+            epicenter of Golden Age Hollywood, home to the Ambassador Hotel,
+            the Cocoanut Grove and the Brown Derb. Today, Korean and Latinx
+            populations contribute to Koreatown’s rich cultural diversity
+            (Discover LA, 2019).
+          </p>
+          <h3>
+            Rental types
+          </h3>
+          <figure class="vizContainerFigure">
+            <p class="viz-description">
+              A transient traveler has many considerations for selecting a
+              rental: the amenities offered, the general aesthetic of the
+              living environment, and space needed. This affects the choice
+              among the four rental type options. For those without any other
+              choice in the City of Los Angeles, more affordable options like
+              tents, vehicles, and shelters housed 36,165 people in 2019
+              (LAHSA).
+            </p>
+            <div id="ktownRentalTypes"></div>
+          </figure>
+
+          <h3>
+            Minimum Nights
+          </h3>
+          <figure class="vizContainerFigure">
+            <p class="viz-description">
+              Ranging from one day to a few months, Airbnb hosts can require a
+              minimum number of nights a renter could stay in their rental.
+              This offers a preview into the length of time a transient
+              traveler might stay in the neighborhood and why they might be
+              visiting, whether for long-term work or a short-term vacation.
+              By contrast, 23% of the homeless population surveyed experienced
+              homelessness for the first-time that year, whereas chronic
+              homelessness increased by 17% (LAHSA, 2019).
+            </p>
+
+            <div id="ktownMiniNights"></div>
+          </figure>
+
+          <h3>
+            Daily rate of an Airbnb rental
+          </h3>
+          <figure class="vizContainerFigure">
+            <p class="viz-description">
+              How much money would a transient traveler pay to visit? In
+              contrast, economic factors are the main driver of increases in
+              homelessness and Los Angeles is the least affordable housing
+              market in the United States (LAHSA, 2019).
+            </p>
+            <div id="ktown-viz-airbnb-price"></div>
+          </figure>
+        </div>
+    </article>
+    <!-- end koreatown -->
+
+    <!--       POINT OUT STUFFS -->
+
+    <article id="ktownAnnotation" class="container landmark">
+      <div class="row">
+        <div class="col">
+          <h3>
+            Homelessness encampments are often reported along roads.
+          </h3>
+          <p class="lead">
+            Many of the homeless encampment reportings follow the major roads
+            such as Wilshire Blvd. There appears to be a cluster of Airbnb
+            listings in the southern and southeastern corners of K-town.
           </p>
         </div>
       </div>
+    </article>
+    <!--       CALLOUT END -->
 
-      <!--       Scrollstory tag -->
+    <!--       start article for hollywood -->
+    <article id="hollywood" class="container landmark">
+      <header class="row">
+        <div class="col">
+          <h2>
+            Hollywood: Home of the Stars
+          </h2>
+          <p class="lead">
+            <q>
+              “Hollywood is a place where they'll pay you a thousand dollars
+              for a kiss and fifty cents for your soul.”</q>―Marilyn Monroe, Actress
+          </p>
+        </div>
+      </header>
+
+      <div class="row">
+        <div class="col">
+          <p>
+            Hollywood made the city world-famous. In the early 1900s,
+            filmmakers began moving to the Los Angeles area to escape the
+            rigorous rules imposed by Thomas Edison’s Motion Picture Patents
+            Company in New Jersey. The famous Hollywood sign was erected in
+            1923 as “Hollywoodland” to advertise for a new housing
+            development, and the “Hollywood Walk of Fame” was built soon after
+            in 1956. It currently has well over 2,000 names added to the
+            star-studded sidewalk for contributing to the entertainment
+            industry (SMExpress, 2019).
+          </p>
+          <h3>
+            Rental types
+          </h3>
+          <figure class="vizContainerFigure">
+            <p class="viz-description">
+              A transient traveler has many considerations for selecting a
+              rental: the amenities offered, the general aesthetic of the
+              living environment, and space needed. This affects the choice
+              among the four rental type options. For those without any other
+              choice in the City of Los Angeles, more affordable options like
+              tents, vehicles, and shelters housed 36,165 people in 2019
+              (LAHSA).
+            </p>
+            <div id="hollywoodRentalTypes"></div>
+          </figure>
+          <h3>
+            Minimum Nights
+          </h3>
+          <figure class="vizContainerFigure">
+            <p class="viz-description">
+              Ranging from one day to a few months, Airbnb hosts can require a
+              minimum number of nights a renter could stay in their rental.
+              This offers a preview into the length of time a transient
+              traveler might stay in the neighborhood and why they might be
+              visiting, whether for long-term work or a short-term vacation.
+              By contrast, 23% of the homeless population surveyed experienced
+              homelessness for the first-time that year, whereas chronic
+              homelessness increased by 17% (LAHSA, 2019).
+            </p>
+
+            <div id="hollywoodMiniNights"></div>
+          </figure>
+
+          <h3>
+            Daily rate of an Airbnb rental
+          </h3>
+          <figure class="vizContainerFigure">
+            <p class="viz-description">
+              How much money would a transient traveler pay to visit? In
+              contrast, economic factors are the main driver of increases in
+              homelessness and Los Angeles is the least affordable housing
+              market in the United States (LAHSA, 2019).
+            </p>
+            <div id="hollywood-viz-airbnb-price"></div>
+          </figure>
+
+        </div>
+    </article>
+    <!--       end appendix for hollywood -->
+
+    <!--       POINT OUT STUFFS -->
+
+    <article id="hollywoodAnnotation" class="container landmark">
+      <div class="row">
+        <div class="col">
+          <h3>
+            The Hollywood Walk of Fame
+          </h3>
+          <p class="lead">
+            The main strip of Hollywood Boulevard sees a large concentration
+            of Airbnb rentals surrounding the corridor, while there are very
+            few homeless encampment reports. Since the Walk of Fame is a
+            highly-trafficked tourist destination, could this void in
+            homelessness encampments be explained by sweeps and clearings?
+          </p>
+        </div>
+      </div>
+    </article>
+    <!--       CALLOUT END -->
+
+    <!--   start article for venice -->
+    <article id="venice" class="container landmark">
+      <header class="row">
+        <div class="col">
+          <h2>
+            Venice: A creative paradise
+          </h2>
+          <p class="lead">
+            <q>Venice Beach is a combination of the tacky, the mindless, the
+              ironic, and the novel.</q>
+            ―Freelance Dionysian (VirtualVenice)
+          </p>
+        </div>
+      </header>
+
+      <div class="row">
+        <div class="col">
+          <p>
+            Originally called "Venice of America," Venice was founded in 1905
+            by tobacco millionaire Abbot Kinney as a 14-mile beach resort town
+            (LAist, 2018). Inspired by the enchantment of Venice, Italy,
+            Kinney unveiled the resort town and amusement park to 40,000
+            visitors. The park featured Italian gondoliers poling their boats
+            down fairy-lit canals, a concert orchestra supplying music that
+            could be heard nearly all over town, camel rides, exotic hotels
+            catering to the best tastes, and a miniature railroad circling the
+            entire scene (LA Times, 1998). This vibrant atmosphere continues
+            today (Venice, 2019).
+          </p>
+        
+
+        <h3>
+          Rental types
+        </h3>
+        <figure class="vizContainerFigure">
+          <p class="viz-description">
+            A transient traveler has many considerations for selecting a
+            rental: the amenities offered, the general aesthetic of the
+            living environment, and space needed. This affects the choice
+            among the four rental type options. For those without any other
+            choice in the City of Los Angeles, more affordable options like
+            tents, vehicles, and shelters housed 36,165 people in 2019
+            (LAHSA).
+          </p>
+          <div id="veniceRentalTypes"></div>
+        </figure>
+
+        <h3>
+          Minimum Nights
+        </h3>
+        <figure class="vizContainerFigure">
+          <p class="viz-description">
+            Ranging from one day to a few months, Airbnb hosts can require a
+            minimum number of nights a renter could stay in their rental.
+            This offers a preview into the length of time a transient
+            traveler might stay in the neighborhood and why they might be
+            visiting, whether for long-term work or a short-term vacation.
+            By contrast, 23% of the homeless population surveyed experienced
+            homelessness for the first-time that year, whereas chronic
+            homelessness increased by 17% (LAHSA, 2019).
+          </p>
+
+          <div id="veniceMiniNights"></div>
+        </figure>
+
+        <h3>
+          Daily rate of an Airbnb rental
+        </h3>
+        <figure class="vizContainerFigure">
+          <p class="viz-description">
+            How much money would a transient traveler pay to visit? In
+            contrast, economic factors are the main driver of increases in
+            homelessness and Los Angeles is the least affordable housing
+            market in the United States (LAHSA, 2019).
+          </p>
+          <div id="venice-viz-airbnb-price"></div>
+        </figure>
+
+      </div>
+    </article>
+    <!-- end article for venice -->
+
+    <!--       POINT OUT STUFFS -->
+
+    <article id="veniceAnnotation" class="container landmark">
+      <div class="row">
+        <div class="col">
+          <h3>Waterfront vacation spots</h3>
+          <p class="lead">
+            Venice is the neighborhood with the highest density of Airbnb
+            rentals per acre in Los Angeles, this is clearly seen with the
+            high concentration of Airbnb vacation rentals along the
+            beachfront.
+          </p>
+        </div>
+      </div>
+    </article>
+    <!--       CALLOUT END -->
+
+    <!--       start appendix etc. -->
+    <div id="appendix" class="container-fluid">
+      <div class="container">
+        <article>
+          <h1>
+            References
+          </h1>
+          <div class="csl-bib-body" style="font-size: .7rem; line-height: 1.3; margin-left: 2em; text-indent:-2em;">
+            <div class="csl-entry">
+              <i>3437 - 2019 Greater Los Angeles Homeless Count
+                Presentation</i>.
+              https://www.lahsa.org/documents?id=3437-2019-greater-los-angeles-homeless-count-presentation.pdf.
+              Accessed 10 Dec. 2019.
+            </div>
+            <div class="csl-entry">
+              <i>A Short History of Hollywood | Courier Service Los Angeles</i>.
+              https://smexpress.com/short-history-of-hollywood/. Accessed
+              10 Dec. 2019.
+            </div>
+            <div class="csl-entry">
+              Carlson, Jen. “A Short History Of Venice, Which Used To Be An
+              Oilfield.” <i>LAist</i>,
+              https://laist.com/2015/01/29/venice_beach_used_to_be_an_oilfield.php.
+              Accessed 10 Dec. 2019.
+            </div>
+            <div class="csl-entry">
+              <i>Hollywood Quotes (226 Quotes)</i>.
+              https://www.goodreads.com/quotes/tag/hollywood. Accessed 10 Dec.
+              2019.
+            </div>
+            <div class="csl-entry">
+              “Inside Airbnb. Adding Data to the Debate.”
+              <i>Inside Airbnb</i>, http://insideairbnb.com. Accessed 10 Dec.
+              2019.
+            </div>
+            <div class="csl-entry">
+              Kang, Matthew. “The Eight Best Lines from Roy Choi’s Profile in
+              California Sunday Magazine.” <i>Eater LA</i>, 5 Dec. 2014,
+              https://la.eater.com/2014/12/5/7341819/the-eight-best-lines-from-roy-chois-profile-in-california-sunday.
+            </div>
+            <div class="csl-entry">
+              “Los Angeles Celebrates Record Milestone of 50 Million Visitors
+              in 2018.” <i>Discover Los Angeles</i>,
+              https://www.discoverlosangeles.com/los-angeles-celebrates-record-milestone-of-50-million-visitors-in-2018.
+              Accessed 10 Dec. 2019.
+            </div>
+            <div class="csl-entry">
+              Meares, Hadley. “LA Has ‘the Best Koreatown Outside of Korea.’”
+              <i>Curbed LA</i>, 6 May 2019,
+              https://la.curbed.com/2019/5/6/18523959/koreatown-los-angeles-guelaguetza-riots.
+            </div>
+            <div class="csl-entry">
+              ---. “LA Has ‘the Best Koreatown Outside of Korea.’”
+              <i>Curbed LA</i>, 6 May 2019,
+              https://la.curbed.com/2019/5/6/18523959/koreatown-los-angeles-guelaguetza-riots.
+            </div>
+            <div class="csl-entry">
+              <i>Quotations About Venice</i>.
+              http://www.virtualvenice.info/print/quotes.htm. Accessed 10 Dec.
+              2019.
+            </div>
+            <div class="csl-entry">
+              “Stroll Through Venice’s Past.” <i>Los Angeles Times</i>, 7
+              Sept. 1998,
+              https://www.latimes.com/archives/la-xpm-1998-sep-07-me-20328-story.html.
+            </div>
+            <div class="csl-entry">
+              “The Guide to Koreatown in Los Angeles.”
+              <i>Discover Los Angeles</i>,
+              https://www.discoverlosangeles.com/visit/the-guide-to-koreatown-in-los-angeles.
+              Accessed 10 Dec. 2019.
+            </div>
+            <div class="csl-entry">
+              <i>Venice Historical Society - Venice, California</i>.
+              http://www.veniceofamerica.org/. Accessed 10 Dec. 2019.
+            </div>
+          </div>
+        </article>
+        <br />
+        <h1>Appendix</h1>
+        <h2>
+          Methodology and data sources
+        </h2>
+        <p>
+          We began with the LA Times neighborhood boundaries. We then selected
+          311 calls for "homelessness encampment" complaints for the City of
+          Los Angeles in 2018. We also used Airbnb listing locations available
+          on the countermapping website, Inside Airbnb, for the month of
+          September 2019. The two data sets were analyzed in Python to
+          calculate the density of values per acre and three neighborhoods
+          were selected based on highest density of homeless encampment
+          complaints and Airbnb listings. To understand the complexity of the
+          dichotomy, a narrative for each neighborhood is shared, along with
+          contrasting visuals and descriptions about Airbnb and homelessness.
+        </p>
+
+        <h2>Credits</h2>
+        <p>
+          This data story was created by <a href="https://www.linkedin.com/in/reginaalcazar/">Regina Joy Alcazar</a> and
+          <a href="https://riledigital.com">Ri Le</a> for the
+          course Informatics 1 during 2019 Fall taught by <a href="https://vanky.co/">Professor Anthony P. Vanky</a> at
+          the Columbia University Graduate School of Architecture,
+          Planning and Preservation.
+        </p>
+
+        <p>
+          This web story was built on Web technology: HTML/CSS/JS, Waypoints,
+          Vega-Lite, and Leaflet, and hosted on Glitch. Data processing was
+          done with Python, namely the geopandas package.
+        </p>
+      </div>
     </div>
-    <!--     Scroll story tag -->
 
-    <!-- Optional JavaScript -->
-    <!-- Load Leaflet library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.js"></script>
+    <!--       Scrollstory tag -->
+  </div>
+  <!--     Scroll story tag -->
 
-    <!-- Load Promises polyfill -->
-    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"></script>
-    <!-- Load Fetch polyfill -->
-    <script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.4/fetch.js"></script>
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <!-- Optional JavaScript -->
+  <!-- Load Leaflet library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.js"></script>
 
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
+  <!-- Load Promises polyfill -->
+  <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"></script>
+  <!-- Load Fetch polyfill -->
+  <script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.4/fetch.js"></script>
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.min.js"></script>
-    <!-- visualization libraries!  -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
 
-    <!--       These are our scripts we edit -->
-    <script type="text/javascript" src="./script.js"></script>
-    <script type="text/javascript" src="./maps.js"></script>
-    <script type="text/javascript" src="./plots.js"></script>
-  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.min.js"></script>
+  <!-- visualization libraries!  -->
+
+  <!--       These are our scripts we edit -->
+  <script type="text/javascript" src="./script.js"></script>
+  <script type="text/javascript" src="./maps.js"></script>
+  <script type="text/javascript" src="./plots.js"></script>
+</body>
+
 </html>
