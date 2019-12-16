@@ -110,7 +110,6 @@ const makePricePlot = dataURL => {
   var plotData = {
     title: "Frequency of rental units by price range",
     $schema: "https://vega.github.io/schema/vega-lite/v4.json",
-    autosize: { resize: true, type: "fit" },
     width: "container",
     height: "container",
     data: {
@@ -166,8 +165,6 @@ const makeMiniNights = dataURL => {
     title: "Frequency of rental units by minimum_nights range",
     $schema: "https://vega.github.io/schema/vega-lite/v4.json",
     autosize: { resize: true, type: "fit" },
-    width: 400,
-    height: 400,
     data: {
       url: dataURL
     },
