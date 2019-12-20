@@ -209,9 +209,11 @@ figure caption {
 
 
 .map-legend {
-  background: transparent;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  padding: .70rem;
   position: sticky;
-  top: 1vh;
+  top: calc(100vh - 7rem);
   right: 1vh;
   margin: 0 0 auto auto;
   max-width: 15rem;

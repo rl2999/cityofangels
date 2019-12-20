@@ -8,7 +8,8 @@ geojsonStyle = {
   weight: 1.5,
   fillOpacity: 0,
   dashArray: "10",
-  opacity: 1
+  opacity: 1,
+  size: 3
 };
 
 // Wow Fetch neighborhoods layer and load it into the map as GEOJSON!
