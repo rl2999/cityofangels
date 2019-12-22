@@ -117,12 +117,17 @@ make_waypoint(
 // make_waypoint("#burbank", point_burbank, 50);
 make_waypoint("#appendix", point_nyc, global_offset, globalZoom);
 
-var waypoint = new Waypoint({
-  element: document.getElementById('waypoint'),
+var appendix = new Waypoint({
+  element: document.getElementById('appendix'),
   handler: function (direction) {
-    console.log('Scrolled to waypoint!')
+    console.log('Hiding map legend!');
+    toggleLegend();
   }
-})
+});
+
+const toggleLegend = (x) => {
+  document.querySelector('.map-legend').classList.toggle("invisible");
+};
 
 // D3 Leaflet Magic
 // -=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=-

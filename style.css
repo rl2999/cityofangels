@@ -93,7 +93,7 @@ h5 {
 /*   height: 75vh; */
   /*   padding: 3rem; */
   margin: 0;
-  padding: .5rem;
+  padding: .25rem;
 }
 
 @media screen and (min-width: 600px) {
@@ -135,7 +135,7 @@ h5 {
 }
 
 .landmark {
-    padding: 3vw 5vh;
+    padding: 1vw 3vh;
   /*   transform: skew(-3deg, -2.5deg); */
 }
 
@@ -250,6 +250,10 @@ figure caption {
   max-width: 15rem;
   font-size: 0.5rem;
   letter-spacing: .2px;
+}
+
+.map-legend {
+  transition: all 1.0 ease-in-out 0;
 }
 
 .map-legend svg {
