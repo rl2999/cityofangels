@@ -117,6 +117,13 @@ make_waypoint(
 // make_waypoint("#burbank", point_burbank, 50);
 make_waypoint("#appendix", point_nyc, global_offset, globalZoom);
 
+var waypoint = new Waypoint({
+  element: document.getElementById('waypoint'),
+  handler: function (direction) {
+    console.log('Scrolled to waypoint!')
+  }
+})
+
 // D3 Leaflet Magic
 // -=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=--=-=-=-
 // async function postData(url = "", data = {}) {

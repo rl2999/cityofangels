@@ -13,6 +13,28 @@ body {
   max-width: 37rem;
 }
 
+.csl-bib-body { 
+  overflow: hidden;
+  /* These are technically the same, but use both */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  -ms-word-break: break-all;
+  /* This is the dangerous one in WebKit, as it breaks things wherever */
+  word-break: break-all;
+  /* Instead use this non-standard one: */
+  word-break: break-word;
+
+  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto; hyphens: auto;
+  font-size: .5em;
+  line-height:1.0;
+  padding-left: 2em; 
+  text-indent:-2em
+}
+
 h1,
 h2,
 h3,
@@ -73,6 +95,7 @@ h5 {
   margin: 0;
   padding: .5rem;
 }
+
 @media screen and (min-width: 600px) {
   #introduction {
     padding: 3rem;
@@ -112,9 +135,18 @@ h5 {
 }
 
 .landmark {
-  padding: 3rem 3rem 10% 3rem;
+    padding: 3vw 5vh;
   /*   transform: skew(-3deg, -2.5deg); */
 }
+
+@media screen and (min-width: 600px) {
+  .landmark {
+    padding: 3rem 3rem 10% 3rem;
+  }
+}
+
+
+
 
 .landmark p {
   /*   font-size: 0.8rem; */
@@ -141,8 +173,8 @@ p {
 #mapid {
   z-index:-1;
   /*   background: none; */
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   position: fixed;
 /*   top: 0;
   left: 0; */
@@ -172,7 +204,6 @@ p {
 /*   background: rgba(255, 255, 255, 1); */
 /*   height: 50vh; */
   display: flex;
-  padding: 3rem 3rem;
   align-items: flex-end;
 }
 
