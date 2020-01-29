@@ -1,42 +1,9 @@
+Homelessness in the City of Angels
+----
+A data story by Regina Joy Alcazar and Ri Le
 
-below is a working example of geojson??? weird
+See the project live at [https://rl2999.github.io/cityofangels](https://rl2999.github.io/cityofangels)
 
-https://glitch.com/edit/#!/spiritual-deltadromeus?path=index.html:22:3
+This data story was created by Regina Joy Alcazar and Ri Le for the course Informatics 1 during 2019 Fall taught by Professor Anthony P. Vanky at the Columbia University Graduate School of Architecture, Planning and Preservation.
 
-Welcome to Glitch
-=================
-
-Click `Show` in the header to see your app live. Updates to your code will instantly deploy and update live.
-
-**Glitch** is the friendly community where you'll build the app of your dreams. Glitch lets you instantly create, remix, edit, and host an app, bot or site, and you can invite collaborators or helpers to simultaneously edit code with you.
-
-Find out more [about Glitch](https://glitch.com/about).
-
-
-Your Project
-------------
-
-### ← README.md
-
-That's this file, where you can tell people what your cool website does and how you built it.
-
-### ← index.html
-
-Where you'll write the content of your website. 
-
-### ← style.css
-
-CSS files add styling rules to your content.
-
-### ← script.js
-
-If you're feeling fancy you can add interactivity to your site with JavaScript.
-
-### ← assets
-
-Drag in `assets`, like images or music, to add them to your project
-
-Made by [Glitch](https://glitch.com/)
--------------------
-
-\ ゜o゜)ノ
+This web story was built on Web technology: HTML/CSS/JS, Waypoints, Vega-Lite, and Leaflet, and hosted on Glitch. Data processing was done with Python, namely the geopandas package.
