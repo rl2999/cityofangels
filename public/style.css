@@ -1,0 +1,64 @@
+/* CSS files add styling rules to your content */
+
+@import url("https://fonts.googleapis.com/css?family=Barlow&display=swap");
+@import "normalize.css";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Barlow", sans-serif;
+  font-size: 20px;
+  line-height: 1.35;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 2rem;
+  max-width: 50ch;
+}
+
+.responsive-image {
+  height: auto;
+  width: 100%;
+}
+
+.content {
+  margin: 1rem;
+}
+
+.scrollstory {
+  background: none;
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 10;
+}
+
+.story-title {
+  font-size: 2rem;
+  line-height: 1.15;
+}
+
+#introduction {
+  background: none;
+  /* display: none; */
+}
+
+@media screen and (min-width: 700px) {
+  body {
+    font-size: 28px;
+  }
+}

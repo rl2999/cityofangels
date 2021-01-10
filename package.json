@@ -1,0 +1,27 @@
+{
+  "scripts": {
+    "start": "snowpack dev",
+    "build": "snowpack build",
+    "bundle:*": "@snowpack/plugin-webpack"
+  },
+  "devDependencies": {
+    "@snowpack/plugin-webpack": "^2.2.0",
+    "snowpack": "^2.18.5"
+  },
+  "name": "ls",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/riledigital/cityofangels",
+  "author": "Ri <ri.le@upstatement.com>",
+  "license": "MIT",
+  "dependencies": {
+    "leaflet": "^1.7.1",
+    "maplibre-gl": "^1.13.0-rc.4",
+    "normalize.css": "^8.0.1",
+    "ol": "^6.5.0",
+    "vega": "5.9.0",
+    "vega-embed": "6.2.0",
+    "vega-lite": "4.0.0",
+    "waypoints": "^4.0.1"
+  }
+}
