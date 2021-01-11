@@ -59,10 +59,56 @@ const setupMap = function () {
         ],
         view: new View({
           center: fromLonLat(pointHome),
-          zoom: 13
+          zoom: 8
         })
       })
     });
 }
+
+const flyMapTo = function (elements, map) {
+  const id = elements[0];
+  switch (id) {
+    case '#ktown':
+      console.log(id)
+      break;
+    case '#hollywood':
+      console.log(id)
+      break;
+    case '#venice':
+      console.log(id)
+      break;
+  }
+}
+
+const setupScrollObserver = function () {
+
+  function callback(entries, observer) {
+    console.log(observer);
+
+    entries.forEach(entry => {
+      console.log(entry);
+    });
+
+    // flyMapTo(entries, map);
+  }
+
+
+  const makeObserver = function (selector) {
+    let observer = new IntersectionObserver(callback, {
+      root: document.body,
+      rootMargin: '0px',
+      threshold: 0
+    });
+    console.log(selector);
+    observer.observe(document.querySelector(selector));
+  }
+
+  // const waypoints = ['#ktown', '#hollywood', '#venice']
+  const waypoints = ['#ktown']
+  // waypoints.forEach(point => observe);
+  makeObserver('#ktown')
+}
+
+setupScrollObserver();
 
 export default setupMap;
