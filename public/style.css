@@ -22,7 +22,7 @@
 
 body {
   color: var(--c-text);
-  font-family: var(--font-family);
+  font-family: var(--font-body);
   font-size: var(--font-size-base);
   line-height: var(--line-height-base);
 }
