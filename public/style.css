@@ -3,15 +3,28 @@
 @import url("https://fonts.googleapis.com/css?family=Barlow&display=swap");
 @import "normalize.css";
 
+:root {
+  --font-body: "Barlow", sans-serif;
+  --font-headings: serif;
+  --font-size-base: 20px;
+  --line-height-base: 1.35;
+  --c-pink: pink;
+  --c-blue: blue;
+  --c-text: black;
+  --margin-mobile: 1rem;
+  --margin: 4rem;
+}
+
 * {
   margin: 0;
   padding: 0;
 }
 
 body {
-  font-family: "Barlow", sans-serif;
-  font-size: 20px;
-  line-height: 1.35;
+  color: var(--c-text);
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
 }
 
 h1,
@@ -19,7 +32,7 @@ h2,
 h3,
 h4,
 h5 {
-  margin-bottom: 1rem;
+  margin-bottom: var(--margin-mobile);
 }
 
 p {
@@ -71,7 +84,12 @@ p {
 }
 
 .map-legend {
-  max-width: 100px;
+  display: grid;
+  position: sticky;
+  left: 50vw;
+  top: 75vh;
+  grid-template: 1rem 1rem 1rem;
+  max-width: 10rem;
   overflow: hidden;
 }
 @media screen and (min-width: 700px) {
@@ -79,3 +97,31 @@ p {
     font-size: 28px;
   }
 }
+
+.map-legend__header {
+  grid-row: 1;
+}
+
+.map-legend__heading {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.map-legend__symbols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+}
+
+.intro-images {
+  display: grid;
+  padding: var(--margin);
+  grid-gap: 1rem;
+
+}
+
+@media screen and (min-width: 700px) {
+  .intro-images {
+    grid-template-columns: 50% 50%;
+  }
+  }
