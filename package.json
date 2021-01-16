@@ -21,7 +21,6 @@
   "author": "Ri <ri.le@upstatement.com>",
   "license": "MIT",
   "dependencies": {
-    "leaflet": "^1.7.1",
     "maplibre-gl": "^1.13.0-rc.4",
     "normalize.css": "^8.0.1",
     "ol": "^6.5.0",
