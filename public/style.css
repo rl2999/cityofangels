@@ -125,3 +125,9 @@ p {
     grid-template-columns: 50% 50%;
   }
   }
+
+
+  .chart-wrapper {
+    z-index: 10;
+    width: 100%;
+  }

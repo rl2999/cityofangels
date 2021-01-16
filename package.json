@@ -21,12 +21,13 @@
   "author": "Ri <ri.le@upstatement.com>",
   "license": "MIT",
   "dependencies": {
+    "mapbox-gl": "^2.0.1",
     "maplibre-gl": "^1.13.0-rc.4",
     "normalize.css": "^8.0.1",
     "ol": "^6.5.0",
-    "vega": "5.9.0",
-    "vega-embed": "6.2.0",
-    "vega-lite": "4.0.0",
+    "vega": "^5.18.0",
+    "vega-embed": "^6.15.0",
+    "vega-lite": "^4.17.0",
     "waypoints": "^4.0.1"
   }
 }

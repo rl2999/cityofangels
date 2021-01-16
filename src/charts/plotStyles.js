@@ -1,21 +1,4 @@
 export const globalPlotConfig = {
-  autosize: {
-    resize: true,
-    type: 'fit'
-  },
-  width: 'container',
-  height: 'container',
-  axis: {
-    labelFont: 'monospace',
-    titleFont: 'Courier'
-  },
-  title: {
-    font: 'Courier'
-  },
-  background: 'rgba(0,0,0,0)',
-  mark: {
-    fill: '#f8e7e8'
-  }
 }
 
 export const makePlotRentalType = url => {
@@ -48,78 +31,23 @@ export const makePlotRentalType = url => {
   return jsondata
 }
 
-export const makeOverviewScatter = url => ({
-  autosize: {
-    resize: false,
-    type: 'fit'
-  },
-  height: 'container',
-  width: 'container',
-  $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
-  title: 'Density of Airbnb rentals vs. homeless encampments across all neighborhoods',
-  data: {
-    url: url
-  },
-  encoding: {
-    x: {
-      field: 'density_airbnb',
-      type: 'quantitative',
-      scale: {
-        domain: [0, 1.5]
-      }
-    },
-    y: {
-      field: 'density_homeless',
-      type: 'quantitative',
-      scale: {
-        domain: [0, 2]
-      }
-    },
-    tooltip: [{
-      field: 'density_airbnb',
-      type: 'quantitative'
-    },
-    {
-      field: 'density_homeless',
-      type: 'quantitative'
-    }
-    ]
-  },
-  layer: [{
-    selection: {
-      grid: {
-        type: 'interval',
-        bind: 'scales'
-      }
-    },
-    mark: 'circle',
-    size: 120,
-    fill: '#0b03fc'
-  },
+export const makeOverviewScatter = url => (
   {
-    mark: {
-      type: 'text',
-      baseline: 'middle',
-      dx: 30
+    title: 'Density of Airbnb rentals vs. homeless encampments across all neighborhoods',
+    data: {
+      url
     },
+    mark: 'point',
     encoding: {
-      text: {
-        field: 'neighbourhood',
-        type: 'nominal'
-      },
-      color: {
-        value: 'black'
-      }
+      x: { field: 'density_airbnb', type: 'quantitative' },
+      y: { field: 'density_homeless', type: 'quantitative' }
     }
-  }
-  ],
-  config: globalPlotConfig
-})
+  })
 
 export const makePricePlot = dataURL => {
   const plotData = {
     title: 'Frequency of rental units by price range',
-    $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
+
     width: 'container',
     height: 'container',
     data: {

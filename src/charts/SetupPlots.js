@@ -11,10 +11,10 @@ const plotWidth = 400
 const plotHeight = 400
 
 const urlOverviewData =
-    'https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fdensity_summary.csv'
-const overviewScatterPlot = makeOverviewScatter(urlOverviewData)
+    'http://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fdensity_summary.csv'
+const overviewScatterPlot = makeOverviewScatter('data/density_summary.csv')
 
-export const renderOverview = async () => await embed('#overviewScatter', overviewScatterPlot)
+export const renderOverview = () => embed('#overviewScatter', overviewScatterPlot).then(result => console.log(result))
 
 // Make standardized Vega JSON's
 // export const renderAllPlotsForArea = (area, dataUrl) => {
