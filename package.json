@@ -14,7 +14,7 @@
     "prettier": "^2.2.1",
     "snowpack": "^2.18.5"
   },
-  "name": "ls",
+  "name": "cityofangels",
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/riledigital/cityofangels",
@@ -27,7 +27,6 @@
     "ol": "^6.5.0",
     "vega": "^5.18.0",
     "vega-embed": "^6.15.0",
-    "vega-lite": "^4.17.0",
-    "waypoints": "^4.0.1"
+    "vega-lite": "^4.17.0"
   }
 }
