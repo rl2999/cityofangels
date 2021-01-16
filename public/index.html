@@ -1,168 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- <link href="style.css" rel="stylesheet" /> -->
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="style.css" rel="stylesheet" />
+    <title>Homelessness in the City of Angels: A Data Story</title>
 
-  <title>Homelessness in the City of Angels: A Data Story</title>
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+  </head>
 
-  <!-- Make sure you put this AFTER Leaflet's CSS -->
-</head>
+  <body>
+    <div id="map"></div>
 
-<body>
-  <div id="map"></div>
+    <div class="scrollstory" id="scrollstory">
+      <div class="title-card">
+        <h1 class="title-card__title">Homelessness in the City of Angels</h1>
+        <p class="byline">A data story by Regina Joy Alcazar and Ri Le</p>
+      </div>
+      <div id="introduction" class="intro-container">
+        <p class="lead">Welcome to Los Angeles!</p>
 
-  <div class="scrollstory" id="scrollstory">
-    <div id="introduction" class="content">
-      <h1 class="story-title">
-        HOMELESSNESS IN THE CITY OF ANGELS
-      </h1>
-      <p class="byline">
-        A data story by Regina Joy Alcazar and Ri Le
-      </p>
+        <h3>The pervasive issue of poverty and homelessness in Los Angeles</h3>
 
-      <p class="lead">
-        Welcome to Los Angeles!
-      </p>
+        <p>
+          Homelessness is a chronic problem plaguing the region perched below
+          palm-tree-lined, iridescent sunsets, bustling show biz glamour and a
+          cultural richness reflected in its culinary offerings, thriving
+          creative community and sprawling estates. Compared to previous years,
+          2019 saw a stark increase in the number of people living in tents,
+          vehicles, and shelters in both the City and County of Los Angeles–12%
+          and 16% respectively (LAHSA, 2019).
+        </p>
+        <h3>Encampments through 311 complaints</h3>
+        <p>
+          The city's sunny skies and spacious built environment draw over 50
+          million visitors a year. Considering these preferential living
+          conditions, the city provides an ideal landscape for the houseless to
+          build their own homes. Whereever space permits, homeless encampments
+          rise in clusters or in isolation, deconstructing the very notion of
+          place and home.
+        </p>
 
-      <h3>
-        The pervasive issue of poverty and homelessness in Los Angeles
-      </h3>
+        <h3>Fantasy vs reality: a home for who?</h3>
+        <p>
+          This data journalism project investigates the extent of homelessness
+          at three of Los Angeles' most iconic neighborhoods. We present a
+          dichotomy between a fantasmic, imagined Los Angeles with the reality
+          of homelessness in order to show the pervasive extent of housing
+          insecurity across the beautiful City of Angels that is often
+          romanticized in pop culture. To do this, we contrast georeferenced
+          Airbnb rentals with 311 calls of homeless encampments in 2018 to
+          produce this interactive web story.
+        </p>
 
+        <p>
+          This perception of a La-La-Land that is often projected onto Los
+          Angeles is illustrated with a juxtaposition of two transient
+          communities: Airbnb renters and the homeless.
+        </p>
+
+        <figure>
+          <div id="overviewScatter"></div>
+        </figure>
+      </div>
+    </div>
+
+    <section class="intro-images">
+      <div class="intro__col">
+        <h3>Airbnb Renters: The Transient Traveler</h3>
+        <figure>
+          <img
+            class="responsive-image"
+            src="https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2FAirbnb.jpg"
+          />
+          <caption>
+            Airbnb listings often play off of this imagined Los Angeles. Image:
+            Curbed LA/Frederic J. Brown/AFP/Getty Images
+          </caption>
+        </figure>
+      </div>
+      <div class="intro__col">
+        <h3>Homeless: The Transient Vagabond</h3>
+
+        <figure>
+          <img
+            class="responsive-image"
+            src="https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fhomeless_CurbedLA.jpg"
+          />
+          <caption>
+            Airbnb listings often play off of this imagined Los Angeles. Image:
+            Airbnb.com
+          </caption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="intro-instructions">
       <p>
-        Homelessness is a chronic problem plaguing the region perched
-        below palm-tree-lined, iridescent sunsets, bustling show biz
-        glamour and a cultural richness reflected in its culinary
-        offerings, thriving creative community and sprawling estates.
-        Compared to previous years, 2019 saw a stark increase in the
-        number of people living in tents, vehicles, and shelters in both
-        the City and County of Los Angeles–12% and 16% respectively
-        (LAHSA, 2019).
+        In each neighborhood of the City of Los Angeles, we plotted the density
+        of Airbnb units against the density of homeless encampments reported
+        from 311 calls.
       </p>
-      <h3>
-        Encampments through 311 complaints
-      </h3>
       <p>
-        The city's sunny skies and spacious built environment draw over
-        50 million visitors a year. Considering these preferential
-        living conditions, the city provides an ideal landscape for the
-        houseless to build their own homes. Whereever space permits,
-        homeless encampments rise in clusters or in isolation,
-        deconstructing the very notion of place and home.
+        Scroll to zoom in and out of the plot, and mouseover a point to see the
+        density values.
       </p>
+      <div id="overviewScatter"></div>
+    </section>
 
-      <h3>
-        Fantasy vs reality: a home for who?
-      </h3>
-      <p>
-        This data journalism project investigates the extent of
-        homelessness at three of Los Angeles' most iconic neighborhoods.
-        We present a dichotomy between a fantasmic, imagined Los Angeles
-        with the reality of homelessness in order to show the pervasive
-        extent of housing insecurity across the beautiful City of Angels
-        that is often romanticized in pop culture. To do this, we
-        contrast georeferenced Airbnb rentals with 311 calls of homeless
-        encampments in 2018 to produce this interactive web story.
+    <section class="map-legend">
+      <header class="map-legend__header">
+        <h2 class="map-legend__heading">Map Legend</h2>
+      </header>
+      <div class="map-legend__symbols">
+        <div class="legend-item legend-fire">
+          <svg overflow="visible" viewbox="0 0 10 10" fill="#FF5A5F">
+            <circle cx="5" cy="5" r="5"></circle>
+          </svg>
+          Airbnb rental listing
+        </div>
+        <div class="legend-item legend-fire-2">
+          <svg overflow="visible" viewbox="0 0 10 10" fill="#0b03fc">
+            <circle cx="5" cy="5" r="5"></circle>
+          </svg>
+          Report of homelessness encampment
+        </div>
+
+        <div class="legend-item legend-fire-2">
+          <svg overflow="visible" viewbox="0 0 10 10" fill="blue">
+            <line
+              x1="0"
+              y1="0"
+              x2="10"
+              y2="10"
+              stroke="#52cc00"
+              stroke-width="4"
+            />
+          </svg>
+          Neighborhood boundary
+        </div>
+      </div>
+    </section>
+
+    <landmark-neighborhood
+      data-vis-id="ktown"
+      data-vis-url="https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fkoreatown_airbnb2.csv"
+    >
+      <span slot="title">Koreatown: A Multifaceted Cultural Enclave</span>
+      <div slot="quote">
+        <blockquote>
+          Koreatown is a bit of a misnomer. In truth, if we're sticking to
+          ethnic assignations, the neighborhood should be called
+          Korea-Mexico-town"
+        </blockquote>
+        <cite>―Roy Choi, Chef</cite>
+      </div>
+      <p slot="intro-p">
+        K-Town has the highest density of Homelessness in the City of Los
+        Angeles. The passage of the Hart-Celler Act of 1965 resulted in a
+        demographic shift across the country, encouraging an influx of
+        immigrants that changed the cultural landscape of Los Angeles and
+        catalyzed the growth of "The best Koreatown outside of Korea" (Curbed
+        LA, 2019). Encompassing approximately 3 square miles just west of
+        Downtown LA and south of Hollywood, the area was once the epicenter of
+        Golden Age Hollywood, home to the Ambassador Hotel, the Cocoanut Grove
+        and the Brown Derb. Today, Korean and Latinx populations contribute to
+        Koreatown’s rich cultural diversity (Discover LA, 2019).
       </p>
-
-      <p>
-        This perception of a La-La-Land that is often projected onto Los
-        Angeles is illustrated with a juxtaposition of two transient
-        communities: Airbnb renters and the homeless.
+    </landmark-neighborhood>
+    <landmark-neighborhood
+      data-vis-id="hollywood"
+      data-vis-url="https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fhollywood_airbnb2.csv"
+    >
+      <span slot="title"> Hollywood </span>
+      <div slot="quote">
+        <blockquote>
+          Koreatown is a bit of a misnomer. In truth, if we're sticking to
+          ethnic assignations, the neighborhood should be called
+          Korea-Mexico-town"
+        </blockquote>
+        <cite>―Roy Choi, Chef</cite>
+      </div>
+      <p slot="intro-p">
+        K-Town has the highest density of Homelessness in the City of Los
+        Angeles. The passage of the Hart-Celler Act of 1965 resulted in a
+        demographic shift across the country, encouraging an influx of
+        immigrants that changed the cultural landscape of Los Angeles and
+        catalyzed the growth of "The best Koreatown outside of Korea" (Curbed
+        LA, 2019). Encompassing approximately 3 square miles just west of
+        Downtown LA and south of Hollywood, the area was once the epicenter of
+        Golden Age Hollywood, home to the Ambassador Hotel, the Cocoanut Grove
+        and the Brown Derb. Today, Korean and Latinx populations contribute to
+        Koreatown’s rich cultural diversity (Discover LA, 2019).
       </p>
+    </landmark-neighborhood>
 
-      <figure>
-        <div id="overviewScatter"></div>
-      </figure>
-    </div>
-  </div>
-
-  <section class="intro-images">
-
-    <div class="intro__col">
-      <h3>
-        Airbnb Renters: The Transient Traveler
-      </h3>
-      <figure>
-        <img class="responsive-image" src="https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2FAirbnb.jpg" />
-        <caption>
-          Airbnb listings often play off of this imagined Los Angeles.
-          Image: Curbed LA/Frederic J. Brown/AFP/Getty Images
-        </caption>
-      </figure>
-    </div>
-    <div class="intro__col">
-
-      <h3>
-        Homeless: The Transient Vagabond
-      </h3>
-
-      <figure>
-        <img class="responsive-image"
-          src="https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fhomeless_CurbedLA.jpg" />
-        <caption>
-          Airbnb listings often play off of this imagined Los Angeles.
-          Image: Airbnb.com
-        </caption>
-      </figure>
-    </div>
-  </section>
-
-  <section class="intro-instructions">
-    <p>
-      In each neighborhood of the City of Los Angeles, we plotted the
-      density of Airbnb units against the density of homeless
-      encampments reported from 311 calls.
-    </p>
-    <p>
-      Scroll to zoom in and out of the plot, and mouseover a point to
-      see the density values.
-    </p>
-    <div id="overviewScatter"></div>
-
-  </section>
-
-  <section class="map-legend">
-    <header class="map-legend__header">
-  <h2 class="map-legend__heading">
-      Map Legend
-    </h2>
-    </header>
-<div class="map-legend__symbols">
-    <div class="legend-item legend-fire">
-      <svg overflow="visible" viewbox="0 0 10 10" fill="#FF5A5F">
-        <circle cx="5" cy="5" r="5"></circle>
-      </svg>
-      Airbnb rental listing
-    </div>
-    <div class="legend-item legend-fire-2">
-      <svg overflow="visible" viewbox="0 0 10 10" fill="#0b03fc">
-        <circle cx="5" cy="5" r="5"></circle>
-      </svg>
-      Report of homelessness encampment
-    </div>
-
-    <div class="legend-item legend-fire-2">
-      <svg overflow="visible" viewbox="0 0 10 10" fill="blue">
-        <line x1="0" y1="0" x2="10" y2="10" stroke="#52cc00" stroke-width="4" />
-      </svg>
-      Neighborhood boundary
-    </div>
-    </div>
-  </section>
-
-
-
-<landmark-neighborhood data-viz-id="ktown" id="ktown">
-</landmark-neighborhood>
-
-
-<p id="ktowns">TEST</pid>
-  </div>
-  <script async src="_dist_/index.js" type="module"></script>
-</body>
-
+    <script async src="_dist_/index.js" type="module"></script>
+  </body>
 </html>

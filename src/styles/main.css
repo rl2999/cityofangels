@@ -1,18 +1,41 @@
 /* CSS files add styling rules to your content */
 
-@import url("https://fonts.googleapis.com/css?family=Barlow&display=swap");
 @import "normalize.css";
 
+@font-face {
+    font-family: 'Argesta Text';
+    src: url('/fonts/subset-ArgestaText-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Argesta Display';
+    src: url('/fonts/subset-ArgestaDisplay-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Argesta Text';
+    src: url('/fonts/subset-ArgestaText-RegularItalic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
 :root {
-  --font-body: "Barlow", sans-serif;
-  --font-headings: serif;
+  --font-body: "Argesta Text", sans-serif;
+  --font-headings: "Argesta Display", serif;
   --font-size-base: 20px;
   --line-height-base: 1.35;
   --c-pink: pink;
   --c-blue: blue;
   --c-text: black;
   --margin-mobile: 1rem;
-  --margin: 4rem;
+  --margin: 6rem;
 }
 
 * {
@@ -20,7 +43,7 @@
   padding: 0;
 }
 
-body {
+html, body {
   color: var(--c-text);
   font-family: var(--font-body);
   font-size: var(--font-size-base);
@@ -32,6 +55,7 @@ h2,
 h3,
 h4,
 h5 {
+  margin-top: 0;
   margin-bottom: var(--margin-mobile);
 }
 
@@ -65,11 +89,11 @@ p {
 }
 
 .story-title {
-  font-size: 2rem;
+  font-size: 4rem;
   line-height: 1.15;
 }
 
-#introduction {
+.intro-container {
   background: rgb(255, 255, 255);
   background: linear-gradient(
     180deg,
@@ -120,14 +144,36 @@ p {
 
 }
 
+
+.title-card {
+  background-color:rgba(219, 62, 0, 0.767);
+  font-family: var(--font-headings);
+  mix-blend-mode: multiply;
+  color: white;
+  min-height: 100vh;
+  padding: var(--margin);
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.title-card__title {
+  font-size: 12vw;
+  line-height: .9;
+  margin: 0;
+  margin-bottom: 5rem;
+  padding: 0;
+  max-width: 100%;
+  /* overflow: hidden; */
+}
+
 @media screen and (min-width: 700px) {
+  .intro-container {
+    padding: var(--margin);
+  }
+
   .intro-images {
     grid-template-columns: 50% 50%;
   }
-  }
+}
 
 
-  .chart-wrapper {
-    z-index: 10;
-    width: 100%;
-  }

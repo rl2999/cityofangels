@@ -1,5 +1,21 @@
 export const globalPlotConfig = {
-}
+  "width": "container",
+  "height": 250,
+
+};
+
+export const makeOverviewScatter = url => (
+  {
+    title: 'Density of Airbnb rentals vs. homeless encampments across all neighborhoods',
+    data: {
+      url
+    },
+    mark: 'point',
+    encoding: {
+      x: { field: 'density_airbnb', type: 'quantitative' },
+      y: { field: 'density_homeless', type: 'quantitative' }
+    }
+  });
 
 export const makePlotRentalType = url => {
   const jsondata = {
@@ -27,22 +43,9 @@ export const makePlotRentalType = url => {
       }
     },
     config: globalPlotConfig
-  }
-  return jsondata
-}
-
-export const makeOverviewScatter = url => (
-  {
-    title: 'Density of Airbnb rentals vs. homeless encampments across all neighborhoods',
-    data: {
-      url
-    },
-    mark: 'point',
-    encoding: {
-      x: { field: 'density_airbnb', type: 'quantitative' },
-      y: { field: 'density_homeless', type: 'quantitative' }
-    }
-  })
+  };
+  return jsondata;
+};
 
 export const makePricePlot = dataURL => {
   const plotData = {
@@ -116,11 +119,11 @@ export const makePricePlot = dataURL => {
     }
     ],
     config: globalPlotConfig
-  }
+  };
   // for debugging
   // console.log(JSON.stringify(plotData));
-  return plotData
-}
+  return plotData;
+};
 
 export const makeMiniNights = dataURL => {
   const plotData = {
@@ -202,8 +205,8 @@ export const makeMiniNights = dataURL => {
     }
     ],
     config: globalPlotConfig
-  }
+  };
   // for debugging
   // console.log(JSON.stringify(plotData));
-  return plotData
-}
+  return plotData;
+};

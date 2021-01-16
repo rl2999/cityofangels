@@ -4,12 +4,19 @@ module.exports = {
     es2021: true
   },
   extends: [
-    'standard'
+    'eslint:recommended'
   ],
   parserOptions: {
     ecmaVersion: 12,
     sourceType: 'module'
   },
   rules: {
+    "semi": ["error"],
+    "indent": ["error", 2],
+    'no-trailing-spaces': ['error'],
+    'no-multiple-empty-lines': ['error'],
+    "no-multi-spaces": ['error'],
+    'space-before-blocks': ['error'],
+    'no-irregular-whitespace': ['error']
   }
-}
+};

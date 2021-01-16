@@ -1,9 +1,11 @@
+import './styles/main.css';
 
 // Web component
-import LandmarkNeighborhood from './components/LandmarkNeighborhood'
-import { renderOverview } from './charts/SetupPlots.js'
+import LandmarkNeighborhood from './components/LandmarkNeighborhood';
 
-import setupMaps from './maps.js'
-setupMaps()
+import { renderOverview } from './charts/SetupPlots.js';
 
-renderOverview()
+import setupMaps from './maps.js';
+setupMaps();
+
+renderOverview();
