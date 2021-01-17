@@ -98,7 +98,7 @@ const setupMap = function () {
     map.flyMapTo = (areaId, zoom = 14) => {
       // Fly map shorthand function
       let coords = COORDS[areaId];
-      view.animate({ center: fromLonLat(coords), duration: 1000, zoom: zoom});
+      view.animate({ center: fromLonLat(coords), duration: 2000, zoom: zoom});
     };
     document.mainMap = map;
     return map;

@@ -3,7 +3,7 @@ import { Circle as CircleStyle, Fill, Stroke, Style } from 'ol/style';
 export const mapStylesReports = {
   'Point': new Style({
     image: new CircleStyle({
-      radius: 3,
+      radius: 6,
       fill: new Fill({ color: '#7e75fc' }),
       stroke: new Stroke({
         color: 'magenta',
@@ -15,7 +15,7 @@ export const mapStylesReports = {
 export const mapStylesRentals = {
   'Point': new Style({
     image: new CircleStyle({
-      radius: 3,
+      radius: 6,
       fill: new Fill({ color: '#f17b6b' }),
       stroke: new Stroke({
         color: 'white',
@@ -27,7 +27,7 @@ export const mapStylesRentals = {
 export const mapStyles = {
   'Point': new Style({
     image: new CircleStyle({
-      radius: 3,
+      radius: 6,
       fill: new Fill({ color: '#fc757e' }),
       stroke: new Stroke({
         color: 'magenta',
