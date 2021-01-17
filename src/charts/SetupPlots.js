@@ -5,7 +5,7 @@ import {
   makeOverviewScatter,
   makeMiniNights,
   makePlotRentalType
-} from './plotStyles';
+} from './PlotStyles';
 
 const plotWidth = 400;
 const plotHeight = 400;
@@ -18,9 +18,11 @@ export const renderOverview = () => embed('#overviewScatter', overviewScatterPlo
 
 // Make standardized Vega JSON's
 export const renderAllPlotsForArea = (area, dataUrl) => {
-  Promise.all([embed(this.shadowRoot.querySelector('#' + area + '-vis-price'), makePricePlot(dataUrl)),
+  Promise.all([
+    embed(this.shadowRoot.querySelector('#' + area + '-vis-price'), makePricePlot(dataUrl)),
     embed('#' + area + '-vis-rental-types', makePlotRentalType(dataUrl)),
-    embed('#' + area + '-vis-nights', makeMiniNights(dataUrl))], values => console.log);
+    embed('#' + area + '-vis-nights', makeMiniNights(dataUrl))],
+  values => console.info(values));
 };
 
 export const setupPlots = function () {

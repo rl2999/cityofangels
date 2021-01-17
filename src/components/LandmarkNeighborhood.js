@@ -1,6 +1,7 @@
 import embed from 'vega-embed';
+import { setupScrollObserver } from './../ScrollEvents';
 import { renderAllPlotsForArea } from './../charts/SetupPlots';
-import { makePricePlot, makeMiniNights, makePlotRentalType } from './../charts/PlotStyles';
+import { makePricePlot, makeMiniNights, makePlotRentalType } from '../charts/PlotStyles';
 
 
 class LandmarkNeighborhood extends HTMLElement {
@@ -34,7 +35,7 @@ h2, h3 {
 }
 
 </style>
-<section id="ktown" class="container landmark-container">
+<section id="ktown" class="landmark-container scroll-trigger">
     <header class="landmark__header">
         <h2 class="landmark__title">
             <slot name="title">
@@ -138,36 +139,6 @@ h2, h3 {
     }
   }
 
-  setupScrollObserver(el, areaId) {
-    function callback (entries, observer) {
-      console.log(observer);
-      console.log('observed changs');
-
-      entries.forEach(entry => {
-        console.log(entry);
-      });
-
-    // flyMapTo(entries, map);
-    }
-
-    const makeObserver = function (selector, callback) {
-      const observer = new IntersectionObserver(callback, {
-        root: document.root,
-        rootMargin: '0px',
-        threshold: 0.5
-      });
-      console.log(selector);
-      try {
-        observer.observe(document.querySelector(selector));
-      } catch (e) {
-        console.error("Couldn't get " + selector);
-      }
-    };
-
-    // const waypoints = ['#ktown', '#hollywood', '#venice']
-    makeObserver('#', () => console.log('Logged IO'));
-  }
-
   renderPlot(el, areaId, dataUrl) {
     return Promise.all([
       embed(el.shadowRoot.querySelector('#' + areaId + '-vis-rental-types'), makePlotRentalType(dataUrl)),
@@ -178,13 +149,15 @@ h2, h3 {
 
   connectedCallback() {
     // Take attribute content and put it inside the info span
-    const visId = this.getAttribute('data-vis-id');
+    const areaId = this.getAttribute('data-area-id');
     const visUrl = this.getAttribute('data-vis-url');
-    if (!visId) {
+    const zoomLevel = this.getAttribute('data-zoom-level');
+    if (!areaId) {
       console.error('No vizId set');
     }
-    this.setVisId(this, visId);
-    this.renderPlot(this, visId, visUrl);
+    this.setVisId(this, areaId);
+    this.renderPlot(this, areaId, visUrl);
+    setupScrollObserver(this, areaId, zoomLevel);
   }
 }
 

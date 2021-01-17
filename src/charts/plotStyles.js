@@ -1,7 +1,7 @@
 export const globalPlotConfig = {
   "width": "container",
-  "height": 250,
-
+  "height": 300,
+  "font": '-apple-system, sans-serif'
 };
 
 export const makeOverviewScatter = url => (

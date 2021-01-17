@@ -12,7 +12,41 @@
   </head>
 
   <body>
-    <div id="map"></div>
+    <div id="map">
+      <section class="map-legend">
+        <header class="map-legend__header">
+          <h2 class="map-legend__heading">Map Legend</h2>
+        </header>
+        <div class="map-legend__symbols">
+          <div class="legend__item legend-fire">
+            <svg overflow="visible" viewbox="0 0 10 10" fill="#FF5A5F">
+              <circle cx="5" cy="5" r="5"></circle>
+            </svg>
+            Airbnb rental listing
+          </div>
+          <div class="legend__item legend-fire-2">
+            <svg overflow="visible" viewbox="0 0 10 10" fill="#0b03fc">
+              <circle cx="5" cy="5" r="5"></circle>
+            </svg>
+            Report of homelessness encampment
+          </div>
+
+          <div class="legend__item legend-fire-2">
+            <svg overflow="visible" viewbox="0 0 10 10" fill="blue">
+              <line
+                x1="0"
+                y1="0"
+                x2="10"
+                y2="10"
+                stroke="#52cc00"
+                stroke-width="4"
+              />
+            </svg>
+            Neighborhood boundary
+          </div>
+        </div>
+      </section>
+    </div>
 
     <div class="scrollstory" id="scrollstory">
       <div class="title-card">
@@ -60,10 +94,6 @@
           Angeles is illustrated with a juxtaposition of two transient
           communities: Airbnb renters and the homeless.
         </p>
-
-        <figure>
-          <div id="overviewScatter"></div>
-        </figure>
       </div>
     </div>
 
@@ -97,7 +127,7 @@
       </div>
     </section>
 
-    <section class="intro-instructions">
+    <section class="instructions">
       <p>
         In each neighborhood of the City of Los Angeles, we plotted the density
         of Airbnb units against the density of homeless encampments reported
@@ -107,46 +137,16 @@
         Scroll to zoom in and out of the plot, and mouseover a point to see the
         density values.
       </p>
+      <figure>
+        <div id="overviewScatter"></div>
+      </figure>
       <div id="overviewScatter"></div>
     </section>
 
-    <section class="map-legend">
-      <header class="map-legend__header">
-        <h2 class="map-legend__heading">Map Legend</h2>
-      </header>
-      <div class="map-legend__symbols">
-        <div class="legend-item legend-fire">
-          <svg overflow="visible" viewbox="0 0 10 10" fill="#FF5A5F">
-            <circle cx="5" cy="5" r="5"></circle>
-          </svg>
-          Airbnb rental listing
-        </div>
-        <div class="legend-item legend-fire-2">
-          <svg overflow="visible" viewbox="0 0 10 10" fill="#0b03fc">
-            <circle cx="5" cy="5" r="5"></circle>
-          </svg>
-          Report of homelessness encampment
-        </div>
-
-        <div class="legend-item legend-fire-2">
-          <svg overflow="visible" viewbox="0 0 10 10" fill="blue">
-            <line
-              x1="0"
-              y1="0"
-              x2="10"
-              y2="10"
-              stroke="#52cc00"
-              stroke-width="4"
-            />
-          </svg>
-          Neighborhood boundary
-        </div>
-      </div>
-    </section>
-
     <landmark-neighborhood
-      data-vis-id="ktown"
+      data-area-id="ktown"
       data-vis-url="https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fkoreatown_airbnb2.csv"
+      data-zoom-level="13"
     >
       <span slot="title">Koreatown: A Multifaceted Cultural Enclave</span>
       <div slot="quote">
@@ -170,32 +170,209 @@
         Koreatown’s rich cultural diversity (Discover LA, 2019).
       </p>
     </landmark-neighborhood>
+
+    <landmark-annotation data-zoom-level="16" data-area-id="ktown-annotation">
+      <p slot="title">
+        Homelessness encampments are often reported along roads.
+      </p>
+      <p slot="body">
+        Many of the homeless encampment reportings follow the major roads such
+        as Wilshire Blvd. There appears to be a cluster of Airbnb listings in
+        the southern and southeastern corners of K-town.
+      </p>
+    </landmark-annotation>
+
     <landmark-neighborhood
-      data-vis-id="hollywood"
+      data-area-id="hollywood"
       data-vis-url="https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fhollywood_airbnb2.csv"
+      data-zoom-level="15"
     >
-      <span slot="title"> Hollywood </span>
+      <span slot="title"> Hollywood: Home of the Stars </span>
       <div slot="quote">
         <blockquote>
-          Koreatown is a bit of a misnomer. In truth, if we're sticking to
-          ethnic assignations, the neighborhood should be called
-          Korea-Mexico-town"
+          “Hollywood is a place where they'll pay you a thousand dollars for a
+          kiss and fifty cents for your soul.”
         </blockquote>
-        <cite>―Roy Choi, Chef</cite>
+        <cite>―Marilyn Monroe, Actress</cite>
       </div>
       <p slot="intro-p">
-        K-Town has the highest density of Homelessness in the City of Los
-        Angeles. The passage of the Hart-Celler Act of 1965 resulted in a
-        demographic shift across the country, encouraging an influx of
-        immigrants that changed the cultural landscape of Los Angeles and
-        catalyzed the growth of "The best Koreatown outside of Korea" (Curbed
-        LA, 2019). Encompassing approximately 3 square miles just west of
-        Downtown LA and south of Hollywood, the area was once the epicenter of
-        Golden Age Hollywood, home to the Ambassador Hotel, the Cocoanut Grove
-        and the Brown Derb. Today, Korean and Latinx populations contribute to
-        Koreatown’s rich cultural diversity (Discover LA, 2019).
+        Hollywood made the city world-famous. In the early 1900s, filmmakers
+        began moving to the Los Angeles area to escape the rigorous rules
+        imposed by Thomas Edison’s Motion Picture Patents Company in New Jersey.
+        The famous Hollywood sign was erected in 1923 as “Hollywoodland” to
+        advertise for a new housing development, and the “Hollywood Walk of
+        Fame” was built soon after in 1956. It currently has well over 2,000
+        names added to the star-studded sidewalk for contributing to the
+        entertainment industry (SMExpress, 2019).
       </p>
     </landmark-neighborhood>
+
+    <landmark-annotation
+      data-area-id="hollywood-annotation"
+      data-zoom-level="16"
+    >
+      <p slot="title">The Hollywood Walk of Fame</p>
+      <p slot="body">
+        The main strip of Hollywood Boulevard sees a large concentration of
+        Airbnb rentals surrounding the corridor, while there are very few
+        homeless encampment reports. Since the Walk of Fame is a
+        highly-trafficked tourist destination, could this void in homelessness
+        encampments be explained by sweeps and clearings?
+      </p>
+    </landmark-annotation>
+
+    <landmark-neighborhood
+      data-area-id="hollywood"
+      data-vis-url="https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fhollywood_airbnb2.csv"
+      data-zoom-level="15"
+    >
+      <span slot="title"> Venice: A creative paradise </span>
+      <div slot="quote">
+        <blockquote>
+          Venice Beach is a combination of the tacky, the mindless, the ironic,
+          and the novel.
+        </blockquote>
+        <cite>―Freelance Dionysian (VirtualVenice)</cite>
+      </div>
+      <p slot="intro-p">
+        Originally called "Venice of America," Venice was founded in 1905 by
+        tobacco millionaire Abbot Kinney as a 14-mile beach resort town (LAist,
+        2018). Inspired by the enchantment of Venice, Italy, Kinney unveiled the
+        resort town and amusement park to 40,000 visitors. The park featured
+        Italian gondoliers poling their boats down fairy-lit canals, a concert
+        orchestra supplying music that could be heard nearly all over town,
+        camel rides, exotic hotels catering to the best tastes, and a miniature
+        railroad circling the entire scene (LA Times, 1998). This vibrant
+        atmosphere continues today (Venice, 2019).
+      </p>
+    </landmark-neighborhood>
+
+    <landmark-annotation data-area-id="venice-annotation" data-zoom-level="16">
+      <p slot="title">Waterfront vacation spots</p>
+      <p slot="body">
+        Venice is the neighborhood with the highest density of Airbnb rentals
+        per acre in Los Angeles, this is clearly seen with the high
+        concentration of Airbnb vacation rentals along the beachfront.
+      </p>
+    </landmark-annotation>
+
+    <div id="appendix" class="footer">
+      <div class="container">
+        <article>
+          <details>
+            <summary>
+              <h2>References</h2>
+            </summary>
+
+            <div class="csl-bib-body">
+              <div class="csl-entry">
+                <i
+                  >3437 - 2019 Greater Los Angeles Homeless Count
+                  Presentation</i
+                >.
+                https://www.lahsa.org/documents?id=3437-2019-greater-los-angeles-homeless-count-presentation.pdf.
+                Accessed 10 Dec. 2019.
+              </div>
+              <div class="csl-entry">
+                <i>A Short History of Hollywood | Courier Service Los Angeles</i
+                >. https://smexpress.com/short-history-of-hollywood/. Accessed
+                10 Dec. 2019.
+              </div>
+              <div class="csl-entry">
+                Carlson, Jen. “A Short History Of Venice, Which Used To Be An
+                Oilfield.” <i>LAist</i>,
+                https://laist.com/2015/01/29/venice_beach_used_to_be_an_oilfield.php.
+                Accessed 10 Dec. 2019.
+              </div>
+              <div class="csl-entry">
+                <i>Hollywood Quotes (226 Quotes)</i>.
+                https://www.goodreads.com/quotes/tag/hollywood. Accessed 10 Dec.
+                2019.
+              </div>
+              <div class="csl-entry">
+                “Inside Airbnb. Adding Data to the Debate.”
+                <i>Inside Airbnb</i>, http://insideairbnb.com. Accessed 10 Dec.
+                2019.
+              </div>
+              <div class="csl-entry">
+                Kang, Matthew. “The Eight Best Lines from Roy Choi’s Profile in
+                California Sunday Magazine.” <i>Eater LA</i>, 5 Dec. 2014,
+                https://la.eater.com/2014/12/5/7341819/the-eight-best-lines-from-roy-chois-profile-in-california-sunday.
+              </div>
+              <div class="csl-entry">
+                “Los Angeles Celebrates Record Milestone of 50 Million Visitors
+                in 2018.” <i>Discover Los Angeles</i>,
+                https://www.discoverlosangeles.com/los-angeles-celebrates-record-milestone-of-50-million-visitors-in-2018.
+                Accessed 10 Dec. 2019.
+              </div>
+              <div class="csl-entry">
+                Meares, Hadley. “LA Has ‘the Best Koreatown Outside of Korea.’”
+                <i>Curbed LA</i>, 6 May 2019,
+                https://la.curbed.com/2019/5/6/18523959/koreatown-los-angeles-guelaguetza-riots.
+              </div>
+              <div class="csl-entry">
+                ---. “LA Has ‘the Best Koreatown Outside of Korea.’”
+                <i>Curbed LA</i>, 6 May 2019,
+                https://la.curbed.com/2019/5/6/18523959/koreatown-los-angeles-guelaguetza-riots.
+              </div>
+              <div class="csl-entry">
+                <i>Quotations About Venice</i>.
+                http://www.virtualvenice.info/print/quotes.htm. Accessed 10 Dec.
+                2019.
+              </div>
+              <div class="csl-entry">
+                “Stroll Through Venice’s Past.” <i>Los Angeles Times</i>, 7
+                Sept. 1998,
+                https://www.latimes.com/archives/la-xpm-1998-sep-07-me-20328-story.html.
+              </div>
+              <div class="csl-entry">
+                “The Guide to Koreatown in Los Angeles.”
+                <i>Discover Los Angeles</i>,
+                https://www.discoverlosangeles.com/visit/the-guide-to-koreatown-in-los-angeles.
+                Accessed 10 Dec. 2019.
+              </div>
+              <div class="csl-entry">
+                <i>Venice Historical Society - Venice, California</i>.
+                http://www.veniceofamerica.org/. Accessed 10 Dec. 2019.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <h2>Methodology and data sources</h2>
+        <p>
+          We began with the LA Times neighborhood boundaries. We then selected
+          311 calls for "homelessness encampment" complaints for the City of Los
+          Angeles in 2018. We also used Airbnb listing locations available on
+          the countermapping website, Inside Airbnb, for the month of September
+          2019. The two data sets were analyzed in Python to calculate the
+          density of values per acre and three neighborhoods were selected based
+          on highest density of homeless encampment complaints and Airbnb
+          listings. To understand the complexity of the dichotomy, a narrative
+          for each neighborhood is shared, along with contrasting visuals and
+          descriptions about Airbnb and homelessness.
+        </p>
+
+        <h2>Credits</h2>
+        <p>
+          This data story was created by
+          <a href="https://www.linkedin.com/in/reginaalcazar/"
+            >Regina Joy Alcazar</a
+          >
+          and <a href="https://riledigital.com">Ri Le</a> for the course
+          Informatics 1 during 2019 Fall taught by
+          <a href="https://vanky.co/">Professor Anthony P. Vanky</a> at the
+          Columbia University Graduate School of Architecture, Planning and
+          Preservation.
+        </p>
+
+        <p>
+          This web story was built on Web technology: HTML/CSS/JS, Vega-Lite,
+          OpenLayers, and Snowpack. Data processing was done with Python, namely
+          the geopandas package.
+        </p>
+      </div>
+    </div>
 
     <script async src="_dist_/index.js" type="module"></script>
   </body>

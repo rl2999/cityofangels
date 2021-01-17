@@ -1,6 +1,7 @@
 /* CSS files add styling rules to your content */
 
 @import "normalize.css";
+@import "./legend.css";
 
 @font-face {
     font-family: 'Argesta Text';
@@ -31,9 +32,12 @@
   --font-headings: "Argesta Display", serif;
   --font-size-base: 20px;
   --line-height-base: 1.35;
+  --c-white: #ffffff;
   --c-pink: pink;
   --c-blue: blue;
   --c-text: black;
+  --c-red: rgb(150, 0, 0);
+  --c-background: white;
   --margin-mobile: 1rem;
   --margin: 6rem;
 }
@@ -107,35 +111,14 @@ p {
   /* display: none; */
 }
 
-.map-legend {
-  display: grid;
-  position: sticky;
-  left: 50vw;
-  top: 75vh;
-  grid-template: 1rem 1rem 1rem;
-  max-width: 10rem;
-  overflow: hidden;
-}
+
 @media screen and (min-width: 700px) {
   body {
     font-size: 28px;
   }
 }
 
-.map-legend__header {
-  grid-row: 1;
-}
 
-.map-legend__heading {
-  font-size: 1rem;
-  font-weight: 700;
-}
-
-.map-legend__symbols {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1rem;
-}
 
 .intro-images {
   display: grid;
@@ -144,12 +127,11 @@ p {
 
 }
 
-
 .title-card {
-  background-color:rgba(219, 62, 0, 0.767);
+  backdrop-filter: blur(1px);
   font-family: var(--font-headings);
   mix-blend-mode: multiply;
-  color: white;
+  color: var(--c-red);
   min-height: 100vh;
   padding: var(--margin);
   overflow: hidden;
@@ -177,3 +159,32 @@ p {
 }
 
 
+
+.instructions {
+  background:rgb(255, 255, 255);
+  padding: var(--margin);
+  height: 50vh;
+  margin-bottom: 50vh;
+}
+
+#overview-scatter {
+  height: auto;
+  width: 100%;
+}
+
+.ol-attribution {
+  font-size: .8rem;
+}
+
+.footer {
+  background: var(--c-background);
+  padding: var(--margin);
+}
+
+.csl-entry {
+  font-size: .8rem;
+  max-width: 60ch;
+  padding-left: 4ch;
+  text-indent: -4ch;
+  margin-bottom: .5rem;
+}
