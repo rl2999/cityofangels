@@ -1,5 +1,6 @@
 import './styles/main.scss';
-// Web component
+
+// Web components
 import LandmarkAnnotation from './components/LandmarkAnnotation';
 import LandmarkNeighborhood from './components/LandmarkNeighborhood';
 
