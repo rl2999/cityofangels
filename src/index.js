@@ -5,7 +5,7 @@ import LandmarkNeighborhood from './components/LandmarkNeighborhood';
 
 import { renderOverview } from './charts/SetupPlots.js';
 
-import mainMap from './maps.js';
+import mainMap from './Map.js';
 
 mainMap.then(val => {
   document.mainMap = val;

@@ -23,15 +23,15 @@ const COORDS = {
 };
 
 const geoJsonUrls = [
-  'https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fkoreatown_airbnb.geojson?v=1575949660578',
-  'https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fhollywood_airbnb.geojson?v=1575949660567',
-  'https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fvenice_airbnb.geojson?v=1575949660567'
+  '/data/ktown-airbnb.geojson',
+  '/data/hollywood-airbnb.geojson',
+  '/data/venice-airbnb.geojson'
 ];
 
 const geoJsonReports = [
-  'https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fktown_311.geojson',
-  'https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fhollywood_311.geojson',
-  'https://cdn.glitch.com/48204e47-9ee8-4828-954c-c495450f3d3d%2Fvenice_311.geojson'
+  '/data/ktown-311.geojson',
+  '/data/hollywood-311.geojson',
+  '/data/venice-311.geojson',
 ];
 
 const fetchParseGeojson = function (url, type) {
