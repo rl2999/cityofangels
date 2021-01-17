@@ -21,6 +21,7 @@
   "author": "Ri <ri.le@upstatement.com>",
   "license": "MIT",
   "dependencies": {
+    "@snowpack/plugin-sass": "^1.3.0",
     "mapbox-gl": "^2.0.1",
     "maplibre-gl": "^1.13.0-rc.4",
     "normalize.css": "^8.0.1",

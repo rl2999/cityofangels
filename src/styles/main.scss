@@ -1,0 +1,63 @@
+@use './legend';
+@use './layout';
+@use './title-card';
+@use './intro';
+@use './typography';
+@use './appendix';
+/* CSS files add styling rules to your content */
+
+@import 'normalize.css';
+
+:root {
+  --font-body: 'Argesta Text', sans-serif;
+  --font-headings: 'Argesta Display', serif;
+  --font-size-base: 20px;
+  --line-height-base: 1.35;
+  --c-white: #ffffff;
+  --c-pink: pink;
+  --c-blue: blue;
+  --c-text: black;
+  --c-red: rgb(150, 0, 0);
+  --c-background: white;
+  --margin-mobile: 1rem;
+  --margin: 6rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  color: var(--c-text);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin-top: 0;
+  margin-bottom: var(--margin-mobile);
+}
+
+p {
+  margin-bottom: 2rem;
+  max-width: 50ch;
+}
+
+.ol-attribution {
+  font-size: 0.8rem;
+}
+
+a {
+  font-weight: 700;
+  text-decoration: none;
+  :hover {
+    text-decoration: 2px dashed;
+  }
+}

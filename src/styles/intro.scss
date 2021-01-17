@@ -1,0 +1,52 @@
+.story-title {
+  font-size: 4rem;
+  line-height: 1.15;
+}
+
+.intro-container {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.8) 90%,
+    rgba(255, 255, 255, 0) 100%
+  );
+
+  margin: 0;
+  padding: 1rem;
+  /* display: none; */
+}
+
+@media screen and (min-width: 700px) {
+  body {
+    font-size: 28px;
+  }
+}
+
+.intro-images {
+  display: grid;
+  padding: var(--margin);
+  grid-gap: 1rem;
+}
+
+@media screen and (min-width: 700px) {
+  .intro-container {
+    padding: var(--margin);
+  }
+
+  .intro-images {
+    grid-template-columns: 50% 50%;
+  }
+}
+
+.instructions {
+  background: rgb(255, 255, 255);
+  padding: var(--margin);
+  height: 50vh;
+  margin-bottom: 50vh;
+}
+
+#overview-scatter {
+  height: auto;
+  width: 100%;
+}

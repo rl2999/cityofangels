@@ -1,4 +1,4 @@
-import './styles/main.css';
+import './styles/main.scss';
 // Web component
 import LandmarkAnnotation from './components/LandmarkAnnotation';
 import LandmarkNeighborhood from './components/LandmarkNeighborhood';
