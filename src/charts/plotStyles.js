@@ -1,17 +1,25 @@
 export const globalPlotConfig = {
-  "width": "container",
-  "height": 300,
-  "font": '-apple-system, sans-serif'
+  "autosize": {
+    type: "fit",
+    resize: true
+  },
+  "height": "container",
+  "width": "container"
 };
 
 export const makeOverviewScatter = url => (
   {
-    title: 'Density of Airbnb rentals vs. homeless encampments across all neighborhoods',
+    config: globalPlotConfig,
     data: {
       url
     },
     mark: 'point',
     encoding: {
+      "tooltip": {
+        'neighbourhood': "nominal",
+        'density_airbnb': "nominal",
+        'density_homeless': "nominal",
+      },
       x: { field: 'density_airbnb', type: 'quantitative' },
       y: { field: 'density_homeless', type: 'quantitative' }
     }

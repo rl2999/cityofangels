@@ -166,3 +166,5 @@ snowpack.crt
 snowpack.key
 *.key
 *.cert
+
+build/

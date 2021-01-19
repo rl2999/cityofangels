@@ -1,6 +1,5 @@
 import embed from 'vega-embed';
 import { setupScrollObserver } from './../ScrollEvents';
-import { renderAllPlotsForArea } from './../charts/SetupPlots';
 import { makePricePlot, makeMiniNights, makePlotRentalType } from '../charts/PlotStyles';
 
 

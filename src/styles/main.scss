@@ -1,9 +1,9 @@
-@use './legend';
-@use './layout';
-@use './title-card';
-@use './intro';
-@use './typography';
-@use './appendix';
+@use './intro.scss';
+@use './legend.scss';
+@use './layout.scss';
+@use './title-card.scss';
+@use './typography.scss';
+@use './appendix.scss';
 /* CSS files add styling rules to your content */
 
 @import 'normalize.css';
@@ -60,4 +60,11 @@ a {
   :hover {
     text-decoration: 2px dashed;
   }
+}
+
+.vega-embed,
+.chart-wrapper,
+.overview-scatter {
+  height: 500px;
+  width: 100%;
 }
