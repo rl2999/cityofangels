@@ -62,9 +62,14 @@ a {
   }
 }
 
-.vega-embed,
-.chart-wrapper,
-.overview-scatter {
-  height: 500px;
+.vega-embed {
+  display: flex;
+  height: auto;
+  width: 100%;
+}
+
+.overview-scatter-container {
+  display: flex;
+  height: 600px;
   width: 100%;
 }

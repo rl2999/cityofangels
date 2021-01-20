@@ -1,7 +1,7 @@
 export const globalPlotConfig = {
   "autosize": {
-    type: "fit",
-    resize: true
+    "type": "fit",
+    "contains": "padding"
   },
   "height": "container",
   "width": "container"
@@ -9,20 +9,49 @@ export const globalPlotConfig = {
 
 export const makeOverviewScatter = url => (
   {
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "autosize": {
+      "type": "fit",
+      "contains": "padding"
+    },
+    "height": "container",
+    "width": "container",
     config: globalPlotConfig,
     data: {
       url
     },
-    mark: 'point',
+    "selection": {
+      "grid": {
+        "type": "interval", "bind": "scales"
+      }
+    },
     encoding: {
-      "tooltip": {
-        'neighbourhood': "nominal",
-        'density_airbnb': "nominal",
-        'density_homeless': "nominal",
+      "x": {
+        field: 'density_airbnb',
+        type: 'quantitative',
+        scale: {
+          domain: [0, 1.5]
+        }
       },
-      x: { field: 'density_airbnb', type: 'quantitative' },
-      y: { field: 'density_homeless', type: 'quantitative' }
-    }
+      "y": {
+        field: 'density_homeless', type: 'quantitative', scale: {
+          domain: [0, 2]
+        }
+      }
+    },
+    layer: [
+      {
+        mark: 'point',
+      },
+      {
+        mark: "text",
+        encoding: {
+          "text": {
+            field: "neighborhood",
+            type:"nominal"}
+        }
+      },
+    ]
   });
 
 export const makePlotRentalType = url => {
