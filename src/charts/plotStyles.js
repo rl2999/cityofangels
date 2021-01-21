@@ -1,54 +1,79 @@
 export const globalPlotConfig = {
-  "autosize": {
-    "type": "fit",
-    "contains": "padding"
+  autosize: {
+    type: 'fit',
+    contains: 'padding'
   },
-  "height": "container",
-  "width": "container"
+  height: 'container',
+  width: 'container'
 };
 
 export const makeOverviewScatter = url => (
   {
-    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-    "autosize": {
-      "type": "fit",
-      "contains": "padding"
+    $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
+    autosize: {
+      type: 'pad',
+      contains: 'padding'
     },
-    "height": "container",
-    "width": "container",
+    title: 'Density of Airbnb rentals vs. homeless encampment reports',
+    height: 'container',
+    width: 'container',
     config: globalPlotConfig,
     data: {
       url
     },
-    "selection": {
-      "grid": {
-        "type": "interval", "bind": "scales"
-      }
-    },
     encoding: {
-      "x": {
+      x: {
         field: 'density_airbnb',
         type: 'quantitative',
         scale: {
           domain: [0, 1.5]
         }
       },
-      "y": {
-        field: 'density_homeless', type: 'quantitative', scale: {
+      y: {
+        field: 'density_homeless',
+        type: 'quantitative',
+        scale: {
           domain: [0, 2]
         }
       }
     },
     layer: [
       {
-        mark: 'point',
+        selection: {
+          grid: {
+            type: 'interval',
+            bind: 'scales'
+          }
+        },
+        mark: {
+          type: 'point',
+          size: 240,
+          filled: true,
+          tooltip: {
+            content: 'encoding',
+            format: '.2f'
+          }
+        },
       },
       {
-        mark: "text",
+        mark: {
+          type: 'text',
+          dy: 18,
+          fontSize: 18,
+          tooltip: {
+            content:'encoding',
+            format: '.2f'
+          }
+        },
         encoding: {
-          "text": {
-            field: "neighborhood",
-            type:"nominal"}
+          text: {
+            field: 'neighborhood',
+            type: 'nominal',
+            tooltip: {
+              content: 'encoding',
+              format: '.2f'
+            }
+          }
         }
       },
     ]
@@ -84,83 +109,77 @@ export const makePlotRentalType = url => {
   return jsondata;
 };
 
-export const makePricePlot = dataURL => {
-  const plotData = {
-    title: 'Frequency of rental units by price range',
-
-    width: 'container',
-    height: 'container',
-    data: {
-      url: dataURL
-    },
-    transform: [{
-      filter: 'datum.price < 6000'
-    }],
-    layer: [{
-      mark: 'bar',
-      selection: {
-        grid: {
-          type: 'interval',
-          bind: 'scales'
-        }
-      },
-      encoding: {
-        tooltip: [{
-          field: '__count'
-        },
-        {
-          field: 'price',
-          type: 'quantitative'
-        }
-        ],
-        x: {
-          bin: false,
-          field: 'price',
-          type: 'quantitative',
-          axis: {
-            grid: false,
-            labelFont: 'Courier'
-          },
-          scale: {
-            domain: [0, 365]
-          }
-        },
-        y: {
-          aggregate: 'count',
-          type: 'quantitative',
-          axis: {
-            grid: false,
-            labelFont: 'Courier'
-          },
-          scale: {
-            domain: [0, 450]
-          }
-        }
+export const makePricePlot = dataURL => ({
+  title: 'Frequency of rental units by price range',
+  width: 'container',
+  height: 'container',
+  data: {
+    url: dataURL
+  },
+  transform: [{
+    filter: 'datum.price < 6000'
+  }],
+  layer: [{
+    mark: 'bar',
+    selection: {
+      grid: {
+        type: 'interval',
+        bind: 'scales'
       }
     },
-    {
-      mark: 'rule',
-      encoding: {
-        x: {
-          aggregate: 'mean',
-          field: 'price',
-          type: 'quantitative'
+    encoding: {
+      tooltip: [{
+        field: '__count'
+      },
+      {
+        field: 'price',
+        type: 'quantitative'
+      }
+      ],
+      x: {
+        bin: false,
+        field: 'price',
+        type: 'quantitative',
+        axis: {
+          grid: false,
+          labelFont: 'Courier'
         },
-        color: {
-          value: 'blue'
+        scale: {
+          domain: [0, 365]
+        }
+      },
+      y: {
+        aggregate: 'count',
+        type: 'quantitative',
+        axis: {
+          grid: false,
+          labelFont: 'Courier'
         },
-        size: {
-          value: 2
+        scale: {
+          domain: [0, 450]
         }
       }
     }
-    ],
-    config: globalPlotConfig
-  };
-  // for debugging
-  // console.log(JSON.stringify(plotData));
-  return plotData;
-};
+  },
+  {
+    mark: 'rule',
+    encoding: {
+      x: {
+        aggregate: 'mean',
+        field: 'price',
+        type: 'quantitative'
+      },
+      color: {
+        value: 'blue'
+      },
+      size: {
+        value: 2
+      }
+    }
+  }
+  ],
+  config: globalPlotConfig
+});
 
 export const makeMiniNights = dataURL => {
   const plotData = {
@@ -170,6 +189,7 @@ export const makeMiniNights = dataURL => {
       resize: true,
       type: 'fit'
     },
+    height: 'container',
     width: 'container',
     data: {
       url: dataURL
@@ -240,8 +260,7 @@ export const makeMiniNights = dataURL => {
         }
       }
     }
-    ],
-    config: globalPlotConfig
+    ]
   };
   // for debugging
   // console.log(JSON.stringify(plotData));

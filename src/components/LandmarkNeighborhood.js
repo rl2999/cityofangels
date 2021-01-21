@@ -1,6 +1,10 @@
 import embed from 'vega-embed';
-import { setupScrollObserver } from './../ScrollEvents';
-import { makePricePlot, makeMiniNights, makePlotRentalType } from '../charts/PlotStyles';
+import {
+  setupScrollObserver
+} from './../ScrollEvents';
+import {
+  makePricePlot, makeMiniNights, makePlotRentalType
+} from '../charts/PlotStyles';
 
 
 class LandmarkNeighborhood extends HTMLElement {
@@ -9,8 +13,7 @@ class LandmarkNeighborhood extends HTMLElement {
     const theTemplate = document.createElement('template');
 
     theTemplate.innerHTML = `
-<style>
-
+  <style>
   .landmark-container {
     border-top: 1rem solid red;
     background-color: rgba(255, 255, 255, .95);
@@ -24,14 +27,26 @@ class LandmarkNeighborhood extends HTMLElement {
     line-height: 1.1;
   }
 
-.vega-embed, .vis-container {
-  height: 400px;
-  width: 100%;
-}
+  .vega-embed, .vis-container {
+    height: 400px;
+    width: 100%;
+  }
 
-h2, h3 {
+  .landmark__vis-title {
     font-family: var(--font-headings);
-}
+  }
+
+  h2, h3 {
+      font-family: var(--font-headings);
+  }
+
+  details {
+    margin-bottom: 4rem;
+  }
+
+  .vis-description {
+    max-width: 45ch;
+  }
 
 </style>
 <section id="ktown" class="landmark-container scroll-trigger">
@@ -54,16 +69,13 @@ h2, h3 {
 
     <div class='landmark__container'>
         <div class="">
-            <h3>
-                Rental types
-            </h3>
             <figure class="vizContainerFigure">
                 <div class="vis-container">
                     <div class="landmark__vis-rental-types"></div>
                 </div>
                 <details>
                     <summary>
-                        Rental Types
+                        <span class="landmark__vis-title">Rental Types</span>
                     </summary>
                     <p class="vis-description">
                         A transient traveler has many considerations for selecting a
@@ -83,7 +95,9 @@ h2, h3 {
                 </div>
                 <details>
                     <summary>
+                      <span class="landmark__vis-title">
                         Minimum Nights
+                      </span>
                     </summary>
                     <p class="vis-description">
                         Ranging from one day to a few months, Airbnb hosts can require a
@@ -103,7 +117,10 @@ h2, h3 {
             </div>
             <details>
                 <summary>
-                    Daily rate of an Airbnb rental</summary>
+                  <span class="landmark__vis-title">
+                    Daily rate of an Airbnb rental
+                  </span>
+                  </summary>
 
                 <figure class="visContainerFigure">
                     <p class="vis-description">
@@ -120,7 +137,9 @@ h2, h3 {
 
     const template = theTemplate;
     const templateContent = template.content;
-    const shadowRoot = this.attachShadow({ mode: 'open' })
+    const shadowRoot = this.attachShadow({
+      mode: 'open'
+    })
       .appendChild(templateContent.cloneNode(true));
   }
 
