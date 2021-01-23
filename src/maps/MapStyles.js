@@ -1,10 +1,14 @@
-import { Circle as CircleStyle, Fill, Stroke, Style } from 'ol/style';
+import {
+  Circle as CircleStyle, Fill, Stroke, Style
+} from 'ol/style';
 
 export const mapStylesReports = {
-  'Point': new Style({
+  Point: new Style({
     image: new CircleStyle({
       radius: 6,
-      fill: new Fill({ color: '#7e75fc' }),
+      fill: new Fill({
+        color: '#7e75fc'
+      }),
       stroke: new Stroke({
         color: 'magenta',
       }),
@@ -13,10 +17,12 @@ export const mapStylesReports = {
 };
 
 export const mapStylesRentals = {
-  'Point': new Style({
+  Point: new Style({
     image: new CircleStyle({
       radius: 6,
-      fill: new Fill({ color: '#f17b6b' }),
+      fill: new Fill({
+        color: '#f17b6b'
+      }),
       stroke: new Stroke({
         color: 'white',
       }),
@@ -25,16 +31,18 @@ export const mapStylesRentals = {
 };
 
 export const mapStyles = {
-  'Point': new Style({
+  Point: new Style({
     image: new CircleStyle({
       radius: 6,
-      fill: new Fill({ color: '#fc757e' }),
+      fill: new Fill({
+        color: '#fc757e'
+      }),
       stroke: new Stroke({
         color: 'magenta',
       }),
     }),
   }),
-  'GeometryCollection': new Style({
+  GeometryCollection: new Style({
     stroke: new Stroke({
       color: 'magenta',
       width: 2,
@@ -50,7 +58,7 @@ export const mapStyles = {
       }),
     }),
   }),
-  'Circle': new Style({
+  Circle: new Style({
     stroke: new Stroke({
       color: 'red',
       width: 2,

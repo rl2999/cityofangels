@@ -1,20 +1,45 @@
+const FONT_PLOTS = 'Silka';
+
 export const globalPlotConfig = {
+  background: 'rgba(255, 255, 255, 0.0)',
+  font: FONT_PLOTS,
   autosize: {
     type: 'fit',
     contains: 'padding'
+  },
+  mark: {
+    text: {
+      font: FONT_PLOTS
+    }
+  },
+  axis: {
+    labelFont: FONT_PLOTS,
+    labelFontSize: 14,
+    titleFont: FONT_PLOTS,
+    titleFontSize: 14,
+    titlePadding: 14,
+  },
+  label: {
+    labelFont: FONT_PLOTS,
+    labelFontSize: 18,
+    labelPadding: 6
+  },
+  title: {
+    font: FONT_PLOTS,
+    fontSize: 18,
   },
   height: 'container',
   width: 'container'
 };
 
-export const makeOverviewScatter = url => (
+export const makeOverviewScatter = (url) => (
   {
     $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
     autosize: {
       type: 'pad',
       contains: 'padding'
     },
-    title: 'Density of Airbnb rentals vs. homeless encampment reports',
+    title:'Density of Airbnb rentals vs. homeless encampment reports',
     height: 'container',
     width: 'container',
     config: globalPlotConfig,
@@ -51,7 +76,8 @@ export const makeOverviewScatter = url => (
           filled: true,
           tooltip: {
             content: 'encoding',
-            format: '.2f'
+            format: '.1f',
+            formatType: 'number'
           }
         },
       },
@@ -59,10 +85,12 @@ export const makeOverviewScatter = url => (
         mark: {
           type: 'text',
           dy: 18,
+          font: FONT_PLOTS,
           fontSize: 18,
           tooltip: {
             content:'encoding',
-            format: '.2f'
+            format: '.1f',
+            formatType: 'number'
           }
         },
         encoding: {
@@ -71,7 +99,8 @@ export const makeOverviewScatter = url => (
             type: 'nominal',
             tooltip: {
               content: 'encoding',
-              format: '.2f'
+              format: '.1f',
+              formatType: 'number'
             }
           }
         }
@@ -79,40 +108,38 @@ export const makeOverviewScatter = url => (
     ]
   });
 
-export const makePlotRentalType = url => {
-  const jsondata = {
-    width: 'container',
-    height: 'container',
-    autosize: {
-      resize: true,
-      type: 'fit'
-    },
-    title: 'Distribution of room types',
-    description: 'Distribution of room types',
-    $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
-    data: {
-      url: url
-    },
-    mark: 'bar',
-    encoding: {
-      y: {
-        field: 'room_type',
-        type: 'nominal'
-      },
-      x: {
-        aggregate: 'count',
-        type: 'quantitative'
-      }
-    },
-    config: globalPlotConfig
-  };
-  return jsondata;
-};
-
-export const makePricePlot = dataURL => ({
-  title: 'Frequency of rental units by price range',
+export const makePlotRentalType = (url, area = '') => ({
+  config: globalPlotConfig,
   width: 'container',
   height: 'container',
+  autosize: {
+    resize: true,
+    type: 'fit'
+  },
+  title: `${area}: Distribution of room types`,
+  description: 'Distribution of room types',
+  $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
+  data: {
+    url: url
+  },
+  mark: 'bar',
+  encoding: {
+    y: {
+      field: 'room_type',
+      type: 'nominal'
+    },
+    x: {
+      aggregate: 'count',
+      type: 'quantitative'
+    }
+  },
+});
+
+export const makePricePlot = (dataURL, area = '') => ({
+  config: globalPlotConfig,
+  width: 'container',
+  height: 'container',
+  title: `${area}, Frequency of rental units by price range`,
   data: {
     url: dataURL
   },
@@ -142,7 +169,6 @@ export const makePricePlot = dataURL => ({
         type: 'quantitative',
         axis: {
           grid: false,
-          labelFont: 'Courier'
         },
         scale: {
           domain: [0, 365]
@@ -153,7 +179,6 @@ export const makePricePlot = dataURL => ({
         type: 'quantitative',
         axis: {
           grid: false,
-          labelFont: 'Courier'
         },
         scale: {
           domain: [0, 450]
@@ -177,92 +202,85 @@ export const makePricePlot = dataURL => ({
       }
     }
   }
-  ],
-  config: globalPlotConfig
+  ]
 });
 
-export const makeMiniNights = dataURL => {
-  const plotData = {
-    title: 'Frequency of rental units by minimum_nights range',
-    $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
-    autosize: {
-      resize: true,
-      type: 'fit'
-    },
-    height: 'container',
-    width: 'container',
-    data: {
-      url: dataURL
-    },
-    view: {
-      fill: 'white',
-      opacity: 0
-    },
-    transform: [{
-      filter: 'datum.minimum_nights < 6000'
-    }],
-    layer: [{
-      mark: 'bar',
-      selection: {
-        grid: {
-          type: 'interval',
-          bind: 'scales'
-        }
-      },
-      background: 'rgba(0,0,0,0)',
-      encoding: {
-        tooltip: [{
-          field: '__count'
-        },
-        {
-          field: 'minimum_nights',
-          type: 'quantitative'
-        }
-        ],
-        x: {
-          bin: false,
-          field: 'minimum_nights',
-          type: 'quantitative',
-          axis: {
-            grid: false,
-            labelFont: 'Courier'
-          },
-          scale: {
-            domain: [0, 365]
-          }
-        },
-        y: {
-          aggregate: 'count',
-          type: 'quantitative',
-          axis: {
-            grid: false,
-            labelFont: 'Courier'
-          },
-          scale: {
-            domain: [0, 450]
-          }
-        }
+export const makeMiniNights = (dataURL, area = '') => ({
+  config: globalPlotConfig,
+  title: `${area}: Frequency of rental units by minimum_nights range`,
+  $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
+  autosize: {
+    resize: true,
+    type: 'fit'
+  },
+  height: 'container',
+  width: 'container',
+  data: {
+    url: dataURL
+  },
+  view: {
+    fill: 'white',
+    opacity: 0
+  },
+  transform: [{
+    filter: 'datum.minimum_nights < 6000'
+  }],
+  layer: [{
+    mark: 'bar',
+    selection: {
+      grid: {
+        type: 'interval',
+        bind: 'scales'
       }
     },
-    {
-      mark: 'rule',
-      encoding: {
-        x: {
-          aggregate: 'mean',
-          field: 'minimum_nights',
-          type: 'quantitative'
+    background: 'rgba(0,0,0,0)',
+    encoding: {
+      tooltip: [{
+        field: '__count'
+      },
+      {
+        field: 'minimum_nights',
+        type: 'quantitative'
+      }
+      ],
+      x: {
+        bin: false,
+        field: 'minimum_nights',
+        type: 'quantitative',
+        axis: {
+          grid: false,
         },
-        color: {
-          value: 'blue'
+        scale: {
+          domain: [0, 365]
+        }
+      },
+      y: {
+        aggregate: 'count',
+        type: 'quantitative',
+        axis: {
+          grid: false,
         },
-        size: {
-          value: 2
+        scale: {
+          domain: [0, 450]
         }
       }
     }
-    ]
-  };
-  // for debugging
-  // console.log(JSON.stringify(plotData));
-  return plotData;
-};
+  },
+  {
+    mark: 'rule',
+    encoding: {
+      x: {
+        aggregate: 'mean',
+        field: 'minimum_nights',
+        type: 'quantitative'
+      },
+      color: {
+        value: 'blue'
+      },
+      size: {
+        value: 2
+      }
+    }
+  }
+  ]
+});

@@ -18,7 +18,7 @@ export const setupScrollObserver = (el, areaId, zoomLevel = 14) => {
     try {
       observer.observe(el.shadowRoot.querySelector(selector));
     } catch (e) {
-      console.error("Couldn't get " + selector);
+      console.error('Couldn\'t get ' + selector);
     }
   };
 

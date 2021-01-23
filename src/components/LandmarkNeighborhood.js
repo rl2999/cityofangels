@@ -1,5 +1,8 @@
 import embed from 'vega-embed';
 import {
+  capitalize
+} from 'lodash';
+import {
   setupScrollObserver
 } from './../ScrollEvents';
 import {
@@ -158,10 +161,16 @@ class LandmarkNeighborhood extends HTMLElement {
   }
 
   renderPlot(el, areaId, dataUrl) {
+    let formattedArea;
+    if (areaId === 'ktown') {
+      formattedArea = 'Koreatown';
+    } else {
+      formattedArea = capitalize(areaId);
+    }
     return Promise.all([
-      embed(el.shadowRoot.querySelector('#' + areaId + '-vis-rental-types'), makePlotRentalType(dataUrl)),
-      embed(el.shadowRoot.querySelector('#' + areaId + '-vis-nights'), makeMiniNights(dataUrl)),
-      embed(el.shadowRoot.querySelector('#' + areaId + '-vis-price'), makePricePlot(dataUrl))
+      embed(el.shadowRoot.querySelector('#' + areaId + '-vis-rental-types'), makePlotRentalType(dataUrl, formattedArea)),
+      embed(el.shadowRoot.querySelector('#' + areaId + '-vis-nights'), makeMiniNights(dataUrl, formattedArea)),
+      embed(el.shadowRoot.querySelector('#' + areaId + '-vis-price'), makePricePlot(dataUrl, formattedArea))
     ], (values) => console.log(values));
   }
 

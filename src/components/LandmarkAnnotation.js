@@ -1,4 +1,6 @@
-import { setupScrollObserver as scrollSetup} from './../ScrollEvents';
+import {
+  setupScrollObserver as scrollSetup
+} from './../ScrollEvents';
 
 class LandmarkAnnotation extends HTMLElement {
   constructor() {
@@ -26,23 +28,25 @@ h2, h3 {
 
 </style>
 <section class="landmark-annotation__container scroll-trigger">
-        <h3 class="landmark__title">
-            <slot name="title">
-                Title of landmark
-            </slot>
-        </h3>
-        <p>
-        <slot name="body">
-            intro paragraph
-        </slot>
+<h3 class="landmark__title">
+<slot name="title">
+Title of landmark
+</slot>
+</h3>
+<p>
+<slot name="body">
+intro paragraph
+</slot>
 </p>
-    </header>
+</header>
 </section>
   `;
 
     const template = theTemplate;
     const templateContent = template.content;
-    const shadowRoot = this.attachShadow({ mode: 'open' })
+    const shadowRoot = this.attachShadow({
+      mode: 'open'
+    })
       .appendChild(templateContent.cloneNode(true));
   }
 

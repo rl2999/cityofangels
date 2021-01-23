@@ -1,9 +1,9 @@
-@use './intro.scss';
-@use './legend.scss';
-@use './layout.scss';
-@use './title-card.scss';
-@use './typography.scss';
-@use './appendix.scss';
+@use './intro';
+@use './legend';
+@use './layout';
+@use './title-card';
+@use './typography';
+@use './appendix';
 /* CSS files add styling rules to your content */
 
 @import 'normalize.css';
@@ -73,4 +73,10 @@ a {
   display: flex;
   height: 600px;
   width: 100%;
+}
+
+#vg-tooltip-element {
+  font-family: 'Silka';
+  font-size: 1rem;
+  padding: 1rem;
 }

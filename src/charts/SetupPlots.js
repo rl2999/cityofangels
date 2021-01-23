@@ -1,10 +1,7 @@
 import embed from 'vega-embed';
 
 import {
-  makePricePlot,
-  makeOverviewScatter,
-  makeMiniNights,
-  makePlotRentalType
+  makeOverviewScatter
 } from './PlotStyles';
 
 
