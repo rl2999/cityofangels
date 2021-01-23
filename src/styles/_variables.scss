@@ -1,0 +1,38 @@
+:root {
+  --font-body: 'Argesta Text', serif;
+  --font-data: 'Silka', sans-serif;
+  --font-headings: var(--font-data);
+  --font-headings-serif: 'Argesta Display', serif;
+  --line-height-base: 1.45;
+}
+
+:root {
+  --font-size-base: 16px;
+  --font-h1: 2rem;
+  --font-h2: 1.2rem;
+  --font-h3: 1.25rem;
+  --font-h4: 1rem;
+
+  @include mq(600px) {
+    --font-size-base: 22px;
+  }
+
+  @include mq(900px) {
+    --font-size-base: 26px;
+  }
+}
+
+:root {
+  --c-blue: blue;
+  --c-pink: pink;
+  --c-red: rgb(150, 0, 0);
+  --c-white: #ffffff;
+}
+:root {
+  --c-background: white;
+  --c-text: black;
+}
+:root {
+  --margin-mobile: 1rem;
+  --margin: 6rem;
+}

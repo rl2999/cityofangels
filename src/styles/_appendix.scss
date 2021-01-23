@@ -1,6 +1,9 @@
 .footer {
   background: var(--c-background);
-  padding: var(--margin);
+  padding: var(--margin-mobile);
+  @include mq(600px) {
+    padding: var(--margin);
+  }
 }
 
 .csl-entry {

@@ -1,13 +1,24 @@
 .map-legend {
-  background: var(--c-background);
-  backdrop-filter: blur 2px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(2px);
+  display: inline-block;
   position: fixed;
-  max-width: 50vw;
-  bottom: 5vh;
-  right: var(--margin);
+  margin: 0;
+  bottom: 2vh;
+  left: 2vh;
   overflow: hidden;
-  padding: calc(var(--margin) / 2);
   z-index: 10;
+  padding: 1rem;
+  font-size: 0.65rem;
+
+  @include mq(900px) {
+    font-size: 0.6rem;
+    bottom: 5vh;
+    left: unset;
+    right: 5vh;
+    padding: var(--margin-mobile);
+    max-width: 45vw;
+  }
 }
 
 .map-legend__symbols {
@@ -16,16 +27,17 @@
 }
 
 .legend__item {
-  font-size: 0.8rem;
+  font-size: inherit;
 }
 
 .map-legend__header {
-  grid-row: 1;
 }
 
 .map-legend__heading {
-  font-size: 1rem;
+  font-size: 0.5rem;
   font-weight: 700;
+  margin: 0;
+  letter-spacing: 0.5px;
 }
 
 .map-legend__symbols {
@@ -34,6 +46,6 @@
 }
 
 .map-legend svg {
-  height: 1rem;
-  width: 1rem;
+  height: 0.6rem;
+  width: 0.6rem;
 }

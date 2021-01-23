@@ -5,8 +5,11 @@ module.exports = {
     src: '/_dist_',
   },
   plugins: [
-    '@snowpack/plugin-webpack',
     '@snowpack/plugin-sass',
+    ['@snowpack/plugin-webpack', {
+      style: 'compressed',
+      update: false
+    }],
   ],
   install: [
     /* ... */

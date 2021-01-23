@@ -36,10 +36,10 @@ export const makeOverviewScatter = (url) => (
   {
     $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
     autosize: {
-      type: 'pad',
+      type: 'fit',
       contains: 'padding'
     },
-    title:'Density of Airbnb rentals vs. homeless encampment reports',
+
     height: 'container',
     width: 'container',
     config: globalPlotConfig,
@@ -116,7 +116,6 @@ export const makePlotRentalType = (url, area = '') => ({
     resize: true,
     type: 'fit'
   },
-  title: `${area}: Distribution of room types`,
   description: 'Distribution of room types',
   $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
   data: {
@@ -139,7 +138,6 @@ export const makePricePlot = (dataURL, area = '') => ({
   config: globalPlotConfig,
   width: 'container',
   height: 'container',
-  title: `${area}, Frequency of rental units by price range`,
   data: {
     url: dataURL
   },
@@ -207,7 +205,6 @@ export const makePricePlot = (dataURL, area = '') => ({
 
 export const makeMiniNights = (dataURL, area = '') => ({
   config: globalPlotConfig,
-  title: `${area}: Frequency of rental units by minimum_nights range`,
   $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
   autosize: {
     resize: true,

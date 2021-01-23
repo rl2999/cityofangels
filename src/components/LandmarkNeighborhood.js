@@ -17,16 +17,16 @@ class LandmarkNeighborhood extends HTMLElement {
 
     theTemplate.innerHTML = `
   <style>
-  .landmark-container {
+
+  .landmark {
     border-top: 1rem solid red;
     background-color: rgba(255, 255, 255, .95);
     margin-bottom: 200vh;
-    padding: var(--margin);
-    width: 50%;
+    padding: var(--margin-mobile);
   }
 
   .landmark__title {
-    font-size: 5rem;
+    font-size: var(--font-h2);
     line-height: 1.1;
   }
 
@@ -36,11 +36,12 @@ class LandmarkNeighborhood extends HTMLElement {
   }
 
   .landmark__vis-title {
-    font-family: var(--font-headings);
+    font-family: var(--font-headings-mobile);
+    font-weight: 700;
   }
 
   h2, h3 {
-      font-family: var(--font-headings);
+    font-family: var(--font-headings);
   }
 
   details {
@@ -50,9 +51,34 @@ class LandmarkNeighborhood extends HTMLElement {
   .vis-description {
     max-width: 45ch;
   }
+  .vis-figure {
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+
+  @media screen and (min-width: 600px) {
+    .landmark {
+    padding: var(--margin);
+    width: 50%;
+    }
+    .landmark__title {
+    font-size: 2rem;
+    line-height: 1.1;
+    }
+    .landmark__vis-title {
+    font-family: var(--font-headings);
+    }
+  }
+
+  @media screen and (min-width: 900px) {
+    .landmark {
+      max-width: 50%;
+    }
+  }
 
 </style>
-<section id="ktown" class="landmark-container scroll-trigger">
+<section id="ktown" class="landmark scroll-trigger">
     <header class="landmark__header">
         <h2 class="landmark__title">
             <slot name="title">
@@ -72,7 +98,8 @@ class LandmarkNeighborhood extends HTMLElement {
 
     <div class='landmark__container'>
         <div class="">
-            <figure class="vizContainerFigure">
+            <figure class="vis-figure">
+              <h3>Distribution of room types</h3>
                 <div class="vis-container">
                     <div class="landmark__vis-rental-types"></div>
                 </div>
@@ -92,7 +119,8 @@ class LandmarkNeighborhood extends HTMLElement {
                 </details>
             </figure>
 
-            <figure class="vizContainerFigure">
+            <figure class="vis-figure">
+                <h3>Distribution of nights stayed</h3>
                 <div class="vis-container">
                     <div class="landmark__vis-nights"></div>
                 </div>
@@ -115,6 +143,8 @@ class LandmarkNeighborhood extends HTMLElement {
                 </details>
             </figure>
 
+            <figure class="vis-figure">
+              <h3>Distribution of rental prices</h3>
             <div class="vis-container">
                 <div class="landmark__vis-price"></div>
             </div>
@@ -124,16 +154,15 @@ class LandmarkNeighborhood extends HTMLElement {
                     Daily rate of an Airbnb rental
                   </span>
                   </summary>
-
-                <figure class="visContainerFigure">
                     <p class="vis-description">
                         How much money would a transient traveler pay to visit? In
                         contrast, economic factors are the main driver of increases in
                         homelessness and Los Angeles is the least affordable housing
                         market in the United States (LAHSA, 2019).
                     </p>
-                </figure>
             </details>
+            </summary>
+          </figure>
         </div>
 </section>
   `;
