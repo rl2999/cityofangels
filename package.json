@@ -1,7 +1,8 @@
 {
   "scripts": {
     "start": "snowpack dev",
-    "build": "snowpack build"
+    "build": "snowpack build",
+    "deploy": "snowpack build && netlify deploy"
   },
   "devDependencies": {
     "@snowpack/plugin-webpack": "^2.3.0",
@@ -17,7 +18,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/riledigital/cityofangels",
-  "author": "Ri <ri.le@upstatement.com>",
+  "author": "Ri <r.le@columbia.edu>",
   "license": "MIT",
   "dependencies": {
     "@snowpack/plugin-sass": "^1.3.0",
