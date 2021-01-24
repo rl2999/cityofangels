@@ -27,18 +27,23 @@ class LandmarkNeighborhood extends HTMLElement {
 
   .landmark__title {
     font-size: var(--font-h2);
-    line-height: 1.1;
+    margin: 0;
+    padding: 0;
   }
 
   .vega-embed, .vis-container {
-    height: 400px;
+    height: 35vh;
     width: 100%;
   }
 
   .landmark__vis-title {
-    font-family: var(--font-headings-mobile);
+    font-family: var(--font-data);
     font-weight: 700;
   }
+
+  summary {
+  margin-top: 1rem;
+}
 
   h2, h3 {
     font-family: var(--font-headings);
@@ -59,8 +64,7 @@ class LandmarkNeighborhood extends HTMLElement {
 
   @media screen and (min-width: 600px) {
     .landmark {
-    padding: var(--margin);
-    width: 50%;
+    padding: var(--margin-mobile);
     }
     .landmark__title {
     font-size: 2rem;
@@ -73,7 +77,8 @@ class LandmarkNeighborhood extends HTMLElement {
 
   @media screen and (min-width: 900px) {
     .landmark {
-      max-width: 50%;
+      max-width: 55ch;
+      padding:calc( var(--margin) / 2);
     }
   }
 

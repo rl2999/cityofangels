@@ -27,11 +27,22 @@
   @include mq(600px) {
     font-size: 3rem;
   }
+
+  @include mq(900px) {
+    font-size: 10vw;
+  }
 }
 
 .byline {
   font-family: var(--font-headings-serif);
   font-size: 1.35rem;
-  line-height: 1.2;
+  line-height: 1.1;
   margin-top: 1rem;
+
+  @include mq(600px) {
+    font-size: 6vw;
+  }
+  @include mq(900px) {
+    font-size: 6vw;
+  }
 }

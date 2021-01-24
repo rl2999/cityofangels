@@ -18,7 +18,7 @@ class LandmarkAnnotation extends HTMLElement {
 
   .landmark__title {
     font-size: var(--font-h3);
-    line-height: 1.1;
+
     max-width: 30ch;
   }
 
@@ -27,16 +27,18 @@ h2, h3 {
 }
 
 @media screen and (min-width: 600px) {
-  .landmark-annotation {
-    max-width: 50%;
-    padding: var(--margin-mobile);
+  .landmark-annotation  {
+    max-width: 55ch;
+    padding: var(--margin-landmarks);
 }
+  .landmark__title {
+  }
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 900px) {
   .landmark-annotation {
-    max-width: 20vw;
-    padding: var(--margin-mobile);
+
+    padding: var(--margin-landmarks);
   }
 }
 
