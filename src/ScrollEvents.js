@@ -13,7 +13,7 @@ export const setupScrollObserver = (el, areaId, zoomLevel = 14) => {
     const observer = new IntersectionObserver(callback, {
       root: document.root,
       rootMargin: '0px',
-      threshold: 0.0
+      threshold: 0.2
     });
     try {
       observer.observe(el.shadowRoot.querySelector(selector));

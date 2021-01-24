@@ -2,15 +2,22 @@ import {
   Circle as CircleStyle, Fill, Stroke, Style
 } from 'ol/style';
 
+const COLORS = {
+  red: '#FF5A5F',
+  blue: '#7e75fc',
+  green:'green',
+  white: '#ffffff'
+};
+
 export const mapStylesReports = {
   Point: new Style({
     image: new CircleStyle({
       radius: 6,
       fill: new Fill({
-        color: '#7e75fc'
+        color: COLORS.blue
       }),
       stroke: new Stroke({
-        color: 'magenta',
+        color: COLORS.white,
       }),
     })
   })
@@ -21,7 +28,7 @@ export const mapStylesRentals = {
     image: new CircleStyle({
       radius: 6,
       fill: new Fill({
-        color: '#f17b6b'
+        color: COLORS.red
       }),
       stroke: new Stroke({
         color: 'white',
@@ -30,49 +37,23 @@ export const mapStylesRentals = {
   })
 };
 
-export const mapStyles = {
-  Point: new Style({
-    image: new CircleStyle({
-      radius: 6,
-      fill: new Fill({
-        color: '#fc757e'
-      }),
-      stroke: new Stroke({
-        color: 'magenta',
-      }),
-    }),
-  }),
+export const mapStylesBounds = {
   GeometryCollection: new Style({
     stroke: new Stroke({
-      color: 'magenta',
+      color: COLORS.green,
       width: 2,
-    }),
-    fill: new Fill({
-      color: 'magenta',
-    }),
-    image: new CircleStyle({
-      radius: 10,
-      fill: null,
-      stroke: new Stroke({
-        color: 'magenta',
-      }),
-    }),
-  }),
-  Circle: new Style({
-    stroke: new Stroke({
-      color: 'red',
-      width: 2,
-    }),
-    fill: new Fill({
-      color: 'rgba(255,0,0,0.2)',
-    }),
-  }),
+    })
+  })
 };
 
 export const styleFunctionRentals = function (feature) {
   return mapStylesReports[feature.getGeometry().getType()];
 };
+
 export const styleFunctionReports = function (feature) {
   return mapStylesRentals[feature.getGeometry().getType()];
 };
 
+export const styleFunctionBounds = function (feature) {
+  return mapStylesBounds[feature.getGeometry().getType()];
+};

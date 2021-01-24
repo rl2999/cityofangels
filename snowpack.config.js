@@ -1,12 +1,26 @@
 /** @type {import("snowpack").SnowpackUserConfig } */
 module.exports = {
+  optimize: {
+    bundle: true,
+    minify: true,
+    target: 'es2018'
+  },
   mount: {
-    public: '/',
-    src: '/_dist_',
+    public: {
+      url: '/',
+      static: false,
+      resolve: false
+    },
+    src: {
+      url: '/',
+      static: false,
+      resolve: true
+    }
+    // src: '/_dist_',
   },
   plugins: [
-    '@snowpack/plugin-sass',
-    ['@snowpack/plugin-webpack', {
+    ['@snowpack/plugin-webpack'],
+    ['@snowpack/plugin-sass', {
       style: 'compressed',
       update: false
     }],

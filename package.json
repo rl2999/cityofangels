@@ -1,8 +1,7 @@
 {
   "scripts": {
     "start": "snowpack dev",
-    "build": "snowpack build",
-    "bundle:*": "@snowpack/plugin-webpack"
+    "build": "snowpack build"
   },
   "devDependencies": {
     "@snowpack/plugin-webpack": "^2.3.0",

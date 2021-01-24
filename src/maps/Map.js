@@ -17,7 +17,7 @@ import {
   OSM, Vector as VectorSource
 } from 'ol/source';
 import {
-  styleFunctionRentals, styleFunctionReports
+  styleFunctionRentals, styleFunctionReports, styleFunctionBounds
 } from './MapStyles.js';
 import XYZ from 'ol/source/XYZ';
 
@@ -52,10 +52,15 @@ const fetchParseGeojson = function (url, type) {
       })
     });
 
+    const TYPES = {
+      rentals: styleFunctionRentals,
+      reports: styleFunctionReports,
+      bounds: styleFunctionBounds
+    };
     // EPSG:3857
     const vectorLayer = new VectorLayer({
       source: vectorSource,
-      style: type === 'rentals' ? styleFunctionRentals : styleFunctionReports
+      style: TYPES[type]
     });
     return vectorLayer;
   });
@@ -65,15 +70,6 @@ const view = new View({
   center: fromLonLat(COORDS['start']),
   zoom: 8
 });
-
-setInterval(30, () => {
-  console.log('test');
-  view.animate({
-    center: [-118.395734, 34.022326],
-    duration: 2000,
-  });
-});
-
 
 const attrib = '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attributions">CARTO</a>';
 const SOURCE_CARTO = new XYZ({
@@ -96,7 +92,8 @@ const setupMap = function () {
   return Promise.all(
     [
       Promise.all(geoJsonUrls.map(d => fetchParseGeojson(d, 'rentals'))),
-      Promise.all(geoJsonReports.map(d => fetchParseGeojson(d, 'reports')))
+      Promise.all(geoJsonReports.map(d => fetchParseGeojson(d, 'reports'))),
+      fetchParseGeojson('/data/neighborhood-boundaries.geojson', 'bounds')
     ]
   ).then(values => {
 
@@ -104,7 +101,8 @@ const setupMap = function () {
       target: 'map',
       layers: [
         LAYER_CARTO,
-        ...[...values[0], ...values[1]]
+        ...[...values[0], ...values[1]],
+        values[2]
       ],
       view: view
     });
@@ -114,7 +112,7 @@ const setupMap = function () {
       let coords = COORDS[areaId];
       view.animate({
         center: fromLonLat(coords),
-        duration: 2000,
+        duration: 2500,
         zoom: zoom
       });
     };

@@ -8,9 +8,10 @@ export const globalPlotConfig = {
     contains: 'padding'
   },
   mark: {
+    color: '#FF5A5F',
     text: {
       font: FONT_PLOTS
-    }
+    },
   },
   axis: {
     labelFont: FONT_PLOTS,
