@@ -14,3 +14,10 @@ This data story was created by Regina Joy Alcazar and Ri Le for the course Infor
 - OpenLayers for maps
 - Vega-Lite for visualizations
 - Netlify for publishing
+
+## Build directions
+- `nvm use`
+- `npm install`
+- `snowpack dev` for dev server
+- `snowpack build` for build
+- `netlify deploy` for build
