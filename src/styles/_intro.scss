@@ -1,0 +1,73 @@
+.story-title {
+  font-size: var(--font-h1);
+
+  @include mq(600px) {
+    font-size: 4rem;
+    line-height: 1.15;
+  }
+}
+
+.intro-container {
+  background: rgba(255, 255, 255, 1);
+  margin: 0;
+  padding: 1rem;
+  display: block;
+
+  @include mq(600px) {
+    padding: var(--margin);
+  }
+}
+
+@media screen and (min-width: 700px) {
+  body {
+    font-size: 28px;
+  }
+}
+
+.intro-images {
+  background: rgba(255, 255, 255, 1);
+  display: grid;
+  padding: var(--margin-mobile);
+  grid-gap: 1rem;
+
+  @include mq(900px) {
+    grid-template-columns: 50% 50%;
+    padding: var(--margin);
+  }
+}
+
+.instructions {
+  background: rgba(255, 255, 255, 1);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.8) 90%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50vh;
+  min-height: 50vh;
+  padding-bottom: 25vh;
+  padding: var(--margin-mobile);
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+
+  @include mq(600px) {
+    padding: var(--margin-mobile);
+  }
+  @include mq(900px) {
+    padding: var(--margin);
+  }
+}
+
+.overview-scatter-container {
+  display: flex;
+  height: 60vh;
+  width: 100%;
+
+  @include mq(600px) {
+    padding: var(--margin-mobile);
+  }
+}

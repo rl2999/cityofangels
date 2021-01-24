@@ -1,0 +1,51 @@
+.map-legend {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(2px);
+  display: inline-block;
+  position: fixed;
+  margin: 0;
+  bottom: 2vh;
+  left: 2vh;
+  overflow: hidden;
+  z-index: 10;
+  padding: 1rem;
+  font-size: 0.65rem;
+
+  @include mq(900px) {
+    font-size: 0.6rem;
+    bottom: 5vh;
+    left: unset;
+    right: 5vh;
+    padding: var(--margin-mobile);
+    max-width: 45vw;
+  }
+}
+
+.map-legend__symbols {
+  height: auto;
+  width: 100%;
+}
+
+.legend__item {
+  font-size: inherit;
+}
+
+.map-legend__header {
+}
+
+.map-legend__heading {
+  font-size: 0.5rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.map-legend__symbols {
+  display: flex;
+  flex-direction: column;
+}
+
+.map-legend svg {
+  height: 0.6rem;
+  width: 0.6rem;
+}

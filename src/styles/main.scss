@@ -1,0 +1,67 @@
+@import 'normalize.css';
+@import './mixins';
+@import './variables';
+@import './intro';
+@import './legend';
+@import './title-card';
+@import './typography';
+@import './appendix';
+@import './layout';
+/* CSS files add styling rules to your content */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  color: var(--c-text);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  font-kerning: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--font-headings);
+  margin-top: 0;
+  margin-bottom: var(--margin-mobile);
+}
+
+p {
+  margin-bottom: 2rem;
+  max-width: 50ch;
+}
+
+.ol-attribution {
+  font-size: 0.8rem;
+}
+
+a {
+  font-weight: 700;
+  text-decoration: none;
+  :hover {
+    text-decoration: 2px dashed;
+  }
+}
+
+.vega-embed {
+  display: flex;
+  height: auto;
+  width: 100%;
+}
+
+#vg-tooltip-element {
+  font-family: 'Silka';
+  font-size: 1rem;
+  padding: 1rem;
+}
+
+.hidden {
+  opacity: 0;
+}

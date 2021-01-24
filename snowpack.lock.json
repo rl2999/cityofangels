@@ -1,0 +1,15 @@
+{
+  "imports": {
+    "lodash": "https://cdn.skypack.dev/lodash@v4.17.20-4NISnx5Etf8JOo22u9rw",
+    "lodash/": "https://cdn.skypack.dev/lodash@v4.17.20-4NISnx5Etf8JOo22u9rw/",
+    "normalize.css": "https://cdn.skypack.dev/normalize.css@v8.0.1-hasL0heotJyupDUyyhs7",
+    "normalize.css/": "https://cdn.skypack.dev/normalize.css@v8.0.1-hasL0heotJyupDUyyhs7/",
+    "ol": "https://cdn.skypack.dev/ol@v6.5.0-0bOEp4rD3mXP4y1B0gx7",
+    "ol/": "https://cdn.skypack.dev/ol@v6.5.0-0bOEp4rD3mXP4y1B0gx7/"
+  },
+  "dependencies": {
+    "lodash": "^4.17.20",
+    "normalize.css": "^8.0.1",
+    "ol": "^6.5.0"
+  }
+}
