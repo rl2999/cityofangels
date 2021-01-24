@@ -1,5 +1,7 @@
 Homelessness in the City of Angels
 ----
+[![Netlify Status](https://api.netlify.com/api/v1/badges/9a6c57ae-ca28-48a9-b6e6-3908b6a875dd/deploy-status)](https://app.netlify.com/sites/cityofangels/deploys)
+
 A data story by Regina Joy Alcazar and Ri Le.
 
 See the project live at [https://cityofangels.netlify.app/](https://cityofangels.netlify.app/)

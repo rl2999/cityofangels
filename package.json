@@ -2,7 +2,7 @@
   "scripts": {
     "start": "snowpack dev",
     "build": "snowpack build",
-    "deploy": "snowpack build && netlify deploy --dir=_site"
+    "deploy": "snowpack build && netlify deploy --dir=_site --prod"
   },
   "devDependencies": {
     "@snowpack/plugin-webpack": "^2.3.0",
