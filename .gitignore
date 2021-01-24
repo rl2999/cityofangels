@@ -168,3 +168,5 @@ snowpack.key
 *.cert
 
 build/
+# Local Netlify folder
+.netlify
