@@ -21,6 +21,7 @@ class LandmarkAnnotation extends HTMLElement {
   margin: 0;
   padding: 0;
   font-size: var(--font-h3);
+  line-height: 1.2;
   max-width: 30ch;
 }
 
